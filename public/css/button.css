@@ -1,0 +1,348 @@
+@import url("font.css");
+
+button
+{
+	cursor:pointer;
+}
+.button1 , .button2
+{
+	text-align:center;padding-top:46px;padding-bottom:46px;min-height:177px;display:inline-block;height:auto;	
+	clear:both;margin-bottom:4px;margin-top:4px;-webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px;
+	font-family: 'Montserrat', sans-serif;font-size:60px;float:left;
+}
+
+.button4
+{
+	padding-top:16px;padding-bottom:16px;display:inline-block;padding-left:15px;width:340px;
+	clear:both;webkit-border-radius: 12px; -moz-border-radius: 12px; border-radius: 12px;border-color:#d8534e;
+	font-family: 'MontserratBold';background-color:#f0504a;color:#fff;min-height:108px;font-size:34px;cursor:pointer;height:auto;		
+}
+
+.button4:hover
+{
+	color:#ccc;background-color:#fa655f;
+	
+}
+
+
+.button5
+{
+	padding-top:8px;padding-bottom:6px;display:inline-block;padding-left:15px;width:70%;max-width:600px;
+	clear:both;webkit-border-radius: 12px; -moz-border-radius: 12px; border-radius: 12px;border-color:#f0514a;
+	font-family: 'MontserratMedium';background-color:#f0514a;color:#fff;min-height:70px;font-size:34px;cursor:pointer;height:auto;		
+}
+
+.button5:hover
+{
+	color:#ccc;background-color:#fa655f;
+	
+}
+
+.button6
+{
+	padding-top:8px;padding-bottom:6px;display:inline-block;padding-left:15px;width:90%;max-width:400px;
+	clear:both;webkit-border-radius: 12px; -moz-border-radius: 12px; border-radius: 12px;border:1px solid;border-color:#000;
+	font-family: 'MontserratMedium';background-color:#f0514a;color:#fff;min-height:60px;font-size:31px;cursor:pointer;height:auto;	
+}
+
+.button6:hover
+{
+	color:#ccc;background-color:#fa655f;
+	
+}
+
+
+
+
+.circle1layer8
+{
+	-webkit-border-radius: 37px; -moz-border-radius: 37px; border-radius: 37px;width:42px;height:48px;
+	padding-top:10px;padding-bottom:20px;padding-left:20px;padding-right:20px;
+	background-color:#74a741;color:#fff;margin-left:auto;display:inline-block;
+	text-align:center;font-family: 'MontserratExtraBold';font-size:40px;
+}
+
+
+.input7 , .button7 , .select7
+{
+	padding-top:6px;padding-bottom:6px;display:inline-block;
+	clear:both;webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px;
+	font-family: 'MontserratMedium', sans-serif;font-size:34px;float:left;
+}
+.input7
+{
+	background-color:#9ca497;color:#000;text-align:left;padding-left:2%;width:97%;height:51px
+}
+.button7
+{
+	background-color:#fff;color:#060606;text-align:center;width:100%;min-height:58px;height:auto;
+	opacity: 1 !important;
+}
+.select7
+{
+	background-color:#acabab;color:#f9fafa;text-align:left;padding-left:2%;width:100%;height:51px;font-size:30px;padding-right:1%;
+}
+.button7:hover
+{
+	background-color:#ccc;
+}
+.input7::placeholder {
+ color:#fff !important;font-family: 'MontserratMedium', sans-serif;font-size:34px;
+}
+
+
+.button1
+{
+	background-color:#f9f8f8;border:2px solid #e4e3e3;color:#fff;padding-left:50px;color:#989393;
+	width:90%;
+}
+.button1:hover
+{
+	background-color:#dfdddd;text-decoration:none;color:#000;
+	background-color:#FFF;color:#000;
+}
+.button2
+{
+	background-color:#f0504a;border:2px solid #db4944;color:#fff;padding-left:30px;padding-right:10px;width:90%;
+}
+.button2:hover
+{
+	text-decoration:none;background-color:#d05f5b;
+}
+
+
+
+.input1 , .input2
+{
+	text-align:center;padding-top:46px;padding-bottom:46px;height:80px;display:inline-block;
+	clear:both;margin-bottom:4px;margin-top:4px;-webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px;
+	font-family: 'Montserrat', sans-serif;font-size:65px;float:left;
+	
+}
+.input1
+{
+	background-color:#f9f8f8;border:2px solid #e4e3e3;color:#fff;padding-left:50px;color:#989393;width:90%;text-align:left;
+}
+
+.input2
+{
+	background-color:#f0504a;border:2px solid #db4944;color:#fff;padding-left:30px;padding-right:10px;width:90%;
+}
+
+@media all and (min-width: 900px) and (max-width: 1000px) 
+{
+
+	.button5
+	{
+		width:90%;min-height:70px;height:auto;font-size:28px;
+	}
+}
+@media all and (min-width: 700px) and (max-width: 900px) 
+{
+
+	.button5
+	{
+		width:90%;min-height:70px;height:auto;font-size:27px;
+	}
+}
+
+@media all and (min-width: 500px) and (max-width: 700px) 
+{
+
+	.button5
+	{
+		width:90%;min-height:70px;height:auto;font-size:25px;
+	}
+}
+@media all and (min-width: 1px) and (max-width: 500px) 
+{
+
+	.button5
+	{
+		width:90%;font-size:23px;min-height:70px;height:auto;
+	}
+}
+@media all and (min-width: 500px) and (max-width: 700px) 
+{
+	.button4
+	{
+		padding-top:10px;padding-bottom:10px;display:inline-block;padding-left:10px;width:300px;
+		height:108px;font-size:30px;
+	}
+}
+@media all and (min-width: 1px) and (max-width: 500px) 
+{
+	.button4
+	{
+		padding-top:10px;padding-bottom:10px;display:inline-block;padding-left:10px;width:240px;
+		height:108px;font-size:30px;
+	}
+}
+
+@media all and (min-width: 1250px) and (max-width: 1300px) 
+{
+	.button1 , .button2
+	{
+		padding-top:36px;padding-bottom:36px;min-height:155px;height:auto;font-size:46px;float:left;
+	}
+	.input1 , .input2
+	{
+		padding-top:36px;padding-bottom:36px;height:80px;font-size:46px;float:left;	
+	}
+		
+}
+
+
+
+@media all and (min-width: 1150px) and (max-width: 1250px) 
+{
+	.button1 , .button2
+	{
+		padding-top:36px;padding-bottom:36px;min-height:155px;height:auto;font-size:46px;float:left;
+	}
+	.input1 , .input2
+	{
+		padding-top:36px;padding-bottom:36px;height:80px;font-size:46px;float:left;	
+	}
+		
+}
+
+
+
+@media all and (min-width: 1050px) and (max-width: 1150px) 
+{
+	.button1 , .button2
+	{
+		padding-top:36px;padding-bottom:36px;min-height:155px;height:auto;font-size:43px;float:left;
+	}
+	.input1 , .input2
+	{
+		padding-top:36px;padding-bottom:36px;height:80px;font-size:43px;float:left;	
+	}
+		
+}
+
+@media all and (min-width: 950px) and (max-width: 1050px) 
+{
+	.button1 , .button2
+	{
+		padding-top:36px;padding-bottom:36px;min-height:155px;height:auto;font-size:41px;float:left;width:95%;
+	}
+	.input1 , .input2
+	{
+		padding-top:36px;padding-bottom:36px;height:80px;font-size:41px;float:left;	
+	}
+		
+}
+@media all and (min-width: 870px) and (max-width: 950px) 
+{
+	.button1 , .button2
+	{
+		padding-top:36px;padding-bottom:36px;min-height:147px;height:auto;font-size:39px;float:left;width:95%;
+	}
+	.input1 , .input2
+	{
+		padding-top:36px;padding-bottom:36px;height:60px;font-size:39px;float:left;	
+	}
+		
+}
+@media all and (min-width: 800px) and (max-width: 870px) 
+{
+	.button1 , .button2
+	{
+		padding-top:36px;padding-bottom:36px;min-height:147px;height:auto;font-size:39px;float:left;width:95%;
+	}
+	.input1 , .input2
+	{
+		padding-top:36px;padding-bottom:36px;height:60px;font-size:39px;float:left;	
+	}
+		
+}
+@media all and (min-width: 700px) and (max-width: 800px) 
+{
+	.button1 , .button2
+	{
+		padding-top:36px;padding-bottom:36px;min-height:147px;height:auto;font-size:38px;float:left;width:96%;
+	}
+	.input1 , .input2
+	{
+		padding-top:36px;padding-bottom:36px;height:55px;font-size:38px;float:left;	
+	}
+
+}
+
+@media all and (min-width: 600px) and (max-width: 700px) 
+{
+	.button1 , .button2
+	{
+		padding-top:36px;padding-bottom:36px;min-height:127px;height:auto;font-size:35px;float:left;width:97%;
+	}
+	.input1 , .input2
+	{
+		padding-top:36px;padding-bottom:36px;height:60px;font-size:35px;float:left;	
+	}
+
+}
+
+
+@media all and (min-width: 500px) and (max-width: 600px) 
+{
+	.button1 , .button2
+	{
+		padding-top:36px;padding-bottom:36px;min-height:127px;height:auto;font-size:32px;float:left;width:99%;
+	}
+	.input1 , .input2
+	{
+		padding-top:36px;padding-bottom:36px;height:50px;font-size:32px;float:left;	
+	}
+
+}
+
+@media all and (min-width: 400px) and (max-width: 500px) 
+{
+	.button1 , .button2
+	{
+		padding-top:36px;padding-bottom:36px;min-height:127px;height:auto;font-size:31px;float:left;width:100%;
+	}
+	.input1 , .input2
+	{
+		padding-top:36px;padding-bottom:36px;height:80px;font-size:31px;float:left;	
+	}
+
+}
+@media all and (min-width: 1px) and (max-width: 400px) 
+{
+	.button1 , .button2
+	{
+		padding-top:36px;padding-bottom:36px;min-height:127px;height:auto;font-size:30px;float:left;width:100%;
+	}
+	.input1 , .input2
+	{
+		padding-top:36px;padding-bottom:36px;height:70px;font-size:30px;float:left;	
+	}
+
+}
+@media all and (min-width: 500px) and (max-width: 600px) 
+{
+	.button6
+	{
+		padding-left:6px;width:90%;max-width:420px;
+		clear:both;min-height:60px;height:auto;font-size:25px;
+	}
+}
+@media all and (min-width: 400px) and (max-width: 500px) 
+{
+	.button6
+	{
+		padding-left:6px;width:90%;max-width:300px;
+		clear:both;min-height:60px;height:auto;font-size:25px;
+	}
+}
+@media all and (min-width: 1px) and (max-width: 400px) 
+{
+	.button6
+	{
+		padding-left:6px;width:90%;max-width:300px;
+		clear:both;min-height:60px;height:auto;font-size:25px;
+	}
+}

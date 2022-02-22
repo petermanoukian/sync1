@@ -1,0 +1,30 @@
+@import url("font.css");
+.clearnone
+{
+	clear:none !important;
+}
+.maxwidth500
+{
+	max-width:500px !important;
+}
+.bgbackgroundblack1
+{
+	background-color:#050505 !important;
+}
+.white1
+{
+	color:#fdfbfb !important;
+}
+.white1bg
+{
+	background-color:#fff !important;
+}
+.gray1
+{
+	color:#c4c0c0 !important;
+}
+
+button
+{
+	height:auto !important;
+}

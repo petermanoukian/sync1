@@ -1,0 +1,339 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url("font.css");
+
+.layer5
+{
+	width:100%;text-align:center;height:auto;float:left;clear:both;padding-top:4%;padding-bottom:4%;margin-bottom:0px;margin-top:0px;
+	background-color:#989393;text-align:center;
+}
+
+
+.layer5 .div1 , .layer5 .div2 , .layer5 .div3
+{
+	display:inline-block;vertical-align:middle;text-align:left;
+}
+
+.layer5 .div1
+{
+	/*541 1254 */
+	width:40%;color:#020202;font-family: 'MontserratBold';font-size:51px;margin-left:1%;	
+}
+
+.layer5 .div2
+{
+	/*355 1254 */
+	width:26%;	
+}
+
+.layer5 .div3
+{
+	/*355 1254 */
+	width:26%;margin-right:1%;	
+}
+
+
+@media all and (min-width: 1500px) and (max-width: 1600px) 
+{
+
+}
+@media all and (min-width: 1400px) and (max-width: 1500px) 
+{
+
+}
+@media all and (min-width: 1350px) and (max-width: 1400px) 
+{
+	.layer5 .div1
+	{
+		font-size:50px;	
+	}
+}
+@media all and (min-width: 1300px) and (max-width: 1350px) 
+{
+	.layer5 .div1
+	{
+		font-size:49px;	
+	}
+}
+@media all and (min-width: 1250px) and (max-width: 1300px) 
+{
+	.layer5 .div1
+	{
+		width:42%;font-size:46px;margin-left:1%;	
+	}
+	
+	.layer5 .div2
+	{
+		width:27%;margin-right:1%;		
+	}
+	
+	.layer5 .div3
+	{
+		width:26%;margin-right:1%;	
+	}
+}
+@media all and (min-width: 1200px) and (max-width: 1250px) 
+{
+	.layer5 .div1
+	{
+		width:42%;font-size:45px;margin-left:1%;	
+	}
+	
+	.layer5 .div2
+	{
+		width:27%;margin-right:1%;		
+	}
+	
+	.layer5 .div3
+	{
+		width:26%;margin-right:1%;	
+	}
+}
+@media all and (min-width: 1150px) and (max-width: 1200px) 
+{
+	.layer5 .div1
+	{
+		width:42%;font-size:43px;margin-left:1%;	
+	}
+	
+	.layer5 .div2
+	{
+		width:27%;margin-right:1%;		
+	}
+	
+	.layer5 .div3
+	{
+		width:26%;margin-right:1%;	
+	}
+}
+@media all and (min-width: 1100px) and (max-width: 1150px) 
+{
+	.layer5 .div1
+	{
+		width:42%;font-size:42px;margin-left:1%;	
+	}
+	
+	.layer5 .div2
+	{
+		width:27%;margin-right:1%;		
+	}
+	
+	.layer5 .div3
+	{
+		width:26%;margin-right:1%;	
+	}
+}
+@media all and (min-width: 1000px) and (max-width: 1100px) 
+{
+	.layer5 .div1
+	{
+		width:42%;font-size:40px;margin-left:1%;	
+	}
+	
+	.layer5 .div2
+	{
+		width:25%;margin-right:1%;		
+	}
+	
+	.layer5 .div3
+	{
+		width:25%;margin-right:2%;	
+	}	
+}
+@media all and (min-width: 900px) and (max-width: 1000px) 
+{
+	.layer5 .div1
+	{
+		width:44%;font-size:36px;margin-left:1%;	
+	}
+	
+	.layer5 .div2
+	{
+		width:25%;margin-right:1%;		
+	}
+	
+	.layer5 .div3
+	{
+		width:25%;margin-right:2%;	
+	}
+}
+@media all and (min-width: 850px) and (max-width: 900px)
+{ 
+	.layer5 .div1
+	{
+		width:45%;font-size:35px;margin-left:1%;	
+	}
+	
+	.layer5 .div2
+	{
+		width:24%;margin-right:1%;		
+	}
+	
+	.layer5 .div3
+	{
+		width:24%;margin-right:2%;	
+	}	
+}
+@media all and (min-width: 800px) and (max-width: 850px)
+{ 
+	.layer5 .div1
+	{
+		width:45%;font-size:34px;margin-left:1%;	
+	}
+	
+	.layer5 .div2
+	{
+		width:24%;margin-right:1%;		
+	}
+	
+	.layer5 .div3
+	{
+		width:24%;margin-right:2%;	
+	}	
+}
+
+@media all and (min-width: 700px) and (max-width: 800px) 
+{
+	.layer5 .div1
+	{
+		width:95%;font-size:34px;margin-left:auto;text-align:center;margin-bottom:13px;	
+	}
+	
+	.layer5 .div2
+	{
+		width:45%;margin-right:2%;text-align:center;			
+	}
+	
+	.layer5 .div3
+	{
+		width:45%;margin-right:1%;text-align:center;		
+	}	
+}
+@media all and (min-width: 600px) and (max-width: 700px) 
+{
+	.layer5 .div1
+	{
+		width:95%;font-size:34px;margin-left:auto;text-align:center;margin-bottom:13px;	
+	}
+	
+	.layer5 .div2
+	{
+		width:45%;margin-right:2%;text-align:center;			
+	}
+	
+	.layer5 .div3
+	{
+		width:45%;margin-right:1%;text-align:center;		
+	}
+}
+
+@media all and (min-width: 550px) and (max-width: 600px) 
+{
+	.layer5 .div1
+	{
+		width:95%;font-size:34px;margin-left:auto;text-align:center;margin-bottom:13px;	
+	}
+	
+	.layer5 .div2
+	{
+		width:45%;margin-right:2%;text-align:center;			
+	}
+	
+	.layer5 .div3
+	{
+		width:45%;margin-right:1%;text-align:center;		
+	}
+}
+
+@media all and (min-width: 500px) and (max-width: 550px) 
+{
+	.layer5 .div1
+	{
+		width:95%;font-size:34px;margin-left:auto;text-align:center;margin-bottom:13px;	
+	}
+	
+	.layer5 .div2
+	{
+		width:45%;margin-right:2%;text-align:center;			
+	}
+	
+	.layer5 .div3
+	{
+		width:45%;margin-right:1%;text-align:center;		
+	}
+}
+
+
+
+@media all and (min-width: 450px) and (max-width: 500px) 
+{
+	.layer5 .div1
+	{
+		width:95%;font-size:34px;margin-left:auto;text-align:center;margin-bottom:13px;	
+	}
+	
+	.layer5 .div2
+	{
+		width:95%;margin-right:2%;text-align:center;			
+	}
+	
+	.layer5 .div3
+	{
+		width:95%;margin-right:1%;text-align:center;margin-top:10px;		
+	}
+}
+
+@media all and (min-width: 400px) and (max-width: 450px) 
+{
+	.layer5 .div1
+	{
+		width:95%;font-size:34px;margin-left:auto;text-align:center;margin-bottom:13px;	
+	}
+	
+	.layer5 .div2
+	{
+		width:95%;margin-right:2%;text-align:center;			
+	}
+	
+	.layer5 .div3
+	{
+		width:95%;margin-right:1%;text-align:center;margin-top:10px;		
+	}
+}
+
+@media all and (min-width: 350px) and (max-width: 400px) 
+{
+	.layer5 .div1
+	{
+		width:95%;font-size:34px;margin-left:auto;text-align:center;margin-bottom:13px;	
+	}
+	
+	.layer5 .div2
+	{
+		width:95%;margin-right:2%;text-align:center;			
+	}
+	
+	.layer5 .div3
+	{
+		width:95%;margin-right:1%;text-align:center;margin-top:10px;		
+	}
+}
+
+@media all and (min-width: 1px) and (max-width: 350px) 
+{
+	.layer5 .div1
+	{
+		width:95%;font-size:34px;margin-left:auto;text-align:center;margin-bottom:13px;	
+	}
+	
+	.layer5 .div2
+	{
+		width:95%;margin-right:2%;text-align:center;			
+	}
+	
+	.layer5 .div3
+	{
+		width:95%;margin-right:1%;text-align:center;margin-top:10px;		
+	}
+}

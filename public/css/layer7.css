@@ -1,0 +1,128 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url("font.css");
+
+.layer7
+{
+	width:100%;text-align:center;height:auto;float:left;clear:both;padding-top:4%;padding-bottom:2%;
+	background-color:#989393;
+}
+.layer7left , .layer7mid  , .layer7right 
+{
+	display:inline-block;
+}
+
+.layer7left
+{
+	/*30 1300*/
+	padding:0px;width:2%;
+}
+.layer7mid
+{
+	/*1160 1300 */
+	width:96%;
+}
+.layer7mid .up , .layer7mid .down
+{
+	width:100%;display:inline-block;clear:both;
+}
+.layer7mid .up
+{
+	clear:both;
+}
+
+.layer7mid .down
+{
+	margin-top:50px;
+}
+.layer7right
+{
+	/*64 1300 */
+	width:2%;
+}
+.layer7mid .leftdiv
+{
+	float:left;width:48%;
+}
+.layer7mid .righttdiv
+{
+	float:right;width:48%;
+}
+
+.layer7box
+{
+	width:90%;padding-left:3%;padding-right:3%;padding-top:30px;padding-bottom:30px;color:#fff;font-family: 'MontserratRegular';
+	font-size:14px;text-align:justify;min-height:100px;height:auto;background-color:#ed524c;border:2px solid #0e0504;
+	-webkit-border-radius: 18px; -moz-border-radius: 18px; border-radius: 18px;
+}
+
+
+.layer7box2
+{
+	width:92%;padding-left:3%;padding-right:3%;padding-top:30px;padding-bottom:30px;color:#fff;font-family: 'MontserratRegular';
+	font-size:14px;text-align:justify;min-height:100px;height:auto;background-color:#373b34;border:2px solid #373b34;
+	-webkit-border-radius: 18px; -moz-border-radius: 18px; border-radius: 18px;float:left;
+}
+
+.layer7box2 .header_7
+{
+	clear:both;width:90%;text-align:center;margin-left:auto;color:#968989;font-size:50px;font-family: 'Montserrat Alternates';
+	margin-top:10px;margin-bottom:2px;float:left;
+	
+}
+
+.layer7box2 .layer2_7
+{
+	clear:both;width:95%;text-align:center;margin-left:4%;color:#fff;font-size:45px;font-family: 'MontserratBold';
+	margin-top:0px;margin-bottom:20px;float:left;vertical-align:top;
+}
+
+.arrow1
+{
+
+}
+@media all and (min-width: 1px) and (max-width: 750px) 
+{
+	.layer7mid .leftdiv
+	{
+		float:left;width:97%;
+	}
+	.layer7mid .righttdiv
+	{
+		float:left;width:97%;margin-top:14px;
+	}
+}
+
+@media all and (min-width: 1px) and (max-width: 800px) 
+{
+	.layer7box2
+	{
+		width:89%;padding-left:3%;padding-right:3%;padding-top:30px;padding-bottom:30px;
+		font-size:14px;text-align:justify;min-height:100px;margin-right:1%;
+	}
+
+	
+	.layer7box2 .header_7
+	{
+		width:90%;text-align:center;margin-left:auto;color:#968989;font-size:40px;
+		margin-top:10px;margin-bottom:2px;
+		
+	}
+	
+	.layer7box2 .layer2_7
+	{
+		width:95%;margin-left:4%;font-size:32px;
+		margin-top:0px;margin-bottom:20px;vertical-align:top;
+	}
+	
+	
+}
+
+@media all and (min-width: 1px) and (max-width: 500px) 
+{
+	.arrow1
+	{
+		margin-top:28px;
+	}
+}

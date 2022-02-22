@@ -1,0 +1,171 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url("font.css");
+
+.layer3
+{
+	width:100%;text-align:center;height:auto;float:left;clear:both;padding-top:2%;padding-bottom:3%;
+}
+.layer3left , .layer3mid  , .layer3right 
+{
+	display:inline-block;
+}
+
+.layer3left
+{
+	/*76 1300*/
+	padding:0px;width:5%;
+}
+.layer3mid
+{
+	/*1160 1300 */
+	width:88%;text-align:center;font-family: 'MontserratSemiBold', sans-serif;color:#c0bfbf;font-size:60px;
+}
+
+.layer3mid a
+{
+	color:#c0bfbf;font-family: 'MontserratExtraBold', sans-serif;text-decoration:underline;
+}
+.layer3right
+{
+	/*64 1300 */
+	width:5%;
+}
+
+
+@media all and (min-width: 1500px) and (max-width: 1600px) 
+{
+
+}
+@media all and (min-width: 1400px) and (max-width: 1500px) 
+{
+
+}
+@media all and (min-width: 1300px) and (max-width: 1400px) 
+{
+	.layer3mid
+	{
+		font-size:57px;
+	}
+}
+@media all and (min-width: 1200px) and (max-width: 1300px) 
+{
+	.layer3mid
+	{
+		font-size:55px;
+	}
+}
+@media all and (min-width: 1150px) and (max-width: 1200px) 
+{
+	.layer3mid
+	{
+		font-size:53px;
+	}
+}
+@media all and (min-width: 1100px) and (max-width: 1150px) 
+{
+	.layer3mid
+	{
+		font-size:50px;
+	}
+}
+@media all and (min-width: 1000px) and (max-width: 1100px) 
+{
+	.layer3mid
+	{
+		font-size:48px;
+	}
+}
+@media all and (min-width: 900px) and (max-width: 1000px) 
+{
+	.layer3mid
+	{
+		font-size:46px;
+	}
+}
+@media all and (min-width: 800px) and (max-width: 900px)
+{ 
+	.layer3mid
+	{
+		font-size:44px;
+	}
+}
+@media all and (min-width: 850px) and (max-width: 900px)
+{ 
+	.layer3mid
+	{
+		font-size:42px;
+	}
+}
+@media all and (min-width: 800px) and (max-width: 850px)
+{ 
+	.layer3mid
+	{
+		font-size:40px;
+	}	
+}
+@media all and (min-width: 700px) and (max-width: 800px) 
+{
+	.layer3mid
+	{
+		font-size:39px;
+	}
+}
+@media all and (min-width: 600px) and (max-width: 700px) 
+{
+		.layer3mid
+	{
+		font-size:38px;
+	}
+}
+
+@media all and (min-width: 550px) and (max-width: 600px) 
+{
+	.layer3mid
+	{
+		font-size:37px;
+	}
+}
+
+@media all and (min-width: 500px) and (max-width: 550px) 
+{
+	.layer3mid
+	{
+		font-size:36px;
+	}
+}
+
+
+
+@media all and (min-width: 450px) and (max-width: 500px) 
+{
+	.layer3mid
+	{
+		font-size:36px;
+	}
+}
+
+@media all and (min-width: 400px) and (max-width: 450px) 
+{
+	.layer3mid
+	{
+		font-size:35px;
+	}
+}
+
+@media all and (min-width: 350px) and (max-width: 400px) 
+{
+	.layer3mid
+	{
+		font-size:35px;
+	}
+}
+
+@media all and (min-width: 1px) and (max-width: 350px) 
+{
+	.layer3mid
+	{
+		font-size:35px;
+	}
+}

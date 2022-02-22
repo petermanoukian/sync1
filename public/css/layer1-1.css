@@ -1,0 +1,324 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url("font.css");
+
+header
+{
+	width:100%;text-align:center;height:auto;float:left;clear:both;
+}
+#header , .header
+{
+	/*1680 990*/
+	text-align:center;display:inline-block;width:100%;max-width:1300px;
+}
+.layer1
+{
+	width:100%;text-align:center;height:auto;float:left;clear:both;padding-top:5%;padding-bottom:1%;
+	background-color:#f9f8f8;float:left;
+}
+.layer1left , .layer1mid  , .layer1right 
+{
+	display:inline-block;
+}
+
+.layer1left
+{
+	/*76 1300*/
+	/*padding:0px;width:5.84615384615385%;*/
+	padding:0px;width:5%;
+}
+.layer1mid
+{
+	/*1160 1300 */
+	width:88%;text-align:center;color:#f0504a;
+
+}
+.layer1mid .up , .layer1mid .down , .layer1mid .downer
+{
+	text-align:center;width:100%;display:inline-block
+}
+.layer1mid .up
+{
+	font-family: 'MontserratBold';font-size:85px;margin-top:12px;
+}
+.layer1mid .down
+{
+	font-family: 'MontserratBlack', sans-serif;font-size:66px;margin-top:30px;
+}
+
+.layer1mid .downer
+{
+	margin-top:30px;margin-bottom:0px;
+}
+
+
+.layer1right
+{
+	/*64 1300 */
+	/*width:4.8%*/
+	width:5%;
+}
+
+
+@media all and (min-width: 1500px) and (max-width: 1600px) 
+{
+
+}
+@media all and (min-width: 1400px) and (max-width: 1500px) 
+{
+
+}
+@media all and (min-width: 1300px) and (max-width: 1400px) 
+{
+
+}
+@media all and (min-width: 1200px) and (max-width: 1300px) 
+{
+
+	.layer1mid .up
+	{
+		font-size:80px;
+	}
+	.layer1mid .down
+	{
+		font-size:59px;
+	}
+	.layer1
+	{
+		padding-top:5%;padding-bottom:1%;
+	}
+}
+@media all and (min-width: 1150px) and (max-width: 1200px) 
+{
+	.layer1mid .up
+	{
+		font-size:77px;
+	}
+	.layer1mid .down
+	{
+		font-size:57px;
+	}
+	.layer1
+	{
+		padding-top:5%;padding-bottom:1%;
+	}
+}
+@media all and (min-width: 1100px) and (max-width: 1150px) 
+{
+	.layer1mid .up
+	{
+		font-size:75px;
+	}
+	.layer1mid .down
+	{
+		font-size:55px;
+	}
+	.layer1
+	{
+		padding-top:6%;padding-bottom:1%;
+	}
+}
+@media all and (min-width: 1000px) and (max-width: 1100px) 
+{
+	.layer1mid .up
+	{
+		font-size:73px;
+	}
+	.layer1mid .down
+	{
+		font-size:53px;
+	}
+	.layer1
+	{
+		padding-top:6%;padding-bottom:1%;
+	}
+}
+@media all and (min-width: 900px) and (max-width: 1000px) 
+{
+	.layer1mid .up
+	{
+		font-size:71px;
+	}
+	.layer1mid .down
+	{
+		font-size:51px;
+	}
+	.layer1
+	{
+		padding-top:7%;padding-bottom:1%;
+	}
+}
+@media all and (min-width: 800px) and (max-width: 900px)
+{ 
+	.layer1mid .up
+	{
+		font-size:69px;
+	}
+	.layer1mid .down
+	{
+		font-size:49px;
+	}
+	.layer1
+	{
+		padding-top:8%;padding-bottom:1%;
+	}	
+}
+@media all and (min-width: 850px) and (max-width: 900px)
+{ 
+	.layer1mid .up
+	{
+		font-size:66px;
+	}
+	.layer1mid .down
+	{
+		font-size:46px;
+	}
+	.layer1
+	{
+		padding-top:8%;padding-bottom:1%;
+	}
+}
+@media all and (min-width: 800px) and (max-width: 850px)
+{ 
+	.layer1mid .up
+	{
+		font-size:64px;
+	}
+	.layer1mid .down
+	{
+		font-size:44px;
+	}
+	.layer1
+	{
+		padding-top:8%;padding-bottom:1%;
+	}
+}
+@media all and (min-width: 700px) and (max-width: 800px) 
+{
+	.layer1mid .up
+	{
+		font-size:62px;
+	}
+	.layer1mid .down
+	{
+		font-size:42px;
+	}
+	.layer1
+	{
+		padding-top:11%;padding-bottom:1%;
+	}
+}
+@media all and (min-width: 600px) and (max-width: 700px) 
+{
+	.layer1mid .up
+	{
+		font-size:61px;
+	}
+	.layer1mid .down
+	{
+		font-size:41px;
+	}
+	.layer1
+	{
+		padding-top:11%;padding-bottom:1%;
+	}
+}
+
+@media all and (min-width: 550px) and (max-width: 600px) 
+{
+	.layer1mid .up
+	{
+		font-size:59px;
+	}
+	.layer1mid .down
+	{
+		font-size:39px;
+	}
+	.layer1
+	{
+		padding-top:11%;padding-bottom:1%;
+	}
+}
+
+@media all and (min-width: 500px) and (max-width: 550px) 
+{
+	.layer1mid .up
+	{
+		font-size:52px;
+	}
+	.layer1mid .down
+	{
+		font-size:33px;
+	}
+	.layer1
+	{
+		padding-top:12%;padding-bottom:1%;
+	}
+}
+
+
+
+@media all and (min-width: 450px) and (max-width: 500px) 
+{
+	.layer1mid .up
+	{
+		font-size:48px;
+	}
+	.layer1mid .down
+	{
+		font-size:28px;
+	}
+	.layer1
+	{
+		padding-top:12%;padding-bottom:1%;
+	}
+}
+
+@media all and (min-width: 400px) and (max-width: 450px) 
+{
+	.layer1mid .up
+	{
+		font-size:44px;
+	}
+	.layer1mid .down
+	{
+		font-size:27px;
+	}
+	.layer1
+	{
+		padding-top:12%;padding-bottom:1%;
+	}
+}
+
+@media all and (min-width: 350px) and (max-width: 400px) 
+{
+	.layer1mid .up
+	{
+		font-size:40px;
+	}
+	.layer1mid .down
+	{
+		font-size:26px;
+	}
+	.layer1
+	{
+		padding-top:12%;padding-bottom:1%;
+	}
+}
+
+@media all and (min-width: 1px) and (max-width: 350px) 
+{
+	.layer1mid .up
+	{
+		font-size:39px;
+	}
+	.layer1mid .down
+	{
+		font-size:26px;
+	}
+	.layer1
+	{
+		padding-top:12%;padding-bottom:1%;
+	}
+}
