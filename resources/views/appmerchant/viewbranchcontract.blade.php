@@ -9,20 +9,14 @@
 				
 				
 					<div class = 'floatleft'>
-					<h1 class='text-dark fw-bolder fs-2 margintop7'>Branches</h1>
+					<h1 class='text-dark fw-bolder fs-2 margintop7'>Branch Contacts</h1>
 					</div> 
 					<div class = 'floatleft'>
+					<a  href ='/appmerchant/viewbranch' class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'>View Branches </a>
+					<a  href ='/appmerchant/addbranch' class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'>Add Branches </a>
 					
-					<a  href ='/appmerchant/addcompany'
-					class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'>Add Company  </a>	
-					<a  href ='/appmerchant/viewcompany'
-					class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'>Companies </a> 
-					<a  href ='/appmerchant/viewsubcompany/<?php echo $compid ; ?>'
-					class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'>View Sub Companies </a> 
-					<a  href ='/appmerchant/addsubcompany/<?php echo $compid ; ?>'
-					class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'>Add Sub Companies </a> 
-					<a  href ='/appmerchant/addbranch/<?php echo $compid ; ?>/<?php echo $subcompid ; ?>'
-					class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'> Add Branches </a> 
+					<a  href ='/appmerchant/addbranch/<?php echo $branchid ; ?>'
+					class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'> Add Branch Contacts </a> 
 					</div>
 				
 	
@@ -30,7 +24,7 @@
                 <div class="card-body">
                     
 					
-					<form method = 'post' action = "/appmerchant/branch/deleteall">
+					<form method = 'post' action = "/appmerchant/branchcontact/deleteall">
 						<input name="_method" type="hidden" value="DELETE">
 						@csrf
 						<table class="table align-middle table-row-dashed fs-6 gy-5 data-table" >
@@ -40,11 +34,11 @@
 										<input type = 'checkbox' name = 'idr' id="toggle" value="select" onClick="do_this()"
 										class="form-check-input"  data-kt-check="true"/>
 									</th>
-									<th style = 'width:8%;'>No</th>
+									<th style = 'width:2%;'>No</th>
 									<th style = 'width:20%;'>Name</th>
 									<th style = 'width:20%;'>Company</th>
 									<th style = 'width:20%;'>SubCompany</th>
-									<th style = 'width:20%;'>Type</th>
+									<th style = 'width:18%;'>Branch</th>
 									<th style = 'width:18%;'>Action</th>
 								</tr>
 							</thead>
@@ -72,10 +66,9 @@
 @section('scripts')
 
 <?php
-if(isset($compid) && $compid != '' && $compid > 0)
+if(isset($branchid) && $branchid != '' && $branchid > 0)
 {
-	if(isset($subcompid) && $subcompid != '' && $subcompid > 0)
-	{	
+
 		
 ?>
 		<script type="text/javascript">		
@@ -89,7 +82,7 @@ if(isset($compid) && $compid != '' && $compid > 0)
 			var table = $('.data-table').DataTable({
 				processing: true,
 				serverSide: false,
-				ajax: "{{ url('/appmerchant/viewbranch/' . request()->route('compid') . '/' .  request()->route('subcompid')) }}",
+				ajax: "{{ url('/appmerchant/viewbranchcontact/' . request()->route('branchid')) }}",
 				columns: [
 					{data: 'Delete1', name: 'Delete1', orderable: false, searchable: false},
 					{data: 'id', name: 'id'},
@@ -105,73 +98,14 @@ if(isset($compid) && $compid != '' && $compid > 0)
 		  });
 		</script>
 
-	<?php
-	}
-	else
-	{
-	?>
-		<script type="text/javascript">		
-			var compid = <?php echo $compid ; ?>;
 
-			var url2 = '/appmerchant/viewsubsubcompany/'+compid+'/';
-			//ajax: "{{ url('/appadmin/viewarticle/' . request()->route('catid')) }}",
-			
-			$(function () {
-		   
-			var table = $('.data-table').DataTable({
-				processing: true,
-				serverSide: false,
-				ajax: "{{ url('/appmerchant/viewbranch/' . request()->route('compid')) }}",
-				columns: [
-					{data: 'Delete1', name: 'Delete1', orderable: false, searchable: false},
-					{data: 'id', name: 'id'},
-					{data: 'name', name: 'name'},
-					{data: 'Company', name: 'Company'},
-					{data: 'SubCompany', name: 'SubCompany'},
-					{data: 'Typer', name: 'Typer'},
-					{data: 'action', name: 'action', orderable: false, searchable: false},
-				],
-				"order": [[ 0, "desc" ]]
-			});
-			
-		  });
-		</script>
-	<?php
-	}
-	?>
 
 <?php
 }
-else
-{
+
 
 ?>
-<script type="text/javascript">
 
-  $(function () {
-   
-    var table = $('.data-table').DataTable({
-        processing: true,
-        serverSide: false,
-        ajax: "{{ route('viewBranch.route') }}",
-        columns: [
-			{data: 'Delete1', name: 'Delete1', orderable: false, searchable: false},
-            {data: 'id', name: 'id'},
-            {data: 'name', name: 'name'},
-			{data: 'Company', name: 'Company'},
-			{data: 'SubCompany', name: 'SubCompany'},
-			{data: 'Typer', name: 'Typer'},
-            {data: 'action', name: 'action', orderable: false, searchable: false},
-        ],
-		"order": [[ 0, "desc" ]]
-    });
-    
-  });
-</script>
-
-<?php
-}
-?>
 
 <script>
 

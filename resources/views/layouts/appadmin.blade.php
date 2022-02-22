@@ -56,7 +56,7 @@ License: For each use you must have a valid license purchased only from above li
 			<div class="page d-flex flex-row flex-column-fluid">
 				<div id="kt_aside" class="aside aside-extended" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="auto" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle">
 					<div class="aside-secondary d-flex flex-row-fluid">
-						<div class="aside-workspace my-5 p-5" id="kt_aside_wordspace">
+						<div class="aside-workspace my-5 pl-3" id="kt_aside_wordspace">
 							<div class="d-flex h-100 flex-column">
 								<div class="flex-column-fluid hover-scroll-y" data-kt-scroll="true" data-kt-scroll-activate="true" 
 								data-kt-scroll-height="auto" 
@@ -1031,11 +1031,6 @@ License: For each use you must have a valid license purchased only from above li
 	</span>
 	<div class="menu-sub menu-sub-accordion">
 		<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-		
-		
-		
-
-			
 				<div class="menu-item">
 					<span class="menu-link">
 						<span class="menu-bullet">
@@ -1147,36 +1142,28 @@ License: For each use you must have a valid license purchased only from above li
 				<div class="menu-sub menu-sub-accordion">
 					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 			
-										<div class="menu-item">
+					<div class="menu-item">
 					<a class="menu-link" href="/appadmin/addbranchtype">
 						<span class="menu-bullet">
 							<span class="bullet bullet-dot"></span>
 						</span>
 						<span class="menu-title">Add Branch Type</span>
 					</a>
-				</div>
-				<div class="menu-item">
-					<a class="menu-link" href="/appadmin/viewbranchtype">
-						<span class="menu-bullet">
-							<span class="bullet bullet-dot"></span>
-						</span>
-						<span class="menu-title">View Branch Type</span>
-					</a>
-				</div>
-						
-						
-						
-						</div>
 					</div>
-					
-					
-					
-					
-					
-					
-					
-					
-					
+					<div class="menu-item">
+						<a class="menu-link" href="/appadmin/viewbranchtype">
+							<span class="menu-bullet">
+								<span class="bullet bullet-dot"></span>
+							</span>
+							<span class="menu-title">View Branch Type</span>
+						</a>
+					</div>
+						
+						
+						
+					</div>
+				</div>
+
 							
 				</div>
 				
@@ -1184,13 +1171,59 @@ License: For each use you must have a valid license purchased only from above li
 				
 				
 				
+	<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+		
+	
+
+
+				<span class="menu-link">
+						<span class="menu-icon">
+							<!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
+							<span class="svg-icon svg-icon-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+									<path opacity="0.3" d="M20 15H4C2.9 15 2 14.1 2 13V7C2 6.4 2.4 6 3 6H21C21.6 6 22 6.4 22 7V13C22 14.1 21.1 15 20 15ZM13 12H11C10.5 12 10 12.4 10 13V16C10 16.5 10.4 17 11 17H13C13.6 17 14 16.6 14 16V13C14 12.4 13.6 12 13 12Z" fill="black" />
+									<path d="M14 6V5H10V6H8V5C8 3.9 8.9 3 10 3H14C15.1 3 16 3.9 16 5V6H14ZM20 15H14V16C14 16.6 13.5 17 13 17H11C10.5 17 10 16.6 10 16V15H4C3.6 15 3.3 14.9 3 14.7V18C3 19.1 3.9 20 5 20H19C20.1 20 21 19.1 21 18V14.7C20.7 14.9 20.4 15 20 15Z" fill="black" />
+								</svg>
+							</span>
+							<!--end::Svg Icon-->
+						</span>
+						<span class="menu-title">Discounts </span>
+						<span class="menu-arrow"></span>
+					</span>
+				</span>
+	
+				<div class="menu-sub menu-sub-accordion">
+					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+			
+					<div class="menu-item">
+					<a class="menu-link" href="/appadmin/adddiscount">
+						<span class="menu-bullet">
+							<span class="bullet bullet-dot"></span>
+						</span>
+						<span class="menu-title">Add Discount</span>
+					</a>
+					</div>
+					<div class="menu-item">
+						<a class="menu-link" href="/appadmin/viewdiscount">
+							<span class="menu-bullet">
+								<span class="bullet bullet-dot"></span>
+							</span>
+							<span class="menu-title">View Discounts</span>
+						</a>
+					</div>
+						
+						
+						
+					</div>
+				</div>
+
+							
+				</div>			
+				
 				
 				
 				
 
-													
-													
-	
 
 					
 												</div>
@@ -1200,7 +1233,15 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 
 								<div class="flex-column-auto pt-10 px-5" id="kt_aside_secondary_footer">
-										
+									<button class="btn btn-sm btn-icon bg-body btn-color-gray-700 btn-active-primary position-absolute translate-middle start-100 end-0 bottom-0 shadow-sm d-none d-lg-flex" data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body" data-kt-toggle-name="aside-minimize" style="margin-bottom: 1.35rem">
+										<!--begin::Svg Icon | path: icons/duotune/arrows/arr063.svg-->
+										<span class="svg-icon svg-icon-2 rotate-180">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<rect opacity="0.5" x="6" y="11" width="13" height="2" rx="1" fill="black" />
+												<path d="M8.56569 11.4343L12.75 7.25C13.1642 6.83579 13.1642 6.16421 12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75L5.70711 11.2929C5.31658 11.6834 5.31658 12.3166 5.70711 12.7071L11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25C13.1642 17.8358 13.1642 17.1642 12.75 16.75L8.56569 12.5657C8.25327 12.2533 8.25327 11.7467 8.56569 11.4343Z" fill="black" />
+											</svg>
+										</span>
+									</button>		
 								</div>
 							</div>
 						</div>
@@ -1208,9 +1249,6 @@ License: For each use you must have a valid license purchased only from above li
 				</div>
 
 				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
-					<!--begin::Header-->
-					<div id="kt_header" class="header" data-kt-sticky="true" data-kt-sticky-name="header" data-kt-sticky-offset="{default: '200px', lg: '300px'}">
-					</div>
 
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 						<main class="mainer">

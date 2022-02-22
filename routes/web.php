@@ -9,7 +9,8 @@ use App\Http\Controllers\SubsubcompanyController;
 use App\Http\Controllers\TypebranchController;
 use App\Http\Controllers\ProdController;
 use App\Http\Controllers\BranchController;
-
+use App\Http\Controllers\BranchcontactController;
+use App\Http\Controllers\DiscounttController;
 
 
 /*
@@ -164,6 +165,49 @@ Route::delete('/appadmin/branchtype/delete/{id}/', [TypebranchController::class,
 Route::get('/appadmin/branchtype/deleteall', [TypebranchController::class, 'destroyall'])->name('MyDelTypebranchall.route')->middleware(['auth', 'is_admin']);
 Route::post('/appadmin/branchtype/deleteall', [TypebranchController::class, 'destroyall'])->name('MyDelTypebranchall.route')->middleware(['auth', 'is_admin']);
 Route::delete('/appadmin/branchtype/deleteall', [TypebranchController::class, 'destroyall'])->name('MyDelTypebranchall.route')->middleware(['auth', 'is_admin']);
+
+
+
+Route::get('/appadmin/adddiscount', [DiscounttController::class, 'create'])->name('appmerchant.addDiscount')->middleware(['auth', 'is_admin']);
+Route::get('/appadmin/viewdiscount', [DiscounttController::class, 'indexadmin' ])->name('viewDiscount.route')->middleware(['auth', 'is_admin']);
+Route::get('/appadmin/editdiscount/{id}', [DiscounttController::class, 'edit' ])->name('DiscountEdit.route')->middleware(['auth', 'is_admin']);
+Route::post('/appadmin/discount/add', [DiscounttController::class, 'store' ])->name('DiscountAdd.route')->middleware(['auth', 'is_admin']);
+Route::post('/appadmin/discount/update/{id}',[DiscounttController::class, 'update' ])->name('DiscountUpdate.route')->middleware(['auth', 'is_admin']);
+Route::match(['put', 'patch'],'/admin/discount/update/{id}', [DiscounttController::class, 'update' ])->name('DiscountUpdate.route')->middleware(['auth', 'is_admin']);
+Route::get('/appadmin/discount/delete/{id}/', [DiscounttController::class, 'destroy'])->name('MyDelDiscount.route')->middleware(['auth', 'is_admin']);
+Route::post('/appadmin/discount/delete/{id}/', [DiscounttController::class, 'destroy'])->name('MyDelDiscount.route')->middleware(['auth', 'is_admin']);
+Route::delete('/appadmin/discount/delete/{id}/', [DiscounttController::class, 'destroy'])->name('MyDelDiscount.route')->middleware(['auth', 'is_admin']);
+Route::get('/appadmin/discount/deleteall', [DiscounttController::class, 'destroyall'])->name('MyDelDiscountall.route')->middleware(['auth', 'is_admin']);
+Route::post('/appadmin/discount/deleteall', [DiscounttController::class, 'destroyall'])->name('MyDelDiscountall.route')->middleware(['auth', 'is_admin']);
+Route::delete('/appadmin/discount/deleteall', [DiscounttController::class, 'destroyall'])->name('MyDelDiscountall.route')->middleware(['auth', 'is_admin']);
+
+
+
+
+
+
+
+
+
+
+Route::get('/appmerchant/addbranchcontact/{branchid}', [BranchcontactController::class, 'create'])->name('appmerchant.addbranchcontact')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::get('/appmerchant/viewbranchcontact/{branchid}', [BranchcontactController::class, 'indexadmin' ])->name('viewBranchcontact.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::get('/appmerchant/editbranchcontact/{id}', [BranchcontactController::class, 'edit' ])->name('branchcontactEdit.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::post('/appmerchant/branchcontact/add', [BranchcontactController::class, 'store' ])->name('branchcontactAdd.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::post('/appmerchant/branchcontactupdate/update/{id}',[BranchcontactController::class, 'update' ])->name('branchcontactUpdate.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::match(['put', 'patch'],'/appmerchant/branchcontactupdate/update/{id}', [BranchcontactController::class, 'update' ])->name('branchcontactUpdate.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::get('/appmerchant/branchcontact/delete/{id}/', [BranchcontactController::class, 'destroy'])->name('MyDelBranchcontact.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::post('/appmerchant/branchcontact/delete/{id}/', [BranchcontactController::class, 'destroy'])->name('MyDelBranchcontact.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::delete('/appmerchant/branchcontact/delete/{id}/', [BranchcontactController::class, 'destroy'])->name('MyDelBranchcontact.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::get('/appmerchant/branchcontact/deleteall', [BranchcontactController::class, 'destroyall'])->name('MyDelBranchcontactall.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::post('/appmerchant/branchcontact/deleteall', [BranchcontactController::class, 'destroyall'])->name('MyDelBranchcontactall.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::delete('/appmerchant/branchcontact/deleteall', [BranchcontactController::class, 'destroyall'])->name('MyDelBranchcontactall.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+
+
+
+
+
+
 
 
 Auth::routes();

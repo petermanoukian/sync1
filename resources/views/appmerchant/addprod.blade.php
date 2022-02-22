@@ -5,15 +5,27 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Add Product
-		| <a  href ='/appmerchant/viewcompany'>&rsaquo; Companies </a>
-				| <a  href ='/appmerchant/addcompany'>&rsaquo; Add Companies </a>
-				| <a  href ='/appmerchant/viewsubcompany/<?php echo $compid ; ?>'>&rsaquo; Sub Companies </a>
-				| <a  href ='/appmerchant/addsubcompany/<?php echo $compid ; ?>'>&rsaquo; Add Sub Companies </a>
-				| <a  href ='/appmerchant/viewsubsubcompany/<?php echo $compid ; ?>/<?php echo $subcompid ; ?>'>
-				&rsaquo; Sub Sub Companies </a>
-				| <a  href ='/appmerchant/viewprod/<?php echo $compid ; ?>/<?php echo $subcompid ; ?>/<?php echo $subsubcompid ; ?>'>
-				&rsaquo; View Products </a>
+                <div class="card-header">
+				 <div class = 'floatleft'><h1 class='text-dark fw-bolder fs-2 margintop7'> Add Product</h1></div> 
+				 <div class = 'floatleft'>
+				
+				
+				
+				<a  href ='/appmerchant/viewcompany'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Companies </a>
+				<a  href ='/appmerchant/addcompany'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Add Companies </a>
+				<a  href ='/appmerchant/viewsubcompany/<?php echo $compid ; ?>'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Sub Companies </a>
+				<a  href ='/appmerchant/addsubcompany/<?php echo $compid ; ?>'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Add Sub Companies </a>
+				<a  href ='/appmerchant/viewsubsubcompany/<?php echo $compid ; ?>/<?php echo $subcompid ; ?>'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
+				 Sub Sub Companies </a>
+				<a  href ='/appmerchant/viewprod/<?php echo $compid ; ?>/<?php echo $subcompid ; ?>/<?php echo $subsubcompid ; ?>'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
+				 View Products </a>
+				</div>
 				</div>
                 <div class="card-body">
 					<div class="card-body">
@@ -22,7 +34,8 @@
 						
 							<div class="form-group row">
 								<label for="name">Company</label>
-								<select name="compid" id='compid' class="form-control  form-control-lg form-control-solid"  placeholder="Company" required>
+								<select name="compid" id='compid' class="form-control  form-control-lg form-control-solid"  
+								placeholder="Company" required>
 									<option value = ''>Choose Company </option>
 									@foreach($comps as $comp)
 										@if($compid  && $compid != 0 && $compid  == $comp->id)
@@ -76,7 +89,7 @@
 							
 							
 						    <div class="form-group row">
-								<input type="submit" value="Add" class="button4">
+								<input type="submit" value="Add" class="btn btn-primary paddtop6 bold">
 						    </div>
 						{!! Form::close() !!}
 					</div>
@@ -87,23 +100,14 @@
 </div>
 @endsection
 
-
-
-
 @section('scripts')
-
-
 @if(request()->route('compid')  && request()->route('compid') != 0 && request()->route('compid')  != '')
 
 	@if(request()->route('subcompid')  && request()->route('subcompid') != 0 && request()->route('subcompid')  != '')
-	
 
 		@if(request()->route('subsubcompid')  && request()->route('subsubcompid') != 0 && request()->route('subsubcompid')  != '')
 
-
 		<script type="text/javascript">
-
-		
 
 		$( document ).ready(function() {
 
@@ -114,11 +118,7 @@ url: "{{ route('getsubcomsbycomp') }}?compid=" + {{ request()->route('compid') }
 					$('#subcompid2').html(data.html);
 					
 					reload1();
-					
-					
-					
-					
-					
+	
 				}
 			});
 			
@@ -132,15 +132,9 @@ url: "{{ route('getsubsubcomsbycomp') }}?subcompid=" + {{ request()->route('subc
 					
 				}
 			});
-			
-			
-			
+
 		});	 
 
-
-		
-		
-		
 	</script>
 	
 		@else
@@ -148,15 +142,11 @@ url: "{{ route('getsubsubcomsbycomp') }}?subcompid=" + {{ request()->route('subc
 		@endif
 		
 		@else
-				
-				<script type="text/javascript">
-
-
-
+		<script type="text/javascript">
 		$( document ).ready(function() {
 
 			$.ajax({
-url: "{{ route('getsubcomsbycomp') }}?compid=" + {{ request()->route('compid') }},	
+				url: "{{ route('getsubcomsbycomp') }}?compid=" + {{ request()->route('compid') }},	
 				method: 'GET',
 				success: function(data) {
 					$('#subcompid2').html(data.html);
@@ -165,36 +155,23 @@ url: "{{ route('getsubcomsbycomp') }}?compid=" + {{ request()->route('compid') }
 			});
 			
 			$.ajax({
-url: "{{ route('getsubsubcomsbycomp') }}",	
+				url: "{{ route('getsubsubcomsbycomp') }}",	
 				method: 'GET',
 				success: function(data) {
 					$('#subcompid3').html(data.html);
 					reload1();
 				}
 			});
-			
-			
-			
+
 		});	 
 
-
-		
-		
-		
 	</script>
 	
 	@endif
 
-
-
-
 @else 
-	
 
 	<script type="text/javascript">
-
-		
-
 		$( document ).ready(function() {
 
 			$.ajax({
@@ -207,24 +184,16 @@ url: "{{ route('getsubsubcomsbycomp') }}",
 			});
 			
 			$.ajax({
-url: "{{ route('getsubsubcomsbycomp') }}",	
+				url: "{{ route('getsubsubcomsbycomp') }}",	
 				method: 'GET',
 				success: function(data) {
 					$('#subcompid3').html(data.html);
 					reload1();
 				}
 			});
-			
-			
-			
+
 		});	 
-
-
-		
-		
 	</script>
-	
-
 
 @endif
 
@@ -325,7 +294,3 @@ height: '400px',
 
 
 @endsection
-
-
-
-

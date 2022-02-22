@@ -5,14 +5,35 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Edit Sub Company 
-				| <a  href ='/appmerchant/viewcompany'>&rsaquo; Companies </a>
-				| <a  href ='/appmerchant/addcompany'>&rsaquo; Add Companies </a>
-				| <a  href ='/appmerchant/viewsubcompany'>&rsaquo; Sub Companies </a>
-				| <a  href ='/appmerchant/addsubcompany'>&rsaquo; Add Sub Companies </a>
-				| <a  href ='/appmerchant/viewsubsubcompany/'> &rsaquo; Sub Sub Companies </a>
-				| <a  href ='/appmerchant/addsubsubcompany/'> &rsaquo; Add Sub Sub Companies </a>
+
+				<div class="card-header">
+					<div class = 'floatleft'>
+					<h1 class='text-dark fw-bolder fs-2 margintop7'> Edit Sub Sub Companies </h1>
+					</div> 
+					<div class = 'floatleft'>
+						<a  href ='/appmerchant/addcompany'
+						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Add Company  </a>	
+						<a  href ='/appmerchant/viewcompany'
+						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Companies </a> 
+						<a  href ='/appmerchant/viewsubcompany'
+						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>View Sub Companies </a> 
+						 <a  href ='/appmerchant/addsubcompany'
+						 class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
+						 Add Sub Companies </a> 
+						<a  href ='/appmerchant/viewsubsubcompany'
+						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
+						Sub Sub Companies</a> 
+						<a  href ='/appmerchant/addsubsubcompany'
+						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
+						Add Sub sub Companies </a> 
+						
+						
+					</div>
 				</div>
+
+
+
+
                 <div class="card-body">
 					<div class="card-body">
 						{!! Form::model($row, ['route' => ['subsubCompanyUpdate.route', $row->id],
@@ -62,14 +83,9 @@
 								<img src="<?php echo asset("images/subsubcompany/thumb/{$row->logo}")?>" style='margin-top:10px;clear:both'>
 								</div>
 								@endif
-
 							</div>
-
-
-
-
 						    <div class="form-group row">
-								<input type="submit" value="Update" class="button4">
+								<input type="submit" value="Update" class="btn btn-primary paddtop6 bold">
 						    </div>
 						{!! Form::close() !!}
 					</div>

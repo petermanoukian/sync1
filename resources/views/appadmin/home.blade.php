@@ -5,38 +5,41 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Branch Type | <a  href ='/appadmin/addbranchtype'>&rsaquo; Add Branch Type  </a></div>
+ 
+				<div class="card-header"> <h1 class='text-dark fw-bolder fs-2 margintop7'> Branch Type </h1>  
+				<a  href ='/appadmin/addbranchtype'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'> Add Branch Type </a></div>
+
                 <div class="card-body">
 					<form method = 'post' action = "/appadmin/branchtype/deleteall">
 						<input name="_method" type="hidden" value="DELETE">
 						@csrf
 						<table class="table align-middle table-row-dashed fs-6 gy-5 data-table" >
-								<thead>
-									<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
-										<th width = '2%'>
-											<input type = 'checkbox' name = 'idr' id="toggle" value="select" onClick="do_this()"
-											class="form-check-input"  data-kt-check="true"/>
-										</th>
-										<th style = 'width:8%;'>No</th>
-										<th style = 'width:25%;'>Name</th>
-									
-										<th style = 'width:53%;'>Action</th>
-									</tr>
-								</thead>
-								<tbody class="fw-bold text-gray-600">
-								</tbody>
-								<thead>
-									<tr>
-									<th colspan = 4 align = 'center' style = 'width:90%;text-align:center;'>
-									<input type = 'submit' value = 'Delete' 
-									onclick = 'return confirm("are you sure you want to remove this item");'
-									class="btn btn-danger" align = 'center'>
+							<thead>
+								<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+									<th width = '2%'>
+										<input type = 'checkbox' name = 'idr' id="toggle" value="select" onClick="do_this()"
+										class="form-check-input"  data-kt-check="true"/>
 									</th>
-									</tr>
-								</thead>
-
-							</table>
-						</form>
+									<th style = 'width:8%;'>No</th>
+									<th style = 'width:25%;'>Name</th>
+								
+									<th style = 'width:53%;'>Action</th>
+								</tr>
+							</thead>
+							<tbody class="fw-bold text-gray-600">
+							</tbody>
+							<thead>
+								<tr>
+								<th colspan = 4 align = 'center' style = 'width:90%;text-align:center;'>
+								<input type = 'submit' value = 'Delete' 
+								onclick = 'return confirm("are you sure you want to remove this item");'
+								class="btn btn-danger" align = 'center'>
+								</th>
+								</tr>
+							</thead>
+						</table>
+					</form>
                 </div>
             </div>
         </div>

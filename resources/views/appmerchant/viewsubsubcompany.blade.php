@@ -6,13 +6,23 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-					Sub Companies | <a  href ='/appmerchant/addcompany'>&rsaquo; Add Company  </a>	
-					|  <a  href ='/appmerchant/viewcompany'>&rsaquo; Companies </a> 
-					|  <a  href ='/appmerchant/viewsubcompany/<?php echo $compid ; ?>'>&rsaquo; View Sub Companies </a> 
-					|  <a  href ='/appmerchant/addsubcompany/<?php echo $compid ; ?>'>
-					&rsaquo; Add Sub Companies </a> 
-					|  <a  href ='/appmerchant/addsubsubcompany/<?php echo $compid ; ?>/<?php echo $subcompid ; ?>'>
-					&rsaquo; Add Sub sub Companies </a> 
+					<div class = 'floatleft'>
+					<h1 class='text-dark fw-bolder fs-2 margintop7'> Sub Companies </h1>
+					</div> 
+					<div class = 'floatleft'>
+						<a  href ='/appmerchant/addcompany'
+						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Add Company  </a>	
+						<a  href ='/appmerchant/viewcompany'
+						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Companies </a> 
+						<a  href ='/appmerchant/viewsubcompany/<?php echo $compid ; ?>'
+						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>&rsaquo; View Sub Companies </a> 
+						 <a  href ='/appmerchant/addsubcompany/<?php echo $compid ; ?>'
+						 class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
+						 Add Sub Companies </a> 
+						<a  href ='/appmerchant/addsubsubcompany/<?php echo $compid ; ?>/<?php echo $subcompid ; ?>'
+						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
+						Add Sub sub Companies </a> 
+					</div>
 				</div>
                 <div class="card-body">
                     

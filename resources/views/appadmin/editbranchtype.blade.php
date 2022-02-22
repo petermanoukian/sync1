@@ -5,8 +5,19 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Edit Branch Type | <a  href ='/appadmin/addbranchtype'>&rsaquo; Add Branch Types </a>
-				| <a  href ='/appadmin/viewbranchtype'>&rsaquo;  Branch Types </a>
+                <div class="card-header">
+				
+				<div class = 'floatleft'>
+				<h1 class='text-dark fw-bolder fs-2 margintop7'>Edit Branch Type</h1>
+				</div>
+				<div class = 'floatleft'>
+					<a  href ='/appadmin/addbranchtype'
+					class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'>Add Branch Types </a>
+					<a  href ='/appadmin/viewbranchtype'
+					class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'>Branch Types </a>
+				</div>
+				
+	
 				</div>
                 <div class="card-body">
 					<div class="card-body">
@@ -24,7 +35,7 @@
 							</div>
 
 						    <div class="form-group row">
-								<input type="submit" value="Update" class="button4">
+								<input type="submit" value="Update" class="btn btn-primary paddtop6 bold">
 						    </div>
 						{!! Form::close() !!}
 					</div>

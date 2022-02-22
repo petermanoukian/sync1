@@ -5,7 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Add Branch Type | <a  href ='/appadmin/viewbranchtype'>&rsaquo; Branch Types </a></div>
+                <div class="card-header">
+				<div class = 'floatleft'>
+				<h1 class='text-dark fw-bolder fs-2 margintop7'>Add Branch Type </h1>
+				</div>
+				<div class = 'floatleft'><a  href ='/appadmin/viewbranchtype'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'>Branch Types </a>
+				</div>
+				
+				</div>
                 <div class="card-body">
 					<div class="card-body">
 						{{Form::open(array('url' => 'appadmin/branchtype/add', 'method' => 'post', 'files' => true
@@ -17,7 +25,7 @@
 							</div>
 						
 						    <div class="form-group row">
-								<input type="submit" value="Add" class="button4">
+								<input type="submit" value="Add" class="btn btn-primary paddtop6 bold">
 						    </div>
 						{!! Form::close() !!}
 					</div>

@@ -1,18 +1,16 @@
 <?php
+
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Redirect;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Typebranch;
+use App\Models\Discountt;
 use DataTables;
 
-
-
-
-class TypebranchController extends Controller
+class DiscounttController extends Controller
 {
-    public function __construct()
+     public function __construct()
     {
 
     }   
@@ -20,7 +18,7 @@ class TypebranchController extends Controller
 	public function create()
     {
         $this->middleware(['auth','is_admin']);
-		return view('appadmin.addtypebranch');
+		return view('appadmin.adddiscount');
     }
 	
 	public function indexadmin(Request $request)
@@ -32,7 +30,7 @@ class TypebranchController extends Controller
 		//echo " userid ::: $userid  ";
 		
 		if ($request->ajax()) {
-            $data = Typebranch::orderBy('id', 'DESC')->get();
+            $data = Discountt::orderBy('id', 'DESC')->get();
             return Datatables::of($data)
                     ->addIndexColumn()	
 					->addColumn('Delete1', function($row) use ($token){
@@ -47,12 +45,9 @@ class TypebranchController extends Controller
 				
                     ->addColumn('action', function($row) use ($token){
      					$id = $row['id'];
-					
-						
-						//$count = $row['subcats_count'];
                         $btn = "
 						<div style = 'display:inline;float:left;margin-left:5px;'>
-							<form method = 'post' action = \"/appadmin/branchtype/delete/$id/\">
+							<form method = 'post' action = \"/appadmin/discount/delete/$id/\">
 							".csrf_field(). method_field('DELETE') ."
 							<input name=\"_method\" type=\"hidden\" value=\"DELETE\">
 							<input type=\"hidden\" name=\"_token\" value=\"$token\">
@@ -61,23 +56,25 @@ class TypebranchController extends Controller
 							</form>
 						</div>
 						<div style = 'display:inline;float:left;margin-left:5px;'>
-							<a href=\"/appadmin/edittypebranch/$id\" class=\"edit btn btn-primary btn-sm\">Edit </a>
-					
-						</div>
-						";
+							<a href=\"/appadmin/editdiscount/$id\" class=\"edit btn btn-primary btn-sm\">Edit </a>
+						</div>";
                         return $btn;
                     })	
 					->addColumn('Name', function($row)
 					{
 						$name = $row['name'];
-				
 						return $name;
+                    })	
+					->addColumn('Perc', function($row)
+					{
+						$perc = $row['perc'];
+						return $perc;
                     })
-					->rawColumns(array("action", "Name" ,  'Delete1' ))
+					->rawColumns(array("action", "Name" , 'Perc',  'Delete1' ))
                     ->make(true);
         }
 		
-		return view('appadmin.viewtypebranch');
+		return view('appadmin.viewdiscount');
 	}
 	
 	public function edit($id)
@@ -85,14 +82,10 @@ class TypebranchController extends Controller
 		$this->middleware(['auth','is_admin']);
 		$userid = Auth::id();
 
-		$row = Typebranch::where('id', '=', $id)->first();
-		return view('appadmin.editbranchtype', compact('row' ));
+		$row = Discountt::where('id', '=', $id)->first();
+		return view('appadmin.editdiscount', compact('row' ));
 	}
-	
-	
-	
-	
-	
+
 	
 	public function store(Request $request)
 	{
@@ -100,11 +93,9 @@ class TypebranchController extends Controller
 		$this->validate($request, [
 		'name' => 'required' 
 		]);
-
-
 		try
 		{
-			$row =Typebranch::create([ 'name' => $request->name 
+			$row =Discountt::create([ 'name' => $request->name , 'perc' => $request->perc 
 			]);
 			$row->save();
 		}
@@ -113,7 +104,7 @@ class TypebranchController extends Controller
     		$message =  $e->getMessage();
 			//echo "message $message ";
 		}
-		return Redirect::route('viewtypeBranch.route')->with("message","Thank you");	
+		return Redirect::route('viewDiscount.route')->with("message","Thank you");	
 	}
 	
 	public function update(Request $request, $id)
@@ -125,22 +116,19 @@ class TypebranchController extends Controller
 		]);
 
 		
-		$row = Typebranch::where('id', '=', $id)->first();
+		$row = Discountt::where('id', '=', $id)->first();
 		try
 		{
 			$row->update([
-			'name' => $request->name 
-			]);
-			
+			'name' => $request->name , 'perc' => $request->perc 
+			]);	
 			$LastInsertId = $id;
-		
-	
 		}
 		catch (\Exception $e) 
 		{
     		$message =  $e->getMessage();
 		}
-		return Redirect::route('viewtypeBranch.route');
+		return Redirect::route('viewDiscount.route');
 	}	
 
 
@@ -148,9 +136,9 @@ class TypebranchController extends Controller
 	{
 		$this->middleware(['auth','is_admin']);
 		$userid = Auth::id();
-		$row = Typebranch::where('id', '=', $id)->first();
+		$row = Discountt::where('id', '=', $id)->first();
 		$row->delete();
-		return Redirect::route('viewtypeBranch.route');
+		return Redirect::route('viewDiscount.route');
 	}
 	
 	
@@ -162,11 +150,10 @@ class TypebranchController extends Controller
 		{
 			foreach($request->idx as $id)
 			{
-				$row = Typebranch::where('id', '=', $id)->first();
+				$row = Discountt::where('id', '=', $id)->first();
 				$row->delete();
 			}
 		}
-		return Redirect::route('viewtypeBranch.route');
+		return Redirect::route('viewDiscount.route');
 	}
-	
 }

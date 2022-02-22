@@ -25,11 +25,11 @@ class BranchcontactController extends Controller
     {
         $this->middleware(['auth','is_merchant' ,'conf1','conf2']);
 		$userid = Auth::id();
-		$comps = Company::where('userid', '=', $userid)->orderBy('name', 'ASC')->get();
-		$subcomps = Subcompany::where('userid', '=', $userid)->orderBy('name', 'ASC')->get();
-		$branches = Branch::where('userid', '=', $userid)->orderBy('name', 'ASC')->get();
+	
+		$branch = Branch::where('userid', '=', $userid)->where('id', '=', $branchid)->first();
+		
 		$typs = Typebranch::orderBy('name', 'ASC')->get();
-		return view('appmerchant/addbranchcontact' , compact('comps','subcomps','typs','branches','compid','subcompid','typebranchid'));
+		return view('appmerchant/addbranchcontact' , compact('branch', 'branchid'));
     }
 	
 	public function indexadmin(Request $request , $branchid='' )
@@ -76,8 +76,12 @@ class BranchcontactController extends Controller
 							$all = "  $compname  ";
 							return $all;
 					})
+					->addColumn('SubCompany', function($row){
+							$subcompname = $row['subcompany']['name'];	
+							return $subcompname;
+					})
 					->addColumn('Branch', function($row){
-							$branchcompname = $row['branch']['name'];	
+							$branchname = $row['branch']['name'];	
 							return $branchname;
 					})
 					
@@ -105,8 +109,7 @@ class BranchcontactController extends Controller
 							</form>
 						</div>
 						<div style = 'display:inline;float:left;margin-left:5px;'>
-							<a href=\"/appmerchant/editbranchcontact/$id/$branchidx/$typebranchid/$compid/$subcompid\" 
-							class=\"edit btn btn-primary btn-sm\">Edit </a>	
+							<a href=\"/appmerchant/editbranchcontact/$id\" class=\"edit btn btn-primary btn-sm\">Edit </a>	
 						</div>
 						";
                         return $btn;
@@ -119,23 +122,24 @@ class BranchcontactController extends Controller
 					->rawColumns(array("action", "Name" , 'Company', 'SubCompany', 'Delete1' , 'Typer' , 'Branch'))
                     ->make(true);
         }	
-		return view('appmerchant.viewbranchcontact'  , compact( 'compid' , 'subcompid'));
+		return view('appmerchant.viewbranchcontact'  , compact( 'branchid'));
 	}
 	
-	public function edit($id , $branchid , $typebranchid ,$compid , $subcompid)
+	public function edit($id)
 	{
+		//dd(1);
 		$this->middleware(['auth','is_merchant' ,'conf','conf2']);
 		$userid = Auth::id();
-
 		$row = Branchcontact::where('userid', '=', $userid)->where('id', '=', $id)->first();
-		return view('appmerchant.editbranchcontact', compact('row','branchid','typebranchid','compid','subcompid'));
+		//dd(1);
+		return view('appmerchant.editbranchcontact', compact('row'));
 	}
 
 	public function store(Request $request)
 	{
 		$this->middleware(['auth','is_merchant' ,'conf','conf2']);
 		$this->validate($request, [
-		'name' => 'required' , 'compid' => 'required'  , 'subcompid' => 'required'
+		'name' => 'required' 
 		]);
 		$userid = Auth::id();
 		$subcompid = $request->subcompid;
@@ -144,9 +148,9 @@ class BranchcontactController extends Controller
 		$branchid = $request->branchid;
 		try
 		{
-		//userid	typebranchid	compid	subcompid	name	mobile	phone	des	
+			//userid	typebranchid	compid	subcompid	name	mobile	phone	des	
 			$row =Branchcontact::create([ 'name' => $request->name , 'mobile' => $request->mobile ,
-			'phone' => $request->phone , 'address' => $request->address , 'userid' => "$userid" ,
+			'phone' => $request->phone , 'address' => $request->dess , 'userid' => "$userid" ,
 			'compid' => "$compid" ,'subcompid' => "$subcompid" , 'typebranchid' => $typebranchid 
 			, 'branchid' => $branchid
 			]);
@@ -157,7 +161,8 @@ class BranchcontactController extends Controller
     		$message =  $e->getMessage();
 			//echo "message $message ";
 		}
-		return Redirect::route('viewBranch.route')->with("message","Thank you for taking this sub sub company");	
+		return redirect("appmerchant/viewbranchcontact/$branchid");
+		
 	}
 	
 	public function update(Request $request, $id)
@@ -168,16 +173,14 @@ class BranchcontactController extends Controller
 		]);
 
 		$userid = Auth::id();
-		$subcompid = $request->subcompid;
-		$compid = $request->compid;
-		$typebranchid = $request->typebranchid;
+
 		$branchid = $request->branchid;
 
 		$row = Branchcontact::where('userid', '=', $userid)->where('id', '=', $id)->first();
 		try
 		{
 			$row->update([
-			'name' => $request->name , 'mobile' => $request->mobile ,'phone' => $request->phone , 'address' => $request->address 
+			'name' => $request->name , 'mobile' => $request->mobile ,'phone' => $request->phone , 'address' => $request->dess 
 			]);	
 			$LastInsertId = $id;
 		}
@@ -185,7 +188,7 @@ class BranchcontactController extends Controller
 		{
     		$message =  $e->getMessage();
 		}
-		return Redirect::route('viewBranchcontact.route');
+		return redirect("appmerchant/viewbranchcontact/$branchid");
 	}	
 
 
@@ -195,8 +198,9 @@ class BranchcontactController extends Controller
 		$this->middleware(['auth','is_merchant' ,'conf','conf2']);
 		$userid = Auth::id();
 		$row =Branchcontact::where('branchcontacts.userid', '=', $userid)->where('branchcontacts.id', '=', $id)->first();
+		$branchid = $row->branchid;
 		$row->delete();
-		return Redirect::route('viewBranchcontact.route');
+		return redirect("appmerchant/viewbranchcontact/$branchid");
 	}
 	
 	
@@ -208,11 +212,17 @@ class BranchcontactController extends Controller
 		{
 			foreach($request->idx as $id)
 			{
-				$row =Branch::where('branches.userid', '=', $userid)->where('branches.id', '=', $id)->first();
+				$row =Branchcontact::where('branchcontacts.userid', '=', $userid)->where('branchcontacts.id', '=', $id)->first();
+				$branchid = $row->branchid;
 				$row->delete();
 			}
 		}
-		return Redirect::route('viewBranch.route');
+		return redirect("appmerchant/viewbranchcontact/$branchid");
 	}
 	
 }
+
+
+
+
+

@@ -5,20 +5,22 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-					<div class = 'floatleft'>
-					<h1 class='text-dark fw-bolder fs-2 margintop7'>SubCompany Type</h1>
-					</div> 
-					<div class = 'floatleft'>
-					<a  href ='/appadmin/addsubcompanytype'
-					class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'>Add SubCompany Type  </a>
-					</div>
 
+				
+				
+				<div class="card-header"> 
+				<div class = 'floatleft'>
+				<h1 class='text-dark fw-bolder fs-2 margintop7'>Discounts</h1>
+				</div> 
+				<div class = 'floatleft'>
+				<a  href ='/appadmin/adddiscount'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'> Add Discount  </a>
+				
 				</div>
+				</div>
+
                 <div class="card-body">
-                    
-					
-					<form method = 'post' action = "/appadmin/subcompanytype/deleteall">
+					<form method = 'post' action = "/appadmin/discount/deleteall">
 						<input name="_method" type="hidden" value="DELETE">
 						@csrf
 						<table class="table align-middle table-row-dashed fs-6 gy-5 data-table" >
@@ -30,15 +32,15 @@
 										</th>
 										<th style = 'width:8%;'>No</th>
 										<th style = 'width:25%;'>Name</th>
-									
-										<th style = 'width:53%;'>Action</th>
+										<th style = 'width:25%;'>Discount</th>
+										<th style = 'width:28%;'>Action</th>
 									</tr>
 								</thead>
 								<tbody class="fw-bold text-gray-600">
 								</tbody>
 								<thead>
 									<tr>
-									<th colspan = 4 align = 'center' style = 'width:90%;text-align:center;'>
+									<th colspan = 5 align = 'center' style = 'width:90%;text-align:center;'>
 									<input type = 'submit' value = 'Delete' 
 									onclick = 'return confirm("are you sure you want to remove this item");'
 									class="btn btn-danger" align = 'center'>
@@ -48,11 +50,6 @@
 
 							</table>
 						</form>
-
-					
-					
-					
-					
                 </div>
             </div>
         </div>
@@ -69,12 +66,12 @@
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: false,
-        ajax: "{{ route('viewtypesubCompany.route') }}",
+        ajax: "{{ route('viewDiscount.route') }}",
         columns: [
 			{data: 'Delete1', name: 'Delete1', orderable: false, searchable: false},
             {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
-			
+			{data: 'Perc', name: 'Perc'},			
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ],
 		"order": [[ 0, "desc" ]]

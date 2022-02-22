@@ -1317,7 +1317,8 @@ License: For each use you must have a valid license purchased only from above li
 
 				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
 					<!--begin::Header-->
-			
+					<div id="kt_header" class="header" data-kt-sticky="true" data-kt-sticky-name="header" data-kt-sticky-offset="{default: '200px', lg: '300px'}">
+					</div>
 
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 						<main class="mainer">

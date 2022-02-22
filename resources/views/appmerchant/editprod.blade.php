@@ -5,15 +5,34 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Edit Product
-				| <a  href ='/appmerchant/viewcompany'>&rsaquo; Companies </a>
-				| <a  href ='/appmerchant/addcompany'>&rsaquo; Add Companies </a>
-				| <a  href ='/appmerchant/viewsubcompany'>&rsaquo; Sub Companies </a>
-				| <a  href ='/appmerchant/addsubcompany'>&rsaquo; Add Sub Companies </a>
-				| <a  href ='/appmerchant/viewprod'>&rsaquo; Products </a>
-				| <a  href ='/appmerchant/addprod'>&rsaquo; Add Products </a>
-				
+
+
+                <div class="card-header"> 
+				<div class = 'floatleft'>
+				<h1 class='text-dark fw-bolder fs-2 margintop7'>Edit Products</h1>
+				</div> 
+				<div class = 'floatleft'>
+				<a  href ='/appmerchant/viewcompany'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'> Companies </a>
+				<a  href ='/appmerchant/addcompany'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Add Companies </a>
+				<a  href ='/appmerchant/viewsubcompany'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Sub Companies </a>
+				<a  href ='/appmerchant/addsubcompany'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'> Add Sub Companies </a>
+				<a  href ='/appmerchant/viewsubsubcompany'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
+				 Sub Sub Companies </a>
+				<a  href ='/appmerchant/addprod'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
+				 Add Products </a>
+				<a  href ='/appmerchant/viewprod'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
+				 View Products </a>
 				</div>
+				</div>
+
+
                 <div class="card-body">
 					<div class="card-body">
 						{!! Form::model($row, ['route' => ['prodUpdate.route', $row->id],
@@ -75,7 +94,7 @@
 
 
 						    <div class="form-group row">
-								<input type="submit" value="Update" class="button4">
+								<input type="submit" value="Update" class="btn btn-primary paddtop6 bold">
 						    </div>
 						{!! Form::close() !!}
 					</div>
@@ -90,9 +109,7 @@
 @section('scripts')
 
 
-		<script type="text/javascript">
-
-		
+	<script type="text/javascript">
 
 		$( document ).ready(function() {
 
@@ -104,10 +121,6 @@ url: "{{ route('getsubcomsbycomp') }}?compid=" + {{ request()->route('compid') }
 					
 					reload1();
 					
-					
-					
-					
-					
 				}
 			});
 			
@@ -115,28 +128,15 @@ url: "{{ route('getsubcomsbycomp') }}?compid=" + {{ request()->route('compid') }
 url: "{{ route('getsubsubcomsbycomp') }}?subcompid=" + {{ request()->route('subcompid') }} + "&subsubcompid=" + {{ request()->route('subsubcompid') }},	
 				method: 'GET',
 				success: function(data) {
-					$('#subcompid3').html(data.html);
-					
-					reload1();
-					
+					$('#subcompid3').html(data.html);	
+					reload1();	
 				}
 			});
-			
-			
-			
 		});	 
 
 
-		
-		
-		
-	</script>
 
-
-<script type="text/javascript">
-
-
-$( document ).ready(function() {
+		$( document ).ready(function() {
 			$("#compid").change(function(){	
 			 $('#subcompid2').html('....Loading Sub companies....');
 			$.ajax({
@@ -183,18 +183,17 @@ function reload1()
 				method: 'GET',
 				success: function(data) {
 					$('#subcompid2').html(data.html);
-					
-					
-							$("#subcompid").change(function(){	
-							 $('#subcompid3').html('....Loading Sub sub companies....');
-							$.ajax({
-								url: "{{ route('getsubsubcomsbycomp') }}?subcompid=" + $(this).val(),	
-								method: 'GET',
-								success: function(data) {
-									$('#subcompid3').html(data.html);
-								}
-							});
+
+					$("#subcompid").change(function(){	
+						 $('#subcompid3').html('....Loading Sub sub companies....');
+						$.ajax({
+							url: "{{ route('getsubsubcomsbycomp') }}?subcompid=" + $(this).val(),	
+							method: 'GET',
+							success: function(data) {
+								$('#subcompid3').html(data.html);
+							}
 						});
+					});
 
 				}
 			});

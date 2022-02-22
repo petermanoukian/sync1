@@ -115,11 +115,18 @@ class BranchController extends Controller
 							<a href=\"/appmerchant/editbranch/$branchidx/$typebranchid/$compid/$subcompid/\" 
 							class=\"edit btn btn-primary btn-sm\">Edit </a>	
 						</div>
-						
 						<div style = 'display:inline;float:left;margin-left:5px;'>
-							<a href=\"/appmerchant/addbranchcontact/$branchidx/$typebranchid/$compid/$subcompid\" 
+							<a href=\"/appmerchant/addbranchcontact/$branchidx\" 
 							class=\"edit btn btn-primary btn-sm\">Add Branch Contact </a>	
-						</div>	";
+						</div>
+
+						<div style = 'display:inline;float:left;margin-left:5px;'>
+							<a href=\"/appmerchant/viewbranchcontact/$branchidx\" 
+							class=\"edit btn btn-primary btn-sm\">View  Branch Contact </a>	
+						</div>	
+
+
+						";
                         return $btn;
                     })	
 					->addColumn('Name', function($row)

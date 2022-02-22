@@ -39,7 +39,7 @@ class SubcompanyController extends Controller
 		}
 		if($request->compid != "")
 		{
-			$html = '<select class="form-control" name = "subcompid" id="subcompid" required>
+			$html = '<select class="form-control form-control-lg form-control-solid" name = "subcompid" id="subcompid" required>
 			<option value = "">Choose Subcompany</option>';
 			$subcats = Subcompany::where('compid', $request->compid)->where('userid', '=', $userid)->orderBy('name', 'ASC')->get();
 			$count = count($subcats);
@@ -56,7 +56,7 @@ class SubcompanyController extends Controller
 				$html .= "</select>";
 			}
 			else 
-			$html = '<select class="form-control" name = "subcompid" id="subcompid" required></select> ';
+			$html = '<select class="form-control form-control-lg form-control-solid" name = "subcompid" id="subcompid" required></select> ';
 		}
 		else
 		$html = 'Choose A Sub Company';

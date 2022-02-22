@@ -5,7 +5,25 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Branch Type | <a  href ='/appadmin/addbranchtype'>&rsaquo; Add Branch Type  </a></div>
+
+				
+				
+				<div class="card-header"> 
+				<div class = 'floatleft'>
+				<h1 class='text-dark fw-bolder fs-2 margintop7'>Branch Type</h1>
+				</div> 
+				<div class = 'floatleft'>
+				<a  href ='/appadmin/addbranchtype'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'> Add Branch Type  </a>
+				
+				</div>
+				</div>
+				
+				
+				
+				
+				
+				
                 <div class="card-body">
 					<form method = 'post' action = "/appadmin/branchtype/deleteall">
 						<input name="_method" type="hidden" value="DELETE">

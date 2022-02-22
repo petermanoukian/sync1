@@ -5,20 +5,28 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"> Add Branch
-				| <a  href ='/appmerchant/viewbranch'>&rsaquo; Branches </a>
-				| <a  href ='/appmerchant/viewcompany'>&rsaquo; Companies </a>
-				| <a  href ='/appmerchant/addcompany'>&rsaquo; Add Companies </a>
-				| <a  href ='/appmerchant/viewsubcompany/<?php echo $compid ; ?>'>&rsaquo; Sub Companies </a>
-				| <a  href ='/appmerchant/addsubcompany/<?php echo $compid ; ?>'>&rsaquo; Add Sub Companies </a>
 
+				
+				<div class="card-header"> 
+				<div class = 'floatleft'> <h1 class='text-dark fw-bolder fs-2 margintop7'>Add Branch </div></h1> 
+				<div class = 'floatleft'>
+				<a  href ='/appmerchant/viewbranch' class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'>Branches </a>
+				<a  href ='/appmerchant/viewcompany' class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'>Companies </a>
+				<a  href ='/appmerchant/addcompany' class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'>Add Companies </a>
+				<a  href ='/appmerchant/viewsubcompany/<?php echo $compid ; ?>'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'>Sub Companies </a>
+				<a  href ='/appmerchant/addsubcompany/<?php echo $compid ; ?>'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'>Add Sub Companies </a>
+				<a  href ='/appmerchant/viewcompany' class='edit btn btn-primary btn-sm margintop7 paddtop6 bold'>Companies </a>
 				</div>
+				</div>
+				
+				
                 <div class="card-body">
 					<div class="card-body">
 						{{Form::open(array('url' => 'appmerchant/branch/add', 'method' => 'post', 'files' => true
 						,'enctype'=>'multipart/form-data'))}}
-						
-						
+
 							<div class="form-group row">
 								<label for="name">Type</label>
 								<select name="typebranchid" id='typebranchid' class="form-control  form-control-lg form-control-solid"  placeholder="Type" required>
@@ -28,8 +36,7 @@
 									@endforeach 
 								</select>	
 							</div>	
-						
-						
+
 							<div class="form-group row">
 								<label for="name">Company</label>
 								<select name="compid" id='compid' class="form-control  form-control-lg form-control-solid"  placeholder="Company" required>
@@ -76,11 +83,9 @@
 							<div class="form-group row">
 								<textarea class="form-control  form-control-lg form-control-solid"  name="dess"></textarea>	
 							</div>
-							
-							
-	
+
 						    <div class="form-group row">
-								<input type="submit" value="Add" class="button4">
+								<input type="submit" value="Add" class="btn btn-primary paddtop6 bold">
 						    </div>
 						{!! Form::close() !!}
 					</div>

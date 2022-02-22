@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 11, 2022 at 06:49 AM
+-- Generation Time: Feb 22, 2022 at 10:58 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.4.0
 
@@ -48,7 +48,14 @@ CREATE TABLE IF NOT EXISTS `branchcontacts` (
   KEY `branchcontacts_subcompid_foreign` (`subcompid`),
   KEY `branchcontacts_branchid_foreign` (`branchid`),
   KEY `branchcontacts_userid_foreign` (`userid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `branchcontacts`
+--
+
+INSERT INTO `branchcontacts` (`id`, `userid`, `typebranchid`, `compid`, `subcompid`, `branchid`, `name`, `mobile`, `phone`, `address`, `created_at`, `updated_at`) VALUES
+(1, 1, 5, 7, 7, 2, 'branchcontact111', '033333', '09999', NULL, '2022-02-21 06:17:09', '2022-02-21 06:17:09');
 
 -- --------------------------------------------------------
 
@@ -117,6 +124,31 @@ INSERT INTO `companies` (`id`, `userid`, `name`, `logo`, `created_at`, `updated_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `discountts`
+--
+
+DROP TABLE IF EXISTS `discountts`;
+CREATE TABLE IF NOT EXISTS `discountts` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `perc` double(8,2) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `discountts`
+--
+
+INSERT INTO `discountts` (`id`, `name`, `perc`, `created_at`, `updated_at`) VALUES
+(2, 'gffgfd', 456.00, '2022-02-22 06:38:53', '2022-02-22 06:38:53'),
+(3, 'ftrtt', 56.00, '2022-02-22 06:40:12', '2022-02-22 06:40:12'),
+(5, 'ytytyy upd', 789444.00, '2022-02-22 06:41:12', '2022-02-22 06:47:43');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `failed_jobs`
 --
 
@@ -145,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -163,7 +195,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2022_02_03_092125_create_typebranches_table', 6),
 (14, '2022_02_04_073527_create_prods_table', 7),
 (15, '2022_02_03_131000_create_branches_table', 8),
-(16, '2022_02_10_080406_create_branchcontacts_table', 9);
+(16, '2022_02_10_080406_create_branchcontacts_table', 9),
+(17, '2022_02_22_092415_create_discountts_table', 10);
 
 -- --------------------------------------------------------
 
@@ -226,7 +259,14 @@ CREATE TABLE IF NOT EXISTS `prods` (
   KEY `prods_userid_foreign` (`userid`),
   KEY `prods_subcompid_foreign` (`subcompid`),
   KEY `prods_subsubcompid_foreign` (`subsubcompid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `prods`
+--
+
+INSERT INTO `prods` (`id`, `userid`, `name`, `compid`, `subcompid`, `subsubcompid`, `logo`, `prix`, `des`, `dess`, `created_at`, `updated_at`) VALUES
+(1, 1, 'huuytu', 7, 1, 1, '1645104998.jpg', 55.00, 'tyytt', '<p>yuyuyt yyt</p>', '2022-02-17 09:36:39', '2022-02-17 09:36:39');
 
 -- --------------------------------------------------------
 
@@ -308,7 +348,7 @@ CREATE TABLE IF NOT EXISTS `typebranches` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `typebranches`
@@ -317,7 +357,9 @@ CREATE TABLE IF NOT EXISTS `typebranches` (
 INSERT INTO `typebranches` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (3, 'Type111', '2022-02-09 07:12:07', '2022-02-09 07:12:07'),
 (4, 'Type22222', '2022-02-09 07:12:17', '2022-02-09 07:12:17'),
-(5, 'Typeee3333', '2022-02-09 07:12:28', '2022-02-09 07:12:28');
+(5, 'Typeee3333', '2022-02-09 07:12:28', '2022-02-09 07:12:28'),
+(6, 'ytyyt', '2022-02-18 04:42:51', '2022-02-18 04:42:51'),
+(7, 'ytuyuyu', '2022-02-18 04:46:30', '2022-02-18 04:46:30');
 
 -- --------------------------------------------------------
 
@@ -372,8 +414,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `levell`, `conf1`, `conf2`, `created_at`, `updated_at`) VALUES
-(1, 'test111', 'test@test.com', NULL, '$2y$10$HtMKKOClab5bQ/J1UdtvIuvXqeoR8pNih7khl35n04VRwpKN59ONu', 'p3rjfvg5PBerBqqsRrIyrUiYh8YMUwzyLsv1Dp6EtvLn2cpRmNzFowyeyeoQ', 2, 1, 1, '2022-01-26 02:54:11', '2022-01-26 02:54:11'),
-(2, 'admin', 'admin@admin.com', NULL, '$2y$10$HtMKKOClab5bQ/J1UdtvIuvXqeoR8pNih7khl35n04VRwpKN59ONu', 'KEg4roCuL1E2sef4lO0Xg2VfLolTGRZXVxsO6JAbWYuLzOsEtJOdfVUNiCbo', 1, 1, 1, NULL, NULL);
+(1, 'test111', 'test@test.com', NULL, '$2y$10$HtMKKOClab5bQ/J1UdtvIuvXqeoR8pNih7khl35n04VRwpKN59ONu', 'BIapamDFCUw7WNgFW6AMRCOyxmRSi5J4o4oxY7H0cj1aIfZwMXVmJmrs1Oe8', 2, 1, 1, '2022-01-26 02:54:11', '2022-01-26 02:54:11'),
+(2, 'admin', 'admin@admin.com', NULL, '$2y$10$HtMKKOClab5bQ/J1UdtvIuvXqeoR8pNih7khl35n04VRwpKN59ONu', 'Viw1dGxNxQYisyzg63REozkxoU7WQs5JYTdLZh3ZHchXxIEAz9TJjx3sowwF', 1, 1, 1, NULL, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

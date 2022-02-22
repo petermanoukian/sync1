@@ -65,8 +65,6 @@ class TypesubcompanyController extends Controller
 						</div>
 						<div style = 'display:inline;float:left;margin-left:5px;'>
 							<a href=\"/appadmin/edittypesubcompany/$id\" class=\"edit btn btn-primary btn-sm\">Edit </a>
-							<a href=\"/appadmin/addtypesubcompany/$id\" class=\"edit btn btn-primary btn-sm\">Add Subcategory </a>
-							<a href=\"/appadmin/viewtypesubcompany/$id\" class=\"edit btn btn-primary btn-sm\">Subcategories </a>
 						</div>
 						";
                         return $btn;

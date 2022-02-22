@@ -5,16 +5,36 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"> Products
-					| <a  href ='/appmerchant/viewcompany'>&rsaquo; Companies </a>
-				| <a  href ='/appmerchant/addcompany'>&rsaquo; Add Companies </a>
-				| <a  href ='/appmerchant/viewsubcompany/<?php echo $compid ; ?>'>&rsaquo; Sub Companies </a>
-				| <a  href ='/appmerchant/addsubcompany/<?php echo $compid ; ?>'>&rsaquo; Add Sub Companies </a>
-				| <a  href ='/appmerchant/viewsubsubcompany/<?php echo $compid ; ?>/<?php echo $subcompid ; ?>'>
-				&rsaquo; Sub Sub Companies </a>
-				| <a  href ='/appmerchant/addprod/<?php echo $compid ; ?>/<?php echo $subcompid ; ?>/<?php echo $subsubcompid ; ?>'>
-				&rsaquo; Add Products </a>
+			
+			
+			
+			
+                <div class="card-header"> 
+				<div class = 'floatleft'>
+				<h1 class='text-dark fw-bolder fs-2 margintop7'> View Products</h1>
+				</div> 
+				<div class = 'floatleft'>
+				<a  href ='/appmerchant/viewcompany'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'> Companies </a>
+				<a  href ='/appmerchant/addcompany'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Add Companies </a>
+				<a  href ='/appmerchant/viewsubcompany/<?php echo $compid ; ?>'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Sub Companies </a>
+				<a  href ='/appmerchant/addsubcompany/<?php echo $compid ; ?>'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'> Add Sub Companies </a>
+				<a  href ='/appmerchant/viewsubsubcompany/<?php echo $compid ; ?>/<?php echo $subcompid ; ?>'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
+				 Sub Sub Companies </a>
+				<a  href ='/appmerchant/addprod/<?php echo $compid ; ?>/<?php echo $subcompid ; ?>/<?php echo $subsubcompid ; ?>'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
+				 Add Products </a>
 				</div>
+				</div>
+				
+
+				
+				
+				
                 <div class="card-body">
                     
 					

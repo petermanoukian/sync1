@@ -5,14 +5,21 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Edit Sub Company 
-				| <a  href ='/appmerchant/viewcompany'>&rsaquo; Companies </a>
-				| <a  href ='/appmerchant/addcompany'>&rsaquo; Add Companies </a>
-				| <a  href ='/appmerchant/viewsubcompany'>&rsaquo; Sub Companies </a>
-				| <a  href ='/appmerchant/addsubcompany'>&rsaquo; Add Sub Companies </a>
+			<div class="card-header">
+               <div class = 'floatleft'><h1 class='text-dark fw-bolder fs-2 margintop7'> Edit Sub Company </h1></div> 
+			    <div class = 'floatleft'>
+				<a  href ='/appmerchant/viewcompany'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>&rsaquo; Companies </a>
+				<a  href ='/appmerchant/addcompany'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>&rsaquo; Add Companies </a>
+				<a  href ='/appmerchant/viewsubcompany'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>&rsaquo; Sub Companies </a>
+				<a  href ='/appmerchant/addsubcompany'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>&rsaquo; Add Sub Companies </a>
 				
 				
 				</div>
+			</div>
                 <div class="card-body">
 					<div class="card-body">
 						{!! Form::model($row, ['route' => ['subCompanyUpdate.route', $row->id],
@@ -64,21 +71,16 @@
 								 onchange="readURL(this);">
 								
 								<img id="blah" src="#" alt="your image"  style = 'max-width:300px;margin:5px;display:none;'/>
-								
 								@if($row->logo != '')
 								<input type="text"  class="form-control  form-control-lg form-control-solid" id = 'pic' name = 'pic' value = "{{$row->logo}}" readonly>
 								<div style = 'flat:left;clear:both;width:98%;'>
 								<img src="<?php echo asset("images/subcompany/thumb/{$row->logo}")?>" style = 'margin-top:10px;clear:both'>
 								</div>
 								@endif
-
 							</div>
 
-
-
-
 						    <div class="form-group row">
-								<input type="submit" value="Update" class="button4">
+								<input type="submit" value="Update" class="btn btn-primary paddtop6 bold">
 						    </div>
 						{!! Form::close() !!}
 					</div>

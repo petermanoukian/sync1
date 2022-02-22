@@ -37,7 +37,7 @@ class SubsubcompanyController extends Controller
 		if($request->subcompid != "")
 		{
 			$userid = Auth::id();
-			$html = '<select class="form-control" name = "subsubcompid" id="subsubcompid">
+			$html = '<select class="form-control form-control-lg form-control-solid" name = "subsubcompid" id="subsubcompid">
 			<option value = "">Choose Subsubcompany</option>';
 			$subcats = Subsubcompany::where('subcompid', $request->subcompid)->where('userid', '=', $userid)->orderBy('name', 'ASC')->get();
 			$count = count($subcats);
@@ -54,7 +54,7 @@ class SubsubcompanyController extends Controller
 				$html .= "</select>";
 			}
 			else 
-			$html = '<select class="form-control" name = "subsubcompid" id="subsubcompid" ></select> ';
+			$html = '<select class="form-control form-control-lg form-control-solid" name = "subsubcompid" id="subsubcompid" ></select> ';
 		}
 		else
 		$html = 'Choose A Sub sub Company';

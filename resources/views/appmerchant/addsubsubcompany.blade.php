@@ -5,14 +5,30 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Add sub sub Company 
-				| <a  href ='/appmerchant/viewcompany'>&rsaquo; Companies </a>
-				| <a  href ='/appmerchant/addcompany'>&rsaquo; Add Companies </a>
-				| <a  href ='/appmerchant/viewsubcompany/<?php echo $compid ; ?>'>&rsaquo; Sub Companies </a>
-				| <a  href ='/appmerchant/addsubcompany/<?php echo $compid ; ?>'>&rsaquo; Add Sub Companies </a>
-				| <a  href ='/appmerchant/viewsubsubcompany/<?php echo $compid ; ?>/<?php echo $subcompid ; ?>'>
-				&rsaquo; Sub Sub Companies </a>
+
+				<div class="card-header">
+					<div class = 'floatleft'>
+					<h1 class='text-dark fw-bolder fs-2 margintop7'> Sub Companies </h1>
+					</div> 
+					<div class = 'floatleft'>
+						<a  href ='/appmerchant/addcompany'
+						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Add Company  </a>	
+						<a  href ='/appmerchant/viewcompany'
+						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Companies </a> 
+						<a  href ='/appmerchant/viewsubcompany/<?php echo $compid ; ?>'
+						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>View Sub Companies </a> 
+						 <a  href ='/appmerchant/addsubcompany/<?php echo $compid ; ?>'
+						 class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
+						 Add Sub Companies </a> 
+						<a  href ='/appmerchant/viewsubsubcompany/<?php echo $compid ; ?>/<?php echo $subcompid ; ?>'
+						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
+						Sub Sub Companies</a> 
+					</div>
 				</div>
+				
+				
+				
+				
                 <div class="card-body">
 					<div class="card-body">
 						{{Form::open(array('url' => 'appmerchant/subsubcompany/add', 'method' => 'post', 'files' => true
@@ -50,7 +66,7 @@
 								<img id="blah" src="#" alt="your image"  style = 'max-width:300px;margin:5px;display:none;'/>
 							</div>
 						    <div class="form-group row">
-								<input type="submit" value="Add" class="button4">
+								<input type="submit" value="Add" class="btn btn-primary paddtop6 bold">
 						    </div>
 						{!! Form::close() !!}
 					</div>
