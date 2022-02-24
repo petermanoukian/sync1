@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 22, 2022 at 10:58 AM
+-- Generation Time: Feb 24, 2022 at 12:17 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.4.0
 
@@ -95,6 +95,32 @@ INSERT INTO `branches` (`id`, `userid`, `typebranchid`, `compid`, `subcompid`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cats`
+--
+
+DROP TABLE IF EXISTS `cats`;
+CREATE TABLE IF NOT EXISTS `cats` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `userid` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cats_userid_foreign` (`userid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `cats`
+--
+
+INSERT INTO `cats` (`id`, `userid`, `name`, `logo`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Cat1 upddd', '1645616406.jpg', '2022-02-23 07:39:31', '2022-02-23 07:40:06'),
+(2, 1, 'Casttt222', '1645701540.png', '2022-02-24 07:19:00', '2022-02-24 07:19:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `companies`
 --
 
@@ -108,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `companies` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `companies_userid_foreign` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `companies`
@@ -119,7 +145,9 @@ INSERT INTO `companies` (`id`, `userid`, `name`, `logo`, `created_at`, `updated_
 (2, 1, 'tesddf111 updr', '', '2022-01-26 08:55:26', '2022-01-28 09:11:39'),
 (5, 1, 'company555 updddd', '1643375471.jpg', '2022-01-27 10:22:07', '2022-01-28 09:11:11'),
 (7, 1, 'fdfdfds', '', '2022-01-28 09:12:44', '2022-01-28 09:12:44'),
-(8, 1, 'iuyii', '', '2022-01-31 11:41:21', '2022-01-31 11:41:21');
+(8, 1, 'iuyii', '', '2022-01-31 11:41:21', '2022-01-31 11:41:21'),
+(9, 1, 'commppp', '', '2022-02-23 07:24:06', '2022-02-23 07:24:06'),
+(10, 1, 'fdgf', '1645615472.jpg', '2022-02-23 07:24:33', '2022-02-23 07:24:33');
 
 -- --------------------------------------------------------
 
@@ -177,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -196,7 +224,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (14, '2022_02_04_073527_create_prods_table', 7),
 (15, '2022_02_03_131000_create_branches_table', 8),
 (16, '2022_02_10_080406_create_branchcontacts_table', 9),
-(17, '2022_02_22_092415_create_discountts_table', 10);
+(17, '2022_02_22_092415_create_discountts_table', 10),
+(19, '2022_02_23_084007_create_cats_table', 11),
+(20, '2022_02_23_114417_create_subats_table', 12),
+(21, '2022_02_23_120433_create_subcats_table', 13),
+(22, '2022_02_24_065344_create_subsubcats_table', 14);
 
 -- --------------------------------------------------------
 
@@ -271,6 +303,56 @@ INSERT INTO `prods` (`id`, `userid`, `name`, `compid`, `subcompid`, `subsubcompi
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `subats`
+--
+
+DROP TABLE IF EXISTS `subats`;
+CREATE TABLE IF NOT EXISTS `subats` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `userid` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `catid` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `subats_catid_foreign` (`catid`),
+  KEY `subats_userid_foreign` (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subcats`
+--
+
+DROP TABLE IF EXISTS `subcats`;
+CREATE TABLE IF NOT EXISTS `subcats` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `userid` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `catid` int(10) UNSIGNED NOT NULL,
+  `logo` varchar(255) CHARACTER SET utf32 DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `subcats_catid_foreign` (`catid`),
+  KEY `subcats_userid_foreign` (`userid`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `subcats`
+--
+
+INSERT INTO `subcats` (`id`, `userid`, `name`, `catid`, `logo`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Subcattego', 1, '1645622759.png', '2022-02-23 09:25:59', '2022-02-23 09:51:26'),
+(2, 1, 'gfdfdd', 2, '', '2022-02-24 07:19:09', '2022-02-24 07:19:09'),
+(3, 1, 'gfgtyytr', 1, '', '2022-02-24 07:19:56', '2022-02-24 07:19:56'),
+(4, 1, 'ytytytr', 1, '', '2022-02-24 07:20:36', '2022-02-24 07:20:36'),
+(5, 1, 'SUB B111', 2, '', '2022-02-24 07:21:01', '2022-02-24 07:21:01');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subcompanies`
 --
 
@@ -302,6 +384,37 @@ INSERT INTO `subcompanies` (`id`, `userid`, `name`, `compid`, `typesubcompid`, `
 (8, 1, 'uytuytu', 2, 3, '', '2022-02-02 03:10:29', '2022-02-02 03:10:29'),
 (9, 1, 'lkjklklkl', 5, 4, '', '2022-02-02 03:10:57', '2022-02-02 03:10:57'),
 (10, 1, 'jhgjghjgh', 1, 3, '', '2022-02-02 03:11:07', '2022-02-02 03:11:07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subsubcats`
+--
+
+DROP TABLE IF EXISTS `subsubcats`;
+CREATE TABLE IF NOT EXISTS `subsubcats` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `userid` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `catid` int(10) UNSIGNED NOT NULL,
+  `subcatid` int(10) UNSIGNED NOT NULL,
+  `logo` varchar(500) CHARACTER SET utf32 DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `subsubcats_catid_foreign` (`catid`),
+  KEY `subsubcats_userid_foreign` (`userid`),
+  KEY `subsubcats_subcatid_foreign` (`subcatid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `subsubcats`
+--
+
+INSERT INTO `subsubcats` (`id`, `userid`, `name`, `catid`, `subcatid`, `logo`, `created_at`, `updated_at`) VALUES
+(1, 1, 'ASdffgg', 1, 1, '1645702215.jpg', '2022-02-24 07:30:15', '2022-02-24 07:30:15'),
+(2, 1, 'ASdffggght', 2, 2, '1645702746.jpg', '2022-02-24 07:39:06', '2022-02-24 07:39:06'),
+(3, 1, 'trtrt upddd', 1, 1, '', '2022-02-24 07:40:46', '2022-02-24 07:48:56');
 
 -- --------------------------------------------------------
 

@@ -1,20 +1,20 @@
 <?php
+
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Redirect;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Company;
+use App\Models\Cat;
 use App\Models\User;
 use Image;
 use DataTables;
 
 
-
-class CompanyController extends Controller
+class CatController extends Controller
 {
-   
-	public function __construct()
+    public function __construct()
     {
 
     }   
@@ -22,7 +22,7 @@ class CompanyController extends Controller
 	public function create()
     {
         $this->middleware(['auth','is_merchant' ,'conf1','conf2']);
-		return view('appmerchant/addcompany');
+		return view('appmerchant/addcat');
     }
 	
 	public function indexadmin(Request $request)
@@ -34,7 +34,7 @@ class CompanyController extends Controller
 		//echo " userid ::: $userid  ";
 		
 		if ($request->ajax()) {
-            $data = Company::where('userid', '=', $userid)->orderBy('id', 'DESC')->get();
+            $data = Cat::where('userid', '=', $userid)->orderBy('id', 'DESC')->get();
             return Datatables::of($data)
                     ->addIndexColumn()	
 					->addColumn('Delete1', function($row) use ($token){
@@ -51,7 +51,7 @@ class CompanyController extends Controller
 						$img = $row['logo'];
 						if($img !='')
 						{
-							$path = asset('/images/company/thumb/'.$img);	
+							$path = asset('/images/cat/thumb/'.$img);	
 							$btn2 = " <img src = \"$path\" style = 'max-width:180px;' />";
 						}
 						else						
@@ -60,12 +60,9 @@ class CompanyController extends Controller
                     })
                     ->addColumn('action', function($row) use ($token){
      					$id = $row['id'];
-					
-						
-						//$count = $row['subcats_count'];
                         $btn = "
 						<div style = 'display:inline;float:left;margin-left:5px;'>
-							<form method = 'post' action = \"/appmerchant/company/delete/$id/\">
+							<form method = 'post' action = \"/appmerchant/cat/delete/$id/\">
 							".csrf_field(). method_field('DELETE') ."
 							<input name=\"_method\" type=\"hidden\" value=\"DELETE\">
 							<input type=\"hidden\" name=\"_token\" value=\"$token\">
@@ -74,17 +71,13 @@ class CompanyController extends Controller
 							</form>
 						</div>
 						<div style = 'display:inline;float:left;margin-left:5px;'>
-							<a href=\"/appmerchant/editcompany/$id\" class=\"edit btn btn-primary btn-sm\">Edit </a>
-							<a href=\"/appmerchant/addsubcompany/$id\" class=\"edit btn btn-primary btn-sm\">Add Company </a>
-							<a href=\"/appmerchant/viewsubcompany/$id\" class=\"edit btn btn-primary btn-sm\">Companies </a>
-							
-							<a href=\"/appmerchant/addsubsubcompany/$id\" class=\"edit btn btn-primary btn-sm\">Add Sub Company </a>
-							<a href=\"/appmerchant/viewsubsubcompany/$id\" class=\"edit btn btn-primary btn-sm\">Sub SubCompanies </a>
-							<a href=\"/appmerchant/addprod/$id\" class=\"edit btn btn-primary btn-sm\">Add Product </a>
-							<a href=\"/appmerchant/viewprod/$id\" class=\"edit btn btn-primary btn-sm\">Products </a>
-							
-							
-							
+							<a href=\"/appmerchant/editcat/$id\" class=\"edit btn btn-primary btn-sm\">Edit </a>
+							<a href=\"/appmerchant/addsubcat/$id\" class=\"edit btn btn-primary btn-sm\">Add Subcategory </a>
+							<a href=\"/appmerchant/viewsubcat/$id\" class=\"edit btn btn-primary btn-sm\">Subcategories </a>	
+							<a href=\"/appmerchant/addsubsubcat/$id\" class=\"edit btn btn-primary btn-sm\">Add Sub Subcategory </a>
+							<a href=\"/appmerchant/viewsubsubcat/$id\" class=\"edit btn btn-primary btn-sm\">Sub Subcategories </a>
+							<a href=\"/appmerchant/addprodbycat/$id\" class=\"edit btn btn-primary btn-sm\">Add Product </a>
+							<a href=\"/appmerchant/viewprodbycat/$id\" class=\"edit btn btn-primary btn-sm\">Products </a>
 						</div>
 						";
                         return $btn;
@@ -99,23 +92,17 @@ class CompanyController extends Controller
                     ->make(true);
         }
 		
-		return view('appmerchant.viewcompany');
+		return view('appmerchant.viewcat');
 	}
 	
 	public function edit($id)
 	{
 		$this->middleware(['auth','is_merchant' ,'conf','conf2']);
 		$userid = Auth::id();
-
-		$row =Company::where('userid', '=', $userid)->where('id', '=', $id)->first();
-		return view('appmerchant.editcompany', compact('row' ));
+		$row =Cat::where('userid', '=', $userid)->where('id', '=', $id)->first();
+		return view('appmerchant.editcat', compact('row' ));
 	}
-	
-	
-	
-	
-	
-	
+
 	public function store(Request $request)
 	{
 		$this->middleware(['auth','is_merchant' ,'conf','conf2']);
@@ -129,12 +116,12 @@ class CompanyController extends Controller
 			$file = $request->file('img');
 			$imageName = time().'.'.$request->img->extension(); 
 			
-			$destinationPath = public_path().'/images/company/thumb';
+			$destinationPath = public_path().'/images/cat/thumb';
 			$img = Image::make($file->path());
 			$img->resize(180, 180, function ($constraint) {
 				$constraint->aspectRatio();
 			})->save($destinationPath.'/'.$imageName);
-			$request->img->move(public_path().'/images/company/', $imageName);
+			$request->img->move(public_path().'/images/cat/', $imageName);
 			//echo " image name A $imageName " ;
         }
 		else
@@ -143,17 +130,18 @@ class CompanyController extends Controller
 		try
 		{
 		//name	userid	countryid	catid	conf	realer	branchnum	phone	website	facebook	twiter	insta	prodtypnum	defpublic
-			$row =Company::create([ 'name' => $request->name ,'userid' => "$userid" ,
+			$row =Cat::create([ 'name' => $request->name ,'userid' => "$userid" ,
 			'logo' => $imageName 
 			]);
 			$row->save();
+			//echo "saved";
 		}
 		catch (\Exception $e) 
 		{
     		$message =  $e->getMessage();
-			//echo "message $message ";
+			echo "message $message ";
 		}
-		return Redirect::route('viewCompany.route')->with("message","Thank you for taking this company");	
+		return Redirect::route('viewCat.route')->with("message","Thank you for taking this record");	
 	}
 	
 	public function update(Request $request, $id)
@@ -167,15 +155,13 @@ class CompanyController extends Controller
 		if($request->file('img'))
         {
 			$file = $request->file('img');
-			$imageName = time().'.'.$request->img->extension(); 
-			
-			$destinationPath = public_path().'/images/company/thumb';
+			$imageName = time().'.'.$request->img->extension(); 	
+			$destinationPath = public_path().'/images/cat/thumb';
 			$img = Image::make($file->path());
 			$img->resize(180, 180, function ($constraint) {
 				$constraint->aspectRatio();
 			})->save($destinationPath.'/'.$imageName);
-			$request->img->move(public_path().'/images/company/', $imageName);
-			//echo " image name A $imageName " ;
+			$request->img->move(public_path().'/images/cat/', $imageName);
         }
 		else
 		{
@@ -185,25 +171,20 @@ class CompanyController extends Controller
 			else
 				$imageName ='';
 		}
-		//print_r($cityid);
-		//print_r($prodtyp);
-		
-		$row =Company::where('userid', '=', $userid)->where('id', '=', $id)->first();
+
+		$row =Cat::where('userid', '=', $userid)->where('id', '=', $id)->first();
 		try
 		{
 			$row->update([
 			'name' => $request->name , 'logo' => $imageName 
-			]);
-			
+			]);	
 			$LastInsertId = $id;
-		
-	
 		}
 		catch (\Exception $e) 
 		{
     		$message =  $e->getMessage();
 		}
-		return Redirect::route('viewCompany.route');
+		return Redirect::route('viewCat.route');
 	}	
 
 
@@ -212,14 +193,14 @@ class CompanyController extends Controller
 	{
 		$this->middleware(['auth','is_merchant' ,'conf','conf2']);
 		$userid = Auth::id();
-		$row =Company::with(['subcompanies'])->
-					   with(['subsubcompanies'])->
-					   where('companies.userid', '=', $userid)->where('companies.id', '=', $id)->first();
-		$row->subsubcompanies()->delete();
-		$row->subcompanies()->delete();
+		$row =Cat::with(['subcats'])->
+					   with(['subsubcats'])->
+					   where('cats.userid', '=', $userid)->where('cats.id', '=', $id)->first();
+		$row->subsubcats()->delete();
+		$row->subcats()->delete();
 		
 		$row->delete();
-		return Redirect::route('viewCompany.route');
+		return Redirect::route('viewCat.route');
 	}
 	
 	
@@ -231,15 +212,15 @@ class CompanyController extends Controller
 		{
 			foreach($request->idx as $id)
 			{
-				$row = Company::with(['subcompanies'])->
-						with(['subsubcompanies'])
-				->where('companies.userid', '=', $userid)->where('companies.id', '=', $id)->first();
-				$row->subsubcompanies()->delete();
-				$row->subcompanies()->delete();
+				$row = Cat::with(['subcats'])->
+						with(['subsubcats'])
+				->where('cats.userid', '=', $userid)->where('cats.id', '=', $id)->first();
+				$row->subsubcats()->delete();
+				$row->subcats()->delete();
 				$row->delete();
 			}
 		}
-		return Redirect::route('viewCompany.route');
+		return Redirect::route('viewCat.route');
 	}
 
 }

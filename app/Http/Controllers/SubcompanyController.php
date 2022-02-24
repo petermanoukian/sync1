@@ -255,7 +255,7 @@ class SubcompanyController extends Controller
 		//print_r($cityid);
 		//print_r($prodtyp);
 		
-				$typesubcompid = $request->typesubcompid;
+		$typesubcompid = $request->typesubcompid;
 		$compid = $request->compid;
 		
 		$row =Subcompany::where('userid', '=', $userid)->where('id', '=', $id)->first();
@@ -283,7 +283,8 @@ class SubcompanyController extends Controller
 	{
 		$this->middleware(['auth','is_merchant' ,'conf','conf2']);
 		$userid = Auth::id();
-		$row =Subcompany::where('subcompanies.userid', '=', $userid)->where('subcompanies.id', '=', $id)->first();
+		$row =Subcompany::with(['subsubbcompanies'])->where('subcompanies.userid', '=', $userid)->where('subcompanies.id', '=', $id)->first();
+		$row->subsubbcompanies()->delete();
 		$row->delete();
 		return Redirect::route('viewsubCompany.route');
 	}
@@ -297,7 +298,8 @@ class SubcompanyController extends Controller
 		{
 			foreach($request->idx as $id)
 			{
-				$row = Subcompany::where('subcompanies.userid', '=', $userid)->where('subcompanies.id', '=', $id)->first();
+				$row = Subcompany::with(['subsubbcompanies'])->where('subcompanies.userid', '=', $userid)->where('subcompanies.id', '=', $id)->first();
+				$row->subsubbcompanies()->delete();
 				$row->delete();
 			}
 		}

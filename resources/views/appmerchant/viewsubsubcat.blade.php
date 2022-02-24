@@ -7,27 +7,27 @@
             <div class="card">
                 <div class="card-header">
 					<div class = 'floatleft'>
-					<h1 class='text-dark fw-bolder fs-2 margintop7'> Sub Sub Companies </h1>
+					<h1 class='text-dark fw-bolder fs-2 margintop7'> Sub Categories </h1>
 					</div> 
 					<div class = 'floatleft'>
-						<a  href ='/appmerchant/addcompany'
-						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Add Company  </a>	
-						<a  href ='/appmerchant/viewcompany'
-						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Companies </a> 
-						<a  href ='/appmerchant/viewsubcompany/<?php echo $compid ; ?>'
-						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>&rsaquo; View Sub Companies </a> 
-						 <a  href ='/appmerchant/addsubcompany/<?php echo $compid ; ?>'
+						<a  href ='/appmerchant/addcat'
+						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Add Category  </a>	
+						<a  href ='/appmerchant/viewcat'
+						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Categories </a> 
+						<a  href ='/appmerchant/viewsubcat/<?php echo $catid ; ?>'
+						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>&rsaquo; View Sub Categories </a> 
+						 <a  href ='/appmerchant/addsubcat/<?php echo $catid ; ?>'
 						 class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
-						 Add Sub Companies </a> 
-						<a  href ='/appmerchant/addsubsubcompany/<?php echo $compid ; ?>/<?php echo $subcompid ; ?>'
+						 Add Sub Categories </a> 
+						<a  href ='/appmerchant/addsubsubcat/<?php echo $catid ; ?>/<?php echo $subcatid ; ?>'
 						class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
-						Add Sub sub Companies </a> 
+						Add Sub sub Categories </a> 
 					</div>
 				</div>
                 <div class="card-body">
                     
 					
-					<form method = 'post' action = "/appmerchant/subsubcompany/deleteall">
+					<form method = 'post' action = "/appmerchant/subsubcat/deleteall">
 						<input name="_method" type="hidden" value="DELETE">
 						@csrf
 						<table class="table align-middle table-row-dashed fs-6 gy-5 data-table" >
@@ -39,8 +39,8 @@
 										</th>
 										<th style = 'width:8%;'>No</th>
 										<th style = 'width:20%;'>Name</th>
-										<th style = 'width:20%;'>Company</th>
-										<th style = 'width:20%;'>SubCompany</th>
+										<th style = 'width:20%;'>Category</th>
+										<th style = 'width:20%;'>SubCategory</th>
 										<th style = 'width:20%;'>Image</th>
 										<th style = 'width:18%;'>Action</th>
 									</tr>
@@ -69,16 +69,16 @@
 @section('scripts')
 
 <?php
-if(isset($compid) && $compid != '' && $compid > 0)
+if(isset($catid) && $catid != '' && $catid > 0)
 {
-	if(isset($subcompid) && $subcompid != '' && $subcompid > 0)
+	if(isset($subcatid) && $subcatid != '' && $subcatid > 0)
 	{	
 		
 ?>
 		<script type="text/javascript">		
-			var compid = <?php echo $compid ; ?>;
+			var catid = <?php echo $catid ; ?>;
 
-			var url2 = '/appmerchant/viewsubsubcompany/'+compid+'/';
+			var url2 = '/appmerchant/viewsubsubcat/'+catid+'/';
 			//ajax: "{{ url('/appadmin/viewarticle/' . request()->route('catid')) }}",
 			
 			$(function () {
@@ -86,13 +86,13 @@ if(isset($compid) && $compid != '' && $compid > 0)
 			var table = $('.data-table').DataTable({
 				processing: true,
 				serverSide: false,
-				ajax: "{{ url('/appmerchant/viewsubsubcompany/' . request()->route('compid') . '/' .  request()->route('subcompid')) }}",
+				ajax: "{{ url('/appmerchant/viewsubsubcat/' . request()->route('catid') . '/' .  request()->route('subcatid')) }}",
 				columns: [
 					{data: 'Delete1', name: 'Delete1', orderable: false, searchable: false},
 					{data: 'id', name: 'id'},
 					{data: 'name', name: 'name'},
-					{data: 'Company', name: 'Company'},
-					{data: 'SubCompany', name: 'SubCompany'},
+					{data: 'Cat', name: 'Cat'},
+					{data: 'SubCat', name: 'SubCat'},
 					{data: 'Image', name: 'Image'},
 					{data: 'action', name: 'action', orderable: false, searchable: false},
 				],
@@ -108,23 +108,20 @@ if(isset($compid) && $compid != '' && $compid > 0)
 	{
 	?>
 		<script type="text/javascript">		
-			var compid = <?php echo $compid ; ?>;
-
-			var url2 = '/appmerchant/viewsubsubcompany/'+compid+'/';
-			//ajax: "{{ url('/appadmin/viewarticle/' . request()->route('catid')) }}",
+			
 			
 			$(function () {
 		   
 			var table = $('.data-table').DataTable({
 				processing: true,
 				serverSide: false,
-				ajax: "{{ url('/appmerchant/viewsubsubcompany/' . request()->route('compid')) }}",
+				ajax: "{{ url('/appmerchant/viewsubsubcat/' . request()->route('catid')) }}",
 				columns: [
 					{data: 'Delete1', name: 'Delete1', orderable: false, searchable: false},
 					{data: 'id', name: 'id'},
 					{data: 'name', name: 'name'},
-					{data: 'Company', name: 'Company'},
-					{data: 'SubCompany', name: 'SubCompany'},
+					{data: 'Cat', name: 'Cat'},
+					{data: 'SubCat', name: 'SubCat'},
 					{data: 'Image', name: 'Image'},
 					{data: 'action', name: 'action', orderable: false, searchable: false},
 				],
@@ -150,13 +147,13 @@ else
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: false,
-        ajax: "{{ route('viewsubsubCompany.route') }}",
+        ajax: "{{ route('viewsubsubCat.route') }}",
         columns: [
 			{data: 'Delete1', name: 'Delete1', orderable: false, searchable: false},
             {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
-			{data: 'Company', name: 'Company'},
-			{data: 'SubCompany', name: 'SubCompany'},
+			{data: 'Cat', name: 'Cat'},
+			{data: 'SubCat', name: 'SubCat'},
 			{data: 'Image', name: 'Image'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ],

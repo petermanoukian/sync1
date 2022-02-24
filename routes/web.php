@@ -11,6 +11,9 @@ use App\Http\Controllers\ProdController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\BranchcontactController;
 use App\Http\Controllers\DiscounttController;
+use App\Http\Controllers\CatController;
+use App\Http\Controllers\SubcatController;
+use App\Http\Controllers\SubsubcatController;
 
 
 /*
@@ -125,17 +128,8 @@ Route::get('/appmerchant/branch/deleteall', [BranchController::class, 'destroyal
 Route::post('/appmerchant/branch/deleteall', [BranchController::class, 'destroyall'])->name('MyDelBranchall.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
 Route::delete('/appmerchant/branch/deleteall', [BranchController::class, 'destroyall'])->name('MyDelBranchall.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
 
-
-
-
-
 Route::get('getsubcomsbycomp', [SubcompanyController::class, 'getSubcompAjax'])->name('getsubcomsbycomp');
 Route::get('getsubsubcomsbycomp', [SubsubcompanyController::class, 'getSubsubcompAjax'])->name('getsubsubcomsbycomp');
-
-
-
-
-
 
 Route::get('/appadmin/addsubcompanytype', [TypesubcompanyController::class, 'create'])->name('appmerchant.addtypesubcompany')->middleware(['auth', 'is_admin']);
 Route::get('/appadmin/viewsubcompanytype', [TypesubcompanyController::class, 'indexadmin' ])->name('viewtypesubCompany.route')->middleware(['auth', 'is_admin']);
@@ -183,13 +177,6 @@ Route::delete('/appadmin/discount/deleteall', [DiscounttController::class, 'dest
 
 
 
-
-
-
-
-
-
-
 Route::get('/appmerchant/addbranchcontact/{branchid}', [BranchcontactController::class, 'create'])->name('appmerchant.addbranchcontact')->middleware(['auth', 'is_merchant','conf1','conf2']);
 Route::get('/appmerchant/viewbranchcontact/{branchid}', [BranchcontactController::class, 'indexadmin' ])->name('viewBranchcontact.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
 Route::get('/appmerchant/editbranchcontact/{id}', [BranchcontactController::class, 'edit' ])->name('branchcontactEdit.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
@@ -204,9 +191,55 @@ Route::post('/appmerchant/branchcontact/deleteall', [BranchcontactController::cl
 Route::delete('/appmerchant/branchcontact/deleteall', [BranchcontactController::class, 'destroyall'])->name('MyDelBranchcontactall.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
 
 
+Route::get('/appmerchant/addcat', [CatController::class, 'create'])->name('appmerchant.addcat')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::get('/appmerchant/viewcat', [CatController::class, 'indexadmin' ])->name('viewCat.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::get('/appmerchant/editcat/{id}', [CatController::class, 'edit' ])->name('CatEdit.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::post('/appmerchant/cat/add', [CatController::class, 'store' ])->name('CatAdd.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::post('/appmerchant/catupdate/update/{id}',[CatController::class, 'update' ])->name('CatUpdate.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::match(['put', 'patch'],'/appmerchant/catupdate/update/{id}', [CatController::class, 'update' ])->name('CatUpdate.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::get('/appmerchant/cat/delete/{id}/', [CatController::class, 'destroy'])->name('MyDelCat.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::post('/appmerchant/cat/delete/{id}/', [CatController::class, 'destroy'])->name('MyDelCat.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::delete('/appmerchant/cat/delete/{id}/', [CatController::class, 'destroy'])->name('MyDelCat.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::get('/appmerchant/cat/deleteall', [CatController::class, 'destroyall'])->name('MyDelCatall.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::post('/appmerchant/cat/deleteall', [CatController::class, 'destroyall'])->name('MyDelCatall.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::delete('/appmerchant/cat/deleteall', [CatController::class, 'destroyall'])->name('MyDelCatall.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
 
 
 
+
+Route::get('/appmerchant/addsubcat/{catid?}', [SubcatController::class, 'create'])->name('appmerchant.addsubcat')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::get('/appmerchant/viewsubcat/{catid?}', [SubcatController::class, 'indexadmin' ])->name('viewsubCat.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::get('/appmerchant/editsubcat/{id}', [SubcatController::class, 'edit' ])->name('subCatEdit.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::post('/appmerchant/subcat/add', [SubcatController::class, 'store' ])->name('subCatAdd.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::post('/appmerchant/subcatupdate/update/{id}',[SubcatController::class, 'update' ])->name('subCatUpdate.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::match(['put', 'patch'],'/appmerchant/subcatupdate/update/{id}', [SubcatController::class, 'update' ])->name('subCompanyUpdate.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::get('/appmerchant/subcat/delete/{id}/', [SubcompanyController::class, 'destroy'])->name('MyDelsubCompany.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::post('/appmerchant/subcat/delete/{id}/', [SubcompanyController::class, 'destroy'])->name('MyDelsubCompany.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::delete('/appmerchant/subcat/delete/{id}/', [SubcompanyController::class, 'destroy'])->name('MyDelsubCompany.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::get('/appmerchant/subcat/deleteall', [SubcompanyController::class, 'destroyall'])->name('MyDelsubCompanyall.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::post('/appmerchant/subcat/deleteall', [SubcompanyController::class, 'destroyall'])->name('MyDelsubCompanyall.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::delete('/appmerchant/subcat/deleteall', [SubcompanyController::class, 'destroyall'])->name('MyDelsubCompanyall.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+
+
+
+Route::get('getsubcatsbycat', [SubcatController::class, 'getSubcatAjax'])->name('getsubcatsbycat');
+Route::get('getsubsubcatsbycat', [SubsubcatController::class, 'getSubsubcatAjax'])->name('getsubsubcatsbycat');
+
+
+
+
+Route::get('/appmerchant/addsubsubcat/{catid?}/{subcatid?}', [SubsubcatController::class, 'create'])->name('appmerchant.addsubsubcat')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::get('/appmerchant/viewsubsubcat/{catid?}/{subcatid?}', [SubsubcatController::class, 'indexadmin' ])->name('viewsubsubCat.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::get('/appmerchant/editsubsubcat/{id}/{catid}/{subcatid}', [SubsubcatController::class, 'edit' ])->name('subsubCatEdit.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::post('/appmerchant/subsubcat/add', [SubsubcatController::class, 'store' ])->name('subsubCatAdd.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::post('/appmerchant/subsubcatupdate/update/{id}',[SubsubcatController::class, 'update' ])->name('subsubCatUpdate.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::match(['put', 'patch'],'/appmerchant/subsubcatupdate/update/{id}', [SubsubcatController::class, 'update' ])->name('subsubCatUpdate.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::get('/appmerchant/subsubcat/delete/{id}/', [SubsubcatController::class, 'destroy'])->name('MyDelsubsubCat.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::post('/appmerchant/subsubcat/delete/{id}/', [SubsubcatController::class, 'destroy'])->name('MyDelsubsubCat.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::delete('/appmerchant/subsat/delete/{id}/', [SubsubcatController::class, 'destroy'])->name('MyDelsubsubCat.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::get('/appmerchant/subsubcat/deleteall', [SubsubcatController::class, 'destroyall'])->name('MyDelsubsubCatall.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::post('/appmerchant/subsubcat/deleteall', [SubsubcatController::class, 'destroyall'])->name('MyDelsubsubCatall.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
+Route::delete('/appmerchant/subsubcat/deleteall', [SubsubcatController::class, 'destroyall'])->name('MyDelsubsubCatall.route')->middleware(['auth', 'is_merchant','conf1','conf2']);
 
 
 

@@ -8,7 +8,7 @@
 
 				<div class="card-header">
 					<div class = 'floatleft'>
-					<h1 class='text-dark fw-bolder fs-2 margintop7'> Sub Companies </h1>
+					<h1 class='text-dark fw-bolder fs-2 margintop7'> Sub sub Companies </h1>
 					</div> 
 					<div class = 'floatleft'>
 						<a  href ='/appmerchant/addcompany'
