@@ -30,6 +30,11 @@ class Subsubcat extends Model
         return $this->belongsTo('App\Models\Subcat', 'subcatid' , 'id');
     }
 	
+	public function prodsubsubcats()
+    {
+    	return $this->hasMany('App\Models\Prod', 'subsubcatid' , 'id' , 'on_delete=models.CASCADE');
+	}
+	
 	
 	
 }

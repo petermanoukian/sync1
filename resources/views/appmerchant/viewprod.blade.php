@@ -38,7 +38,7 @@
                 <div class="card-body">
                     
 					
-					<form method = 'post' action = "/appmerchant/subsubcompany/deleteall">
+					<form method = 'post' action = "/appmerchant/prod/deleteall">
 						<input name="_method" type="hidden" value="DELETE">
 						@csrf
 						<table class="table align-middle table-row-dashed fs-6 gy-5 data-table" >

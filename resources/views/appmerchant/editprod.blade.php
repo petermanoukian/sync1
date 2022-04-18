@@ -19,16 +19,37 @@
 				<a  href ='/appmerchant/viewsubcompany'
 				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Sub Companies </a>
 				<a  href ='/appmerchant/addsubcompany'
-				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'> Add Sub Companies </a>
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'> Add Sub Companies </a>	
+				<a  href ='/appmerchant/addsubsubcompany'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'> Add SubSub Companies </a>
 				<a  href ='/appmerchant/viewsubsubcompany'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'> Sub Sub Companies </a>
+				<a  href ='/appmerchant/viewcat'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'> Categories </a>
+				<a  href ='/appmerchant/addcat'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Add Category </a>
+				<a  href ='/appmerchant/viewsubcat'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Sub Categories </a>
+				<a  href ='/appmerchant/addsubcat'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'> Add Sub Categories </a>
+				
+				<a  href ='/appmerchant/viewsubsubcat'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>Sub Sub Categories </a>
+				
+				<a  href ='/appmerchant/viewsubsubcat'
 				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
-				 Sub Sub Companies </a>
+				 Sub Sub Categories </a>
+			
+				 
 				<a  href ='/appmerchant/addprod'
 				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
 				 Add Products </a>
 				<a  href ='/appmerchant/viewprod'
 				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'>
 				 View Products </a>
+				 
+				 
+				 
 				</div>
 				</div>
 
@@ -66,7 +87,33 @@
 								<label for="city">Sub Sub Category</label>
 								<div id = 'subcompid3'>Choose a Sub Company First</div>
 							</div>
-						
+							
+							
+							
+							<div class="form-group row">
+								<label for="name">Category</label>
+								<select name="catid" id='catid' class="form-control  form-control-lg form-control-solid"  
+								placeholder="Category" required>
+									<option value = ''>Choose Category </option>
+									@foreach($cats as $cat)
+										@if($catid  && $catid != 0 && $catid  == $cat->id)
+											<option value = {{ $cat->id }} selected> {{$cat->name}} </option>
+										@else 
+											<option value = {{ $cat->id }} > {{$cat->name}} </option>
+										@endif
+									@endforeach 
+								</select>	
+							</div>
+							
+							<div class="form-group">
+								<label for="city">Sub Category</label>
+								<div id = 'subcatid2'>Choose a Category First</div>
+							</div>
+
+							<div class="form-group">
+								<label for="city">Sub Sub Category</label>
+								<div id = 'subcatid3'>Choose a Sub Category First</div>
+							</div>
 
 							<div class="form-group row">
 								<label for="name">Title</label>
@@ -84,16 +131,36 @@
 								@if($row->logo != '')
 								<input type="text"  class="form-control  form-control-lg form-control-solid" id = 'pic' name = 'pic' value = "{{$row->logo}}" readonly>
 								<div style = 'flat:left;clear:both;width:98%;'>
-								<img src="<?php echo asset("images/subsubcompany/thumb/{$row->logo}")?>" style='margin-top:10px;clear:both'>
+								<img src="<?php echo asset("images/prod/thumb/{$row->logo}")?>" style='margin-top:10px;clear:both'>
 								</div>
 								@endif
 
 							</div>
-
-
-
+							
+							<div class="form-group row">
+								<label for="name">Price</label>
+								<input type="text" name="prix" class="form-control  form-control-lg form-control-solid" required  
+								value = "{{$row->prix}}">	
+							</div>
+							
+							<div class="form-group row">
+								Short Details
+							</div>
+							<div class="form-group row">
+								<textarea class="form-control  form-control-lg form-control-solid"  name="des" style = 'max-width:700px;'>{{ $row->des }}</textarea>	
+							</div>
+							
+							<div class="form-group row">
+								Full Details
+							</div>
+							<div class="form-group row">
+								<textarea class="form-control  form-control-lg form-control-solid"  name="dess">{{ $row->dess }}</textarea>	
+							</div>
+							
+							
 
 						    <div class="form-group row">
+								<input type = 'hidden' name = 'redirector' value = 'compsection' />
 								<input type="submit" value="Update" class="btn btn-primary paddtop6 bold">
 						    </div>
 						{!! Form::close() !!}
@@ -132,6 +199,7 @@ url: "{{ route('getsubsubcomsbycomp') }}?subcompid=" + {{ request()->route('subc
 					reload1();	
 				}
 			});
+	
 		});	 
 
 
@@ -144,19 +212,17 @@ url: "{{ route('getsubsubcomsbycomp') }}?subcompid=" + {{ request()->route('subc
 				method: 'GET',
 				success: function(data) {
 					$('#subcompid2').html(data.html);
-					
-					
-							$("#subcompid").change(function(){	
-							 $('#subcompid3').html('....Loading Sub sub companies....');
-							$.ajax({
-								url: "{{ route('getsubsubcomsbycomp') }}?subcompid=" + $(this).val(),	
-								method: 'GET',
-								success: function(data) {
-									$('#subcompid3').html(data.html);
-								}
-							});
-						});
 
+					$("#subcompid").change(function(){	
+						 $('#subcompid3').html('....Loading Sub sub companies....');
+						$.ajax({
+							url: "{{ route('getsubsubcomsbycomp') }}?subcompid=" + $(this).val(),	
+							method: 'GET',
+							success: function(data) {
+								$('#subcompid3').html(data.html);
+							}
+						});
+					});
 				}
 			});
 		});
@@ -171,6 +237,69 @@ url: "{{ route('getsubsubcomsbycomp') }}?subcompid=" + {{ request()->route('subc
 				}
 			});
 		});
+		
+
+		$.ajax({
+url: "{{ route('getsubcatsbycat') }}?catid=" + {{ request()->route('catid') }} + "&subcatid=" + {{ request()->route('subcatid') }},	
+				method: 'GET',
+				success: function(data) {
+					$('#subcatid2').html(data.html);
+					
+					reload1x();
+					
+				}
+			});
+			
+			$.ajax({
+url: "{{ route('getsubsubcatsbycat') }}?subcatid=" + {{ request()->route('subcatid') }} + "&subsubcatid=" + {{ request()->route('subsubcatid') }},	
+				method: 'GET',
+				success: function(data) {
+					$('#subcatid3').html(data.html);	
+					reload1x();	
+				}
+			});
+		});	 
+
+
+
+		$( document ).ready(function() {
+			$("#catid").change(function(){	
+			 $('#subcatid2').html('....Loading Sub companies....');
+			$.ajax({
+				url: "{{ route('getsubcatsbycat') }}?catid=" + $(this).val(),	
+				method: 'GET',
+				success: function(data) {
+					$('#subcatid2').html(data.html);
+					
+				
+						$("#subcatid").change(function(){	
+						 $('#subcatid3').html('....Loading Sub sub companies....');
+						$.ajax({
+							url: "{{ route('getsubsubcatsbycat') }}?subcatid=" + $(this).val(),	
+							method: 'GET',
+							success: function(data) {
+								$('#subcatid3').html(data.html);
+							}
+						});
+					});
+
+				}
+			});
+		});
+		
+		$("#subcatid").change(function(){	
+			 $('#subcatid3').html('....Loading Sub sub categories....');
+			$.ajax({
+				url: "{{ route('getsubsubcatsbycat') }}?subcatid=" + $(this).val(),	
+				method: 'GET',
+				success: function(data) {
+					$('#subcatid3').html(data.html);
+				}
+			});
+		});
+		
+		
+		
 });
 
 
@@ -213,19 +342,68 @@ function reload1()
 }
 
 
+function reload1x()
+{
+	$("#catid").change(function(){	
+			 $('#subcatid2').html('....Loading ....');
+			$.ajax({
+				url: "{{ route('getsubcatsbycat') }}?catid=" + $(this).val(),	
+				method: 'GET',
+				success: function(data) {
+					$('#subcatid2').html(data.html);
+
+					$("#subcatid").change(function(){	
+						 $('#subcatid3').html('........');
+						$.ajax({
+							url: "{{ route('getsubsubcatsbycat') }}?subcatid=" + $(this).val(),	
+							method: 'GET',
+							success: function(data) {
+								$('#subcatid3').html(data.html);
+							}
+						});
+					});
+
+				}
+			});
+		});
+		
+		$("#subcompid").change(function(){	
+			 $('#subcompid3').html('....Loading Sub sub companies....');
+			$.ajax({
+				url: "{{ route('getsubsubcatsbycat') }}?subcatid=" + $(this).val(),	
+				method: 'GET',
+				success: function(data) {
+					$('#subcatid3').html(data.html);
+				}
+			});
+		});
+	
+}
+
 </script>
 
-<script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+
 <script>
+
+/*
+<script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 CKEDITOR.replace( 'dess' ,
 {
 width: '900px',
 height: '400px',
 }); 
-
- 
+*/
 </script>
 
+<script type="text/javascript">
+    CKEDITOR.replace('dess', {
+        filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form',
+		width: '900px',
+		height: '400px',
+    });
+</script>
 
 @endsection
 

@@ -10,11 +10,17 @@ use App\Models\Company;
 use App\Models\Subcompany;
 use App\Models\Subsubcompany;
 
+use App\Models\Cat;
+use App\Models\Subcat;
+use App\Models\Subsubcat;
+
+
+
 class Prod extends Model
 {
     use HasFactory;
 	
-	protected $fillable = [ 'userid', 'name', 'compid' , 'subcompid' , 'subsubcompid' ,'logo' , 'prix' , 'des' , 'dess'];
+	protected $fillable = ['userid','name','compid','subcompid','subsubcompid','catid','subcatid','subsubcatid','logo','prix','des','dess'];
 	
 	public function user()
     {
@@ -37,6 +43,20 @@ class Prod extends Model
     }
 	
 	
+	public function cat()
+    {
+        return $this->belongsTo('App\Models\Cat', 'catid' , 'id');
+    }
+	
+	public function subcat()
+    {
+        return $this->belongsTo('App\Models\Subcat', 'subcatid' , 'id');
+    }
+	
+	public function subsubcat()
+    {
+        return $this->belongsTo('App\Models\Subsubcat', 'subcatid' , 'id');
+    }
 	
 	
 	

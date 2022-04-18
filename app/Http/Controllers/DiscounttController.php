@@ -57,6 +57,8 @@ class DiscounttController extends Controller
 						</div>
 						<div style = 'display:inline;float:left;margin-left:5px;'>
 							<a href=\"/appadmin/editdiscount/$id\" class=\"edit btn btn-primary btn-sm\">Edit </a>
+							<a href=\"/appadmin/adddiscountcat/$id\" class=\"edit btn btn-primary btn-sm\">Add To Categories </a>
+							<a href=\"/appadmin/viewdiscountcat/$id\" class=\"edit btn btn-primary btn-sm\">Discount Categories </a>
 						</div>";
                         return $btn;
                     })	

@@ -9,6 +9,13 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Company;
 
+use App\Models\Roleruser;
+use App\Models\Rolercat;
+use App\Models\Rolerperm;
+use App\Models\Roler;
+
+
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -19,12 +26,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-		'levell',
-		'conf1',
-		'conf2',
+        'name', 'lname','email','password','levell','conf1','conf2', 'statuss',
     ];
 
     /**
@@ -51,6 +53,10 @@ class User extends Authenticatable
     	return $this->hasMany('App\Models\Company', 'userid' , 'id' , 'on_delete=models.CASCADE');
 	}
 	
+	public function userrolecats()
+    {
+    	return $this->hasMany('App\Models\Roleruser', 'userid' , 'id' , 'on_delete=models.CASCADE');
+	}
 	
 	
 }

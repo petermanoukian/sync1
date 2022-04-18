@@ -1037,13 +1037,56 @@ License: For each use you must have a valid license purchased only from above li
 							<span class="bullet bullet-dot"></span>
 						</span>
 						<span class="menu-title">
-							<a  class="menu-link"  href="#" role="button" aria-expanded="false" v-pre>
+							<a  class="menu-link"  href="/appadmin/edituser/{{ Auth::user()->id }}" role="button" aria-expanded="false" v-pre>
 								<span class="menu-title">{{ Auth::user()->name }}  </span>
 							</a>
 						</span>
-						<span class="menu-arrow"></span>
+					
 					</span>
 				</div>
+				
+				
+				
+				<div class="menu-item">
+					<span class="menu-link">
+						<span class="menu-bullet">
+							<span class="bullet bullet-dot"></span>
+						</span>
+				
+						
+						<span class="menu-title">
+							<a  class="menu-link"  href="/appadmin/viewuser" role="button" aria-expanded="false" v-pre>
+								<span class="menu-title">Users </span>
+							</a>
+						</span>
+	
+					</span>
+				</div>
+				
+				
+				
+				<div class="menu-item">
+					<span class="menu-link">
+						<span class="menu-bullet">
+							<span class="bullet bullet-dot"></span>
+						</span>
+	
+						<span class="menu-title">
+							<a  class="menu-link"  href="/appadmin/adduser" role="button" aria-expanded="false" v-pre>
+								<span class="menu-title">Add Users </span>
+							</a>
+						</span>
+
+					</span>
+				</div>
+				
+				
+				
+				
+				
+				
+				
+				
 				<div class="menu-item">
 				
 					<span class="menu-link">
@@ -1071,7 +1114,76 @@ License: For each use you must have a valid license purchased only from above li
 
 	
 </div>	
+
+
+	<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+		
 	
+
+
+		<span class="menu-link">
+			<span class="menu-icon">
+					<!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
+					<span class="svg-icon svg-icon-2">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+							<path opacity="0.3" d="M20 15H4C2.9 15 2 14.1 2 13V7C2 6.4 2.4 6 3 6H21C21.6 6 22 6.4 22 7V13C22 14.1 21.1 15 20 15ZM13 12H11C10.5 12 10 12.4 10 13V16C10 16.5 10.4 17 11 17H13C13.6 17 14 16.6 14 16V13C14 12.4 13.6 12 13 12Z" fill="black" />
+							<path d="M14 6V5H10V6H8V5C8 3.9 8.9 3 10 3H14C15.1 3 16 3.9 16 5V6H14ZM20 15H14V16C14 16.6 13.5 17 13 17H11C10.5 17 10 16.6 10 16V15H4C3.6 15 3.3 14.9 3 14.7V18C3 19.1 3.9 20 5 20H19C20.1 20 21 19.1 21 18V14.7C20.7 14.9 20.4 15 20 15Z" fill="black" />
+						</svg>
+					</span>
+					<!--end::Svg Icon-->
+				</span>
+				<span class="menu-title">Roles </span>
+				<span class="menu-arrow"></span>
+			</span>
+		</span>
+	
+				<div class="menu-sub menu-sub-accordion">
+					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+					
+					
+					<div class="menu-item">
+					<a class="menu-link" href="/appadmin/addrolecat">
+						<span class="menu-bullet">
+							<span class="bullet bullet-dot"></span>
+						</span>
+						<span class="menu-title">Add Roles</span>
+					</a>
+					</div>
+					
+					
+					<div class="menu-item">
+					<a class="menu-link" href="/appadmin/viewrolecat">
+						<span class="menu-bullet">
+							<span class="bullet bullet-dot"></span>
+						</span>
+						<span class="menu-title">View Roles</span>
+					</a>
+					</div>
+					
+					
+			
+					<div class="menu-item">
+					<a class="menu-link" href="/appadmin/addrole">
+						<span class="menu-bullet">
+							<span class="bullet bullet-dot"></span>
+						</span>
+						<span class="menu-title">Add Permission</span>
+					</a>
+					</div>
+					<div class="menu-item">
+						<a class="menu-link" href="/appadmin/viewrole">
+							<span class="menu-bullet">
+								<span class="bullet bullet-dot"></span>
+							</span>
+							<span class="menu-title">View Permissions</span>
+						</a>
+					</div>
+
+	
+				</div>
+			</div>
+				
+		</div>	
 
 
 			<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -1155,7 +1267,7 @@ License: For each use you must have a valid license purchased only from above li
 							<span class="menu-bullet">
 								<span class="bullet bullet-dot"></span>
 							</span>
-							<span class="menu-title">View Branch Type</span>
+							<span class="menu-title">View Branch Types</span>
 						</a>
 					</div>
 						
@@ -1168,7 +1280,68 @@ License: For each use you must have a valid license purchased only from above li
 				</div>
 				
 				
-				
+			
+			<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+		
+	
+
+
+				<span class="menu-link">
+						<span class="menu-icon">
+							<!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
+							<span class="svg-icon svg-icon-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+									<path opacity="0.3" d="M20 15H4C2.9 15 2 14.1 2 13V7C2 6.4 2.4 6 3 6H21C21.6 6 22 6.4 22 7V13C22 14.1 21.1 15 20 15ZM13 12H11C10.5 12 10 12.4 10 13V16C10 16.5 10.4 17 11 17H13C13.6 17 14 16.6 14 16V13C14 12.4 13.6 12 13 12Z" fill="black" />
+									<path d="M14 6V5H10V6H8V5C8 3.9 8.9 3 10 3H14C15.1 3 16 3.9 16 5V6H14ZM20 15H14V16C14 16.6 13.5 17 13 17H11C10.5 17 10 16.6 10 16V15H4C3.6 15 3.3 14.9 3 14.7V18C3 19.1 3.9 20 5 20H19C20.1 20 21 19.1 21 18V14.7C20.7 14.9 20.4 15 20 15Z" fill="black" />
+								</svg>
+							</span>
+							<!--end::Svg Icon-->
+						</span>
+						<span class="menu-title">Product Divisions </span>
+						<span class="menu-arrow"></span>
+					</span>
+				</span>
+	
+				<div class="menu-sub menu-sub-accordion">
+					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+			
+					<div class="menu-item">
+					<a class="menu-link" href="/appadmin/adddiv">
+						<span class="menu-bullet">
+							<span class="bullet bullet-dot"></span>
+						</span>
+						<span class="menu-title">Add Product Division</span>
+					</a>
+					</div>
+					<div class="menu-item">
+						<a class="menu-link" href="/appadmin/viewdiv">
+							<span class="menu-bullet">
+								<span class="bullet bullet-dot"></span>
+							</span>
+							<span class="menu-title">View Product Divisions</span>
+						</a>
+					</div>
+						
+						
+						
+					</div>
+				</div>
+
+							
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+
+			
 				
 				
 	<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -1223,6 +1396,35 @@ License: For each use you must have a valid license purchased only from above li
 				
 				
 				
+				
+				
+				
+				
+				<div  class="menu-item">
+					<span class="menu-link">
+							<span class="menu-icon">
+								<!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
+								<span class="svg-icon svg-icon-2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+										<path opacity="0.3" d="M20 15H4C2.9 15 2 14.1 2 13V7C2 6.4 2.4 6 3 6H21C21.6 6 22 6.4 22 7V13C22 14.1 21.1 15 20 15ZM13 12H11C10.5 12 10 12.4 10 13V16C10 16.5 10.4 17 11 17H13C13.6 17 14 16.6 14 16V13C14 12.4 13.6 12 13 12Z" fill="black" />
+										<path d="M14 6V5H10V6H8V5C8 3.9 8.9 3 10 3H14C15.1 3 16 3.9 16 5V6H14ZM20 15H14V16C14 16.6 13.5 17 13 17H11C10.5 17 10 16.6 10 16V15H4C3.6 15 3.3 14.9 3 14.7V18C3 19.1 3.9 20 5 20H19C20.1 20 21 19.1 21 18V14.7C20.7 14.9 20.4 15 20 15Z" fill="black" />
+									</svg>
+								</span>
+							</span>
+							
+							<a class="menu-link" href="/appadmin/editcur">Currency </a>
+						
+						</span>
+					</span>
+				</div>
+				
+				
+				
+				
+				
+				
+				
+				
 
 
 					
@@ -1256,7 +1458,8 @@ License: For each use you must have a valid license purchased only from above li
 						</main>
 					</div>
 					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
-						Footer
+						<img alt="Logo" src="{{ url('img/powered.png') }}"  
+						style = 'width:160px;height:42px;'/>
 					</div>
 				</div>
 
@@ -1266,12 +1469,7 @@ License: For each use you must have a valid license purchased only from above li
 
 	<div id="kt_activities" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="activities" data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'lg': '900px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_activities_toggle" data-kt-drawer-close="#kt_activities_close"></div>
 
-		<button id="kt_explore_toggle" class="explore-toggle btn btn-sm bg-body btn-color-gray-700 btn-active-primary shadow-sm position-fixed px-5 fw-bolder zindex-2 top-50 mt-10 end-0 transform-90 fs-6 rounded-top-0" title="Explore Metronic" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-trigger="hover">
-				<span id="kt_explore_toggle_label">Explore</span>
-		</button>
 
-		<div id="kt_explore" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="explore" data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'350px', 'lg': '475px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_explore_toggle" data-kt-drawer-close="#kt_explore_close">
-		</div>
 
 		
 		<!--begin::Scrolltop-->

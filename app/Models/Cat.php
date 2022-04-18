@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Subcat;
 use App\Models\Subsubcat;
+use App\Models\Discounttcat;
 
 class Cat extends Model
 {
@@ -25,5 +26,18 @@ class Cat extends Model
     {
     	return $this->hasMany('App\Models\Subsubcat', 'catid' , 'id' , 'on_delete=models.CASCADE');
 	}
+	
+	public function prodcats()
+    {
+    	return $this->hasMany('App\Models\Prod', 'catid' , 'id' , 'on_delete=models.CASCADE');
+	}
+		
+	public function catdiscs()
+    {
+        return $this->hasMany('App\Models\Discounttcat', 'catid' , 'id' , 'on_delete=models.CASCADE');
+    }
+	
+	
+	
 	
 }

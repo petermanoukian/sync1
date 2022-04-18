@@ -56,10 +56,39 @@
 								<label for="city">Sub Sub Category</label>
 								<div id = 'subcompid3'>Choose a Sub Company First</div>
 							</div>
+							
+							
+							
+							<div class="form-group row">
+								<label for="name">Category</label>
+								<select name="catid" id='catid' class="form-control  form-control-lg form-control-solid"  
+								placeholder="Category" required>
+									<option value = ''>Choose Category </option>
+									@foreach($cats as $cat)
+										@if($catid  && $catid != 0 && $catid  == $cat->id)
+											<option value = {{ $cat->id }} selected> {{$cat->name}} </option>
+										@else 
+											<option value = {{ $cat->id }} > {{$cat->name}} </option>
+										@endif
+									@endforeach 
+								</select>	
+							</div>
+							
+							<div class="form-group">
+								<label for="city">Sub Category</label>
+								<div id = 'subcatid2'>Choose a Category First</div>
+							</div>
+
+							<div class="form-group">
+								<label for="city">Sub Sub Category</label>
+								<div id = 'subcatid3'>Choose a Sub Category First</div>
+							</div>
+							
 
 							<div class="form-group row">
 								<label for="name">Title</label>
-								<input type="text" name="name" class="form-control  form-control-lg form-control-solid" required  placeholder="Name">	
+								<input type="text" name="name" class="form-control  form-control-lg form-control-solid" required  
+								placeholder="Name">	
 							</div>
 							<div class="form-group row">
 								<label for="name">Logo</label>
@@ -89,6 +118,7 @@
 							
 							
 						    <div class="form-group row">
+								<input type = 'hidden' name = 'redirector' value = 'compsection' />
 								<input type="submit" value="Add" class="btn btn-primary paddtop6 bold">
 						    </div>
 						{!! Form::close() !!}
@@ -198,12 +228,111 @@ url: "{{ route('getsubsubcomsbycomp') }}?subcompid=" + {{ request()->route('subc
 @endif
 
 
+
+@if(request()->route('catid')  && request()->route('catid') != 0 && request()->route('catid')  != '')
+
+	@if(request()->route('subcatid')  && request()->route('subcatid') != 0 && request()->route('subcatid')  != '')
+
+		@if(request()->route('subsubcatid')  && request()->route('subsubcatid') != 0 && request()->route('subsubcatid')  != '')
+
+		<script type="text/javascript">
+
+		$( document ).ready(function() {
+
+			$.ajax({
+url: "{{ route('getsubcatsbycat') }}?catid=" + {{ request()->route('catid') }} + "&subcatid=" + {{ request()->route('subcatid') }},	
+				method: 'GET',
+				success: function(data) {
+					$('#subcatid2').html(data.html);
+					
+					reload1x();
+	
+				}
+			});
+			
+			$.ajax({
+url: "{{ route('getsubsubcatsbycat') }}?subcatid=" + {{ request()->route('subcatid') }} + "&subsubcatid=" + {{ request()->route('subsubcatid') }},	
+				method: 'GET',
+				success: function(data) {
+					$('#subcatid3').html(data.html);
+					
+					reload1x();
+					
+				}
+			});
+
+		});	 
+
+	</script>
+	
+		@else
+			
+		@endif
+		
+		@else
+		<script type="text/javascript">
+		$( document ).ready(function() {
+
+			$.ajax({
+				url: "{{ route('getsubcatsbycat') }}?catid=" + {{ request()->route('catid') }},	
+				method: 'GET',
+				success: function(data) {
+					$('#subcatid2').html(data.html);
+					reload1x();
+				}
+			});
+			
+			$.ajax({
+				url: "{{ route('getsubsubcatsbycat') }}",	
+				method: 'GET',
+				success: function(data) {
+					$('#subcatid3').html(data.html);
+					reload1x();
+				}
+			});
+
+		});	 
+
+	</script>
+	
+	@endif
+
+@else 
+
+	<script type="text/javascript">
+		$( document ).ready(function() {
+
+			$.ajax({
+			url: "{{ route('getsubcatsbycat') }}",	
+				method: 'GET',
+				success: function(data) {
+					$('#subcompid3').html(data.html);
+					reload1x();
+				}
+			});
+			
+			$.ajax({
+				url: "{{ route('getsubsubcatsbycat') }}",	
+				method: 'GET',
+				success: function(data) {
+					$('#subcompid3').html(data.html);
+					reload1x();
+				}
+			});
+
+		});	 
+	</script>
+
+@endif
+
+
+
 <script type="text/javascript">
 
 
 $( document ).ready(function() {
-			$("#compid").change(function(){	
-			 $('#subcompid2').html('....Loading Sub companies....');
+	$("#compid").change(function(){	
+		$('#subcompid2').html('....Loading Sub companies....');
 			$.ajax({
 				url: "{{ route('getsubcomsbycomp') }}?compid=" + $(this).val(),	
 				method: 'GET',
@@ -237,6 +366,48 @@ $( document ).ready(function() {
 			});
 		});
 });
+
+
+
+$( document ).ready(function() {
+	$("#catid").change(function(){	
+		$('#subcatid2').html('....Loading Sub categories....');
+			$.ajax({
+				url: "{{ route('getsubcatsbycat') }}?catid=" + $(this).val(),	
+				method: 'GET',
+				success: function(data) {
+					$('#subcatid2').html(data.html);
+					
+					
+							$("#subcatid").change(function(){	
+							 $('#subcatid3').html('....Loading Sub sub categories...');
+							$.ajax({
+								url: "{{ route('getsubsubcatsbycat') }}?subcatid=" + $(this).val(),	
+								method: 'GET',
+								success: function(data) {
+									$('#subcatid3').html(data.html);
+								}
+							});
+						});
+
+				}
+			});
+		});
+		
+		$("#subcatid").change(function(){	
+			 $('#subcatid3').html('....Loading Sub sub categories....');
+			$.ajax({
+				url: "{{ route('getsubsubcatsbycat') }}?subcompid=" + $(this).val(),	
+				method: 'GET',
+				success: function(data) {
+					$('#subcatid3').html(data.html);
+				}
+			});
+		});
+});
+
+
+
 
 
 function reload1()
@@ -279,18 +450,71 @@ function reload1()
 }
 
 
+
+function reload1x()
+{
+	$("#catid").change(function(){	
+		$('#subcatid2').html('....Loading Sub categories....');
+			$.ajax({
+				url: "{{ route('getsubcatsbycat') }}?catid=" + $(this).val(),	
+				method: 'GET',
+				success: function(data) {
+					$('#subcatid2').html(data.html);
+					
+					
+							$("#subcatid").change(function(){	
+							 $('#subcatid3').html('....Loading Sub sub categories....');
+							$.ajax({
+								url: "{{ route('getsubsubcatsbycat') }}?subcatid=" + $(this).val(),	
+								method: 'GET',
+								success: function(data) {
+									$('#subcatid3').html(data.html);
+								}
+							});
+						});
+
+				}
+			});
+		});
+		
+		$("#subcatid").change(function(){	
+			 $('#subcatid3').html('....Loading Sub sub categories....');
+			$.ajax({
+				url: "{{ route('getsubsubcatsbycat') }}?subcatid=" + $(this).val(),	
+				method: 'GET',
+				success: function(data) {
+					$('#subcatid3').html(data.html);
+				}
+			});
+		});
+}
+
 </script>
 
-<script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+
 <script>
+
+/*
 CKEDITOR.replace( 'dess' ,
 {
 width: '900px',
 height: '400px',
 }); 
-
- 
+*/
 </script>
+
+<script type="text/javascript">
+    CKEDITOR.replace('dess', {
+        filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form',
+		width: '900px',
+		height: '400px',
+    });
+</script>
+
+
+
 
 
 @endsection

@@ -20,6 +20,12 @@ class CreateProdsTable extends Migration
 			$table->integer('compid')->unsigned();
 			$table->integer('subcompid')->unsigned();
 			$table->integer('subsubcompid')->unsigned()->nullable();
+			
+			$table->integer('catid')->unsigned();
+			$table->integer('subcatid')->unsigned();
+			$table->integer('subsubcatid')->unsigned()->nullable();
+			
+			
 			$table->string('logo', 255)->nullable();
 			$table->float('prix')->nullable();
 			$table->text('des')->nullable();
@@ -43,8 +49,25 @@ class CreateProdsTable extends Migration
       		$table->foreign('subsubcompid')->references('id')->on('subsubcompanies')->onDelete('cascade');
    		});
 		
+		Schema::table('prods', function($table) {
+      		$table->foreign('catid')->references('id')->on('cats')->onDelete('cascade');
+   		});
 		
+
+		
+		Schema::table('prods', function($table) {
+      		$table->foreign('subcatid')->references('id')->on('subcats')->onDelete('cascade');
+   		});
+		
+		Schema::table('prods', function($table) {
+      		$table->foreign('subsubcatid')->references('id')->on('subsubcats')->onDelete('cascade');
+   		});
     }
+		
+		
+		
+		
+   
 
     /**
      * Reverse the migrations.

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCatProd extends Migration
+class CreateRolersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,13 @@ class AddCatProd extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('rolers', function (Blueprint $table) {
+            $table->id();
+			$table->string('name', 255);
+			$table->string('urlx', 600);
+			$table->text('des')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class AddCatProd extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('rolers');
     }
 }

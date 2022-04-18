@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Models\Company;
 use App\Models\Typesubcompany;
 use App\Models\Subsubcompany;
-
+use App\Models\Prod;
 
 
 class Subcompany extends Model
@@ -37,5 +37,10 @@ class Subcompany extends Model
     	return $this->hasMany('App\Models\Subsubcompany', 'subcompid' , 'id' , 'on_delete=models.CASCADE');
 	}	
 	
+	public function prodsubcompanies()
+    {
+    	return $this->hasMany('App\Models\Prod', 'subcompid' , 'id' , 'on_delete=models.CASCADE');
+	}
+		
 	
 }

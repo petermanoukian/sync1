@@ -20,9 +20,7 @@
 								<h1 class="text-dark mb-3">Sign In to Buzzer</h1>
 								<!--end::Title-->
 								<!--begin::Link-->
-								<div class="text-gray-400 fw-bold fs-4">New Here?
-								<a href="/register" class="link-primary fw-bolder">
-								Create an Account</a></div>
+						
 								<!--end::Link-->
 							</div>
 							<!--begin::Heading-->
@@ -46,12 +44,6 @@
 								<div class="d-flex flex-stack mb-2">
 									<label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
 
-								@if (Route::has('password.request'))
-                                    <a class="link-primary fs-6 fw-bolder" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-	
 								</div>
 
 								<input class="form-control  form-control-lg form-control-solid form-control  form-control-lg form-control-solid-lg form-control  form-control-lg form-control-solid-solid @error('password') is-invalid @enderror" 

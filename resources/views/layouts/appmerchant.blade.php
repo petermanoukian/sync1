@@ -1057,7 +1057,7 @@ License: For each use you must have a valid license purchased only from above li
 							<span class="bullet bullet-dot"></span>
 						</span>
 						<span class="menu-title">
-							<a  class="menu-link"  href="#" role="button" aria-expanded="false" v-pre>
+							<a  class="menu-link"  href="/appmerchant/edituser" role="button" aria-expanded="false" v-pre>
 								<span class="menu-title">{{ Auth::user()->name }}  </span>
 							</a>
 						</span>
@@ -1082,10 +1082,10 @@ License: For each use you must have a valid license purchased only from above li
 						</span>
 						<span class="menu-arrow"></span>
 					</span>
-				
-
-					
 				</div>
+				
+				
+				
 			</div>
 		</div>
 
@@ -1314,7 +1314,7 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-bullet">
 							<span class="bullet bullet-dot"></span>
 						</span>
-						<span class="menu-title">View Sub Companies</span>
+						<span class="menu-title">View Sub Categories</span>
 					</a>
 				</div>
 				<div class="menu-item">
@@ -1322,7 +1322,7 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-bullet">
 							<span class="bullet bullet-dot"></span>
 						</span>
-						<span class="menu-title">Add Sub Companies</span>
+						<span class="menu-title">Add Sub Categories</span>
 					</a>
 				</div>
 			</div>
@@ -1333,7 +1333,7 @@ License: For each use you must have a valid license purchased only from above li
 				<span class="menu-bullet">
 					<span class="bullet bullet-dot"></span>
 				</span>
-				<span class="menu-title">Sub Sub Companies</span>
+				<span class="menu-title">Sub Sub Categories</span>
 				<span class="menu-arrow"></span>
 			</span>
 			<div class="menu-sub menu-sub-accordion menu-active-bg">
@@ -1343,7 +1343,7 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-bullet">
 							<span class="bullet bullet-dot"></span>
 						</span>
-						<span class="menu-title">View Sub Sub Companies</span>
+						<span class="menu-title">View Sub Sub Categories</span>
 					</a>
 				</div>
 				<div class="menu-item">
@@ -1351,7 +1351,7 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-bullet">
 							<span class="bullet bullet-dot"></span>
 						</span>
-						<span class="menu-title">Add Sub Sub Companies</span>
+						<span class="menu-title">Add Sub Sub Categories</span>
 					</a>
 				</div>
 			</div>
@@ -1476,26 +1476,16 @@ License: For each use you must have a valid license purchased only from above li
 				</div>
 
 				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
-					<!--begin::Header-->
-			
 
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 						<main class="mainer">
 							@yield('content')
 						</main>
 					</div>
-					
-					
-					
-					
-					
-					
+
 					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
-				
-					
-					
-					
-						Footer 1
+						
+						<img alt="Logo" src="{{ url('img/powered.png') }}"  style = 'width:160px;height:42px;'/>
 					</div>
 				</div>
 
@@ -1505,12 +1495,6 @@ License: For each use you must have a valid license purchased only from above li
 
 	<div id="kt_activities" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="activities" data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'lg': '900px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_activities_toggle" data-kt-drawer-close="#kt_activities_close"></div>
 
-		<button id="kt_explore_toggle" class="explore-toggle btn btn-sm bg-body btn-color-gray-700 btn-active-primary shadow-sm position-fixed px-5 fw-bolder zindex-2 top-50 mt-10 end-0 transform-90 fs-6 rounded-top-0" title="Explore Metronic" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-trigger="hover">
-				<span id="kt_explore_toggle_label">Explore</span>
-		</button>
-
-		<div id="kt_explore" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="explore" data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'350px', 'lg': '475px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_explore_toggle" data-kt-drawer-close="#kt_explore_close">
-		</div>
 
 		
 		<!--begin::Scrolltop-->

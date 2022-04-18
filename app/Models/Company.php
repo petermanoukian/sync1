@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Subcompany;
 use App\Models\Subsubcompany;
-
+use App\Models\Prod;
 
 
 class Company extends Model
@@ -29,5 +29,10 @@ class Company extends Model
     {
     	return $this->hasMany('App\Models\Subsubcompany', 'compid' , 'id' , 'on_delete=models.CASCADE');
 	}	
+	
+	public function prodcompanies()
+    {
+    	return $this->hasMany('App\Models\Prod', 'compid' , 'id' , 'on_delete=models.CASCADE');
+	}
 		
 }

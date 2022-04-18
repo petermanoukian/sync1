@@ -31,16 +31,16 @@
 											class="form-check-input"  data-kt-check="true"/>
 										</th>
 										<th style = 'width:8%;'>No</th>
-										<th style = 'width:25%;'>Name</th>
-										<th style = 'width:25%;'>Discount</th>
-										<th style = 'width:28%;'>Action</th>
+										<th style = 'width:20%;'>Name</th>
+										<th style = 'width:20%;'>Discount</th>
+										<th style = 'width:50%;'>Action</th>
 									</tr>
 								</thead>
 								<tbody class="fw-bold text-gray-600">
 								</tbody>
 								<thead>
 									<tr>
-									<th colspan = 5 align = 'center' style = 'width:90%;text-align:center;'>
+									<th colspan = 6 align = 'center' style = 'width:90%;text-align:center;'>
 									<input type = 'submit' value = 'Delete' 
 									onclick = 'return confirm("are you sure you want to remove this item");'
 									class="btn btn-danger" align = 'center'>

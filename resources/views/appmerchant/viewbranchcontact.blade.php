@@ -48,7 +48,7 @@
 								<tr>
 								<th colspan = 7 align = 'center' style = 'width:90%;text-align:center;'>
 								<input type = 'submit' value = 'Delete' 
-								onclick = 'return confirm("are you sure you want to remove this item");'
+								onclick = 'return confirm("are you sure you want to remove this items");'
 								class="btn btn-danger" align = 'center'>
 								</th>
 								</tr>

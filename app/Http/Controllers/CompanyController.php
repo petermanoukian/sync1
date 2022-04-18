@@ -25,6 +25,22 @@ class CompanyController extends Controller
 		return view('appmerchant/addcompany');
     }
 	
+		public function indexadmin1(Request $request)
+	{
+		$this->middleware(['auth','is_merchant' ,'conf1','conf2']);	
+		$sess = session_id();
+		$token =  $request->session()->token();	
+		$userid = Auth::id();
+		//echo " userid ::: $userid  ";
+		
+
+		
+		return view('appmerchant.viewmerchantnoaccess');
+	}
+	
+	
+	
+	
 	public function indexadmin(Request $request)
 	{
 		$this->middleware(['auth','is_merchant' ,'conf1','conf2']);	

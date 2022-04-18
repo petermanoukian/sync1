@@ -71,6 +71,8 @@ class Kernel extends HttpKernel
 		'conf2' => \App\Http\Middleware\IsConfirmed2::class,
 		'cors' => \App\Http\Middleware\Cors::class,
 		
+		'is_merchantactive' => \App\Http\Middleware\IsMerchantactive::class,
+		'is_merchantnew' => \App\Http\Middleware\IsMerchantnew::class,
 		
 		
 		

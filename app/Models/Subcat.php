@@ -30,5 +30,12 @@ class Subcat extends Model
     	return $this->hasMany('App\Models\Subsubcat', 'subcatid' , 'id' , 'on_delete=models.CASCADE');
 	}
 	
+	public function prodsubcats()
+    {
+    	return $this->hasMany('App\Models\Prod', 'subcatid' , 'id' , 'on_delete=models.CASCADE');
+	}
+	
+	
+	
 	
 }

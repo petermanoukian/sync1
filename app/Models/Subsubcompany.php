@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Company;
 use App\Models\Subcompany;
-
+use App\Models\Prod;
 
 
 class Subsubcompany extends Model
@@ -32,5 +32,8 @@ class Subsubcompany extends Model
         return $this->belongsTo('App\Models\Subcompany', 'subcompid' , 'id');
     }
 	
-	
+	public function prodsubsubcompanies()
+    {
+    	return $this->hasMany('App\Models\Prod', 'subsubcompid' , 'id' , 'on_delete=models.CASCADE');
+	}
 }
