@@ -15,7 +15,7 @@ use App\Models\Rolerperm;
 class Roler extends Model
 {
     use HasFactory;
-	protected $fillable = ['name','urlx','des','sectionn','typ','method1','method2','method3','classer'];
+	protected $fillable=['name','menuname','menux','urlx','des','sectionn','typ','method1','method2','method3','classer'];
 	
 	public function roleperms()
     {

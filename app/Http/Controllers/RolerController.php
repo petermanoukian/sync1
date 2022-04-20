@@ -35,8 +35,9 @@ class RolerController extends Controller
 		{
 			$catid = $request->catid;
 			$user = Roler::create([ 
-			'name' => $request->name ,  'urlx' =>  $request->urlx,  
+			'name' => $request->name , 'menuname' => $request->menuname , 'urlx' =>  $request->urlx,  
 			'des' =>  $request->des, 'sectionn' =>  $request->sectionn,'typ' =>  $request->typ,
+			'menux' =>  $request->menux, 
 			'method1' =>  $request->method1, 
 			'method2' =>  $request->method2,
 			'method3' =>  $request->method3,
@@ -104,7 +105,9 @@ class RolerController extends Controller
                     })
 					->addColumn('typ', function($row){
 						$typ= $row['typ'];
-						return $typ;
+						$menux= $row['menux'];
+						$type1 = "$menux - $typ";
+						return $type1;
                     })
 					->addColumn('methods', function($row){
 						$method1 = $row['method1'];
@@ -141,10 +144,11 @@ class RolerController extends Controller
 		try
 		{
 			
-			$row->update(['name' => $request->name ,  'urlx' =>  $request->urlx,  
+			$row->update(['name' => $request->name ,'menuname' => $request->menuname,'urlx' =>  $request->urlx,  
 			'des' =>  $request->des, 
 			'sectionn' =>  $request->sectionn,
 			'typ' =>  $request->typ,
+			'menux' =>  $request->menux,
 			'classer' =>  $request->classer, 
 			'method1' =>  $request->method1, 
 			'method2' =>  $request->method2,

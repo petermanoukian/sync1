@@ -368,6 +368,7 @@ Route::match(['put', 'patch'],'/admin/roleperm/update/{id}', [RolerpermControlle
 Route::get('/appadmin/roleperm/delete/{id}/', [RolerpermController::class, 'destroy'])->name('MyDelRoleperm.route')->middleware(['auth', 'is_admin']);
 Route::post('/appadmin/roleperm/delete/{id}/', [RolerpermController::class, 'destroy'])->name('MyDelRoleperm.route')->middleware(['auth', 'is_admin']);
 Route::delete('/appadmin/roleperm/delete/{id}/', [RolerpermController::class, 'destroy'])->name('MyDelRoleperm.route')->middleware(['auth', 'is_admin']);
+Route::delete('/appadmin/roleuser/deleteall', [RolerpermController::class, 'destroyall'])->name('MyDelRolepermall.route')->middleware(['auth', 'is_admin']);
 
 
 

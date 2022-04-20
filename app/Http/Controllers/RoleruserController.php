@@ -71,6 +71,18 @@ class RoleruserController extends Controller
 		return view('appadmin/addroleuser' , compact('users' , 'roles' , 'useridx' , 'case'));
     }
 	
+	
+	public function edit($id )
+	{
+		$this->middleware(['auth','is_admin']);
+		$userid = Auth::id();
+
+		$roles = Rolercat::orderBy('rolercats.name', 'ASC')->get();
+		$users = User::where('levell', '=', '2')->orderBy('name', 'ASC')->get();
+		$row = Roleruser::where('id', '=', $id)->first();
+		return view('appadmin/editroleuser', compact('row','roles','users'));
+	}
+
 	public function store(Request $request)
     {
 		$this->middleware(['auth','is_admin']);
@@ -78,27 +90,32 @@ class RoleruserController extends Controller
 		{
 			
 			$rolerid = $request->rolerid;
+			$rid = $rolerid;
 			$useridx = $request->useridx;
 			if(isset($rolerid) && $rolerid != "")
 			{
-				foreach($rolerid as $rid)
+
+				$xid = '';
+				/*
+				$check1 = 
+				Roleruser::where('userid', '=', $useridx)
+				->where('rolerid', '=', $rid)->first();
+				*/
+				
+				$check1 = Roleruser::where('userid', '=', $useridx)->first();
+				
+				if($check1)
 				{
-					$xid = '';
-					$check1 = 
-					Roleruser::where('userid', '=', $useridx)
-					->where('rolerid', '=', $rid)->first();
-					if($check1)
-					{
-						$xid = $check1->id;	
-					}
-					if($xid == '')
-					{
-						$in = Roleruser::create(['userid' => $useridx ,  
-						'rolerid' =>  $rid,  
-						 ]);
-						$in->save();
-					}
+					$xid = $check1->id;	
 				}
+				if($xid == '')
+				{
+					$in = Roleruser::create(['userid' => $useridx ,  
+					'rolerid' =>  $rid,  
+					 ]);
+					$in->save();
+				}
+				
 				//return Redirect::route('viewRoleuser.route');
 				return Redirect("/appadmin/viewroleuser/$useridx");
 			}
@@ -159,9 +176,9 @@ class RoleruserController extends Controller
 
                     ->addColumn('action', function($row) use ($token){
      					$id = $row['id'];
-						$articlecatid = $row['id'];
-						$name = $row['name'];
-						$email = $row['email'];
+						$userid = $row['userid'];
+						$rolerid = $row['rolerid'];
+
                         $btn = "<div style = 'display:inline;float:left;margin-left:5px;'>
 									<form method = 'post' action = \"/appadmin/roleuser/delete/$id\">
 									<input name=\"_method\" type=\"hidden\" value=\"DELETE\">
@@ -169,6 +186,11 @@ class RoleruserController extends Controller
 									<input type = 'submit' value = 'Delete' onclick = 'return confirm(\"are you sure you want to remove this item\");'/
 									class=\"btn btn-danger\">
 									</form>
+								</div>	
+								<div style = 'display:inline;float:left;margin-left:5px;'>
+									<a href=\"/appadmin/editroleuser/$id\" 
+									class=\"edit btn btn-primary btn-sm\">
+									Edit </a>
 								</div>
 								";
                             return $btn;
@@ -199,7 +221,36 @@ class RoleruserController extends Controller
 	}
 	
 
-	
+	public function update(Request $request, $id)
+	{
+		$this->middleware(['auth','is_admin']);
+		$userid = Auth::id();
+		
+
+		$rolerid = $request->rolerid;
+		$useridx = $request->userid;
+		
+		
+		$row = Roleruser::where('id', '=', $id)->first();
+		try
+		{
+			$row->update([
+			'rolerid' => $request->rolerid 
+			]);	
+			$LastInsertId = $id;
+			
+			
+			return Redirect("/appadmin/viewroleuser/$useridx");
+			
+			
+		}
+		catch (\Exception $e) 
+		{
+    		$message =  $e->getMessage();
+			echo " message $message ";
+		}
+		//return Redirect::route('viewProd.route');
+	}
 
 
 

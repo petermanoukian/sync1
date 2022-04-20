@@ -80,12 +80,12 @@ class RolercatController extends Controller
 									class=\"btn btn-danger\">
 									</form>
 								</div>
+
 								<div style = 'display:inline;float:left;margin-left:5px;'>
-									<a href=\"/appadmin/editrolecat/$id\" class=\"edit btn btn-primary btn-sm\">
-									Edit</a>
-								 </div>
 								
-								<div style = 'display:inline;float:left;margin-left:5px;'>
+									<a href=\"/appadmin/editrolecat/$id\" class=\"edit btn btn-primary btn-sm\">
+									Edit </a>
+								
 									<a href=\"/appadmin/addroleperm/$id\" class=\"edit btn btn-primary btn-sm\">
 									Add Permission </a>
 									<a href=\"/appadmin/viewroleperm/$id\" class=\"edit btn btn-primary btn-sm\">

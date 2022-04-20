@@ -52,6 +52,7 @@
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: false,
+		pageLength: 30,
         ajax: "{{ route('viewRolecat.route') }}",
         columns: [
 			{data: 'id', name: 'id'},

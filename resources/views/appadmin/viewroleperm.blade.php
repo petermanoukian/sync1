@@ -15,17 +15,26 @@
 				<div class = 'floatleft'>
 				<a  href ='/appadmin/addroleperm/{{$rolercatid}}'
 				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'> Add Role Permissions  </a>
-				
+								<a  href ='/appadmin/viewrolecat'
+				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'> View Roles  </a>
 				</div>
 				</div>
 
                 <div class="card-body">
+					<form method = 'post' action = "/appadmin/roleuser/deleteall">
+						<input name="_method" type="hidden" value="DELETE">
+						@csrf
 					
 					<table class="table align-middle table-row-dashed fs-6 gy-5 data-table" >
 						<thead>
 							<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+								<th width = '2%'>
+									<input type = 'checkbox' name = 'idr' id="toggle" value="select" 
+									onClick="do_this()"
+									class="form-check-input"  data-kt-check="true"/>
+								</th>
 								<th style = 'width:3%;'>No</th>
-								<th style = 'width:52%;'>Permission</th>
+								<th style = 'width:50%;'>Permission</th>
 								<th style = 'width:24%;'>Role</th>
 								<th style = 'width:21%;'>Action</th>
 							</tr>
@@ -34,7 +43,7 @@
 						</tbody>
 						<thead>
 							<tr>
-								<th colspan = 4 align = 'center' style = 'width:90%;text-align:center;'>
+								<th colspan = 5 align = 'center' style = 'width:90%;text-align:center;'>
 								<input type = 'submit' value = 'Delete' 
 								onclick = 'return confirm("are you sure you want to remove this item");'
 								class="btn btn-danger" align = 'center'>
@@ -42,7 +51,7 @@
 							</tr>
 						</thead>
 					</table>
-						
+					</form>	
                 </div>
             </div>
         </div>
@@ -59,8 +68,10 @@
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: false,
+		pageLength: 30,
         ajax: "{{ url('/appadmin/viewroleperm/' . request()->route('rolercatid')) }}",
         columns: [
+			{data: 'Delete1', name: 'Delete1', orderable: false, searchable: false},
 			{data: 'ID', name: 'ID'},
             {data: 'Roler', name: 'Roler'},
 			{data: 'rolercat', name: 'rolercat'},				

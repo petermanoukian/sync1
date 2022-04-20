@@ -24,7 +24,7 @@ class CreateRolerusersTable extends Migration
       		$table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
    		});
 		Schema::table('rolerusers', function($table) {
-      		$table->foreign('rolerid')->references('id')->on('rolers')->onDelete('cascade');
+      		$table->foreign('rolerid')->references('id')->on('rolercats')->onDelete('cascade');
    		});
 		
 		

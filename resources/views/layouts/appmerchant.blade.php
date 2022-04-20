@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 
 <!--
@@ -1093,7 +1095,190 @@ License: For each use you must have a valid license purchased only from above li
 </div>	
 	
 
-								
+	<?php
+		$rolesessx = Session::get('fullrole1');
+		$rolesess =json_decode(json_encode($rolesessx),true);
+		
+		//var_dump($rolesessx);
+		//echo " <br><hr><br> ";
+		//var_dump($rolesess);
+		
+		$viewcomp = 0;
+		$addcomp = 0;	
+		$viewsubcomp = 0;
+		$addsubcomp = 0;	
+		$viewsubsubcomp = 0;
+		$addsubsubcomp = 0;	
+		
+		
+		
+		$addbranch = 0;
+		$viewbranch = 0;
+		
+		
+		$addcat = 0;
+		$viewcat = 0;
+		$addsubcat = 0;
+		$viewsubcat = 0;
+		$addsubsubcat = 0;
+		$viewsubsubcat = 0;
+		$addprod = 0;
+		$viewprod = 0;	
+		$addprodbycat = 0;
+		$viewprodbycat = 0;
+		
+		
+		
+		$i= 0;
+		foreach($rolesessx as $rolex1)
+		{
+			$maner1= '';
+			$maner = $rolex1;
+			$menux = $rolex1['menux'];
+			$menuname = $rolex1['menuname'];
+			$menuurlx = $rolex1['urlx'];
+			
+			
+			if($menux != '' && $menux == 'yes' && $menuname != '' && $menuname != null )
+			{
+				$maner1 .= "$menuname $menux <br> $menuurlx<br> <hr>";
+				if($menuurlx == '/appmerchant/viewcompany' || $menuurlx == '/appmerchant/viewcompany/'
+				|| $menuurlx == 'appmerchant/viewcompany/')
+				{
+					$viewcomp = 1;	
+				}
+				
+				if($menuurlx == '/appmerchant/addcompany' || $menuurlx == '/appmerchant/addcompany/'
+				|| $menuurlx == 'appmerchant/addcompany/')
+				{
+					$addcomp = 1;	
+				}
+				
+				
+				if($menuurlx == '/appmerchant/viewsubcompany' || $menuurlx == '/appmerchant/viewsubcompany/'
+				|| $menuurlx == 'appmerchant/viewsubcompany/')
+				{
+					$viewsubcomp = 1;	
+				}
+				
+				if($menuurlx == '/appmerchant/addsubcompany' || $menuurlx == '/appmerchant/addsubcompany/'
+				|| $menuurlx == 'appmerchant/addsubcompany/')
+				{
+					$addsubcomp = 1;	
+				}
+				
+				
+				if($menuurlx == '/appmerchant/viewsubsubcompany' 
+				|| $menuurlx == '/appmerchant/viewsubsubcompany/'
+				|| $menuurlx == 'appmerchant/viewsubsubcompany/')
+				{
+					$viewsubsubcomp = 1;	
+				}
+				
+				if($menuurlx == '/appmerchant/addsubsubcompany' 
+				|| $menuurlx == '/appmerchant/addsubsubcompany/'
+				|| $menuurlx == 'appmerchant/addsubsubcompany/')
+				{
+					$addsubsubcomp = 1;	
+				}
+				
+				
+				
+				
+				
+				if($menuurlx == '/appmerchant/addcat' || $menuurlx == '/appmerchant/addcat/'
+				|| $menuurlx == 'appmerchant/addcat/')
+				{
+					$addcat = 1;	
+				}
+				
+				if($menuurlx == '/appmerchant/viewcat' || $menuurlx == '/appmerchant/viewcat/'
+				|| $menuurlx == 'appmerchant/viewcat/')
+				{
+					$viewcat = 1;	
+				}
+				
+				if($menuurlx == '/appmerchant/addsubcat' || $menuurlx == '/appmerchant/addsubcat/'
+				|| $menuurlx == 'appmerchant/addsubcat/')
+				{
+					$addsubcat = 1;	
+				}
+				
+				if($menuurlx == '/appmerchant/viewsubcat' || $menuurlx == '/appmerchant/viewsubcat/'
+				|| $menuurlx == 'appmerchant/viewsubcat/')
+				{
+					$viewsubcat = 1;	
+				}
+				
+				
+				if($menuurlx == '/appmerchant/addsubsubcat' || $menuurlx == '/appmerchant/addsubsubcat/'
+				|| $menuurlx == 'appmerchant/addsubsubcat/')
+				{
+					$addsubsubcat = 1;	
+				}
+				
+				if($menuurlx == '/appmerchant/viewsubsubcat' || $menuurlx == '/appmerchant/viewsubsubcat/'
+				|| $menuurlx == 'appmerchant/viewsubsubcat/')
+				{
+					$viewsubsubcat = 1;	
+				}
+				
+				
+				if($menuurlx == '/appmerchant/addprod' || $menuurlx == '/appmerchant/addprod/'
+				|| $menuurlx == 'appmerchant/addprod/')
+				{
+					$addprod = 1;	
+				}
+				
+				if($menuurlx == '/appmerchant/viewprod' || $menuurlx == '/appmerchant/viewprod/'
+				|| $menuurlx == 'appmerchant/viewprod/')
+				{
+					$viewprod = 1;	
+				}
+				
+				
+				if($menuurlx == '/appmerchant/addprodbycat' || $menuurlx == '/appmerchant/addprodbycat/'
+				|| $menuurlx == 'appmerchant/addprodbycat/')
+				{
+					$addprodbycat = 1;	
+				}
+				
+				if($menuurlx == '/appmerchant/viewprodbycat' || $menuurlx == '/appmerchant/viewprodbycat/'
+				|| $menuurlx == 'appmerchant/viewprodbycat/')
+				{
+					$viewprodbycat = 1;	
+				}
+				
+				
+				if($menuurlx == '/appmerchant/addbranch' || $menuurlx == '/appmerchant/addbranch/'
+				|| $menuurlx == 'appmerchant/addbranch/')
+				{
+					$addbranch = 1;	
+				}
+				
+				if($menuurlx == '/appmerchant/viewbranch' || $menuurlx == '/appmerchant/viewbranch/'
+				|| $menuurlx == 'appmerchant/viewbranch/')
+				{
+					$viewbranch = 1;	
+				}
+				
+				
+			}
+			/*
+			foreach($rolex1['menuname'] as $rolex1menunamex)
+			{
+				$maner .= "Menuname $rolex1menunamex";
+			}
+			foreach($rolex1['menu'] as $rolex1menux)
+			{
+				$maner .= "Menu $rolex1menux <br><hr>";
+			}
+			*/
+			//echo "$maner1";
+		}
+		
+
+	?>	
 
 	
 	
@@ -1130,6 +1315,11 @@ License: For each use you must have a valid license purchased only from above li
 				<span class="menu-arrow"></span>
 			</span>
 			<div class="menu-sub menu-sub-accordion menu-active-bg">
+			
+				<?php
+				if($viewcomp ==1)
+				{	
+				?>
 				<div class="menu-item">
 					<a class="menu-link" 
 					href="/appmerchant/viewcompany/">
@@ -1139,6 +1329,14 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">View Companies</span>
 					</a>
 				</div>
+				
+				<?php
+				}
+				?>
+				<?php
+				if($addcomp ==1)
+				{	
+				?>
 				<div class="menu-item">
 					<a class="menu-link" href="/appmerchant/addcompany">
 						<span class="menu-bullet">
@@ -1147,6 +1345,12 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">Add Companies</span>
 					</a>
 				</div>
+				<?php
+				}
+				?>
+				
+				
+				
 			</div>
 		</div>
 
@@ -1160,6 +1364,13 @@ License: For each use you must have a valid license purchased only from above li
 				<span class="menu-arrow"></span>
 			</span>
 			<div class="menu-sub menu-sub-accordion menu-active-bg">
+			
+				<?php
+				if($viewsubcomp ==1)
+				{	
+				?>
+			
+			
 				<div class="menu-item">
 					<a class="menu-link" 
 					href="/appmerchant/viewsubcompany/">
@@ -1169,6 +1380,16 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">View Sub Companies</span>
 					</a>
 				</div>
+				
+				<?php
+				}
+				?>
+				
+				<?php
+				if($addsubcomp ==1)
+				{	
+				?>
+				
 				<div class="menu-item">
 					<a class="menu-link" href="/appmerchant/addsubcompany">
 						<span class="menu-bullet">
@@ -1177,6 +1398,10 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">Add Sub Companies</span>
 					</a>
 				</div>
+				<?php
+				}
+				?>
+				
 			</div>
 		</div>
 
@@ -1189,6 +1414,12 @@ License: For each use you must have a valid license purchased only from above li
 				<span class="menu-arrow"></span>
 			</span>
 			<div class="menu-sub menu-sub-accordion menu-active-bg">
+			
+				<?php
+				if($viewsubsubcomp ==1)
+				{	
+				?>
+			
 				<div class="menu-item">
 					<a class="menu-link" 
 					href="/appmerchant/viewsubsubcompany/">
@@ -1198,6 +1429,17 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">View Sub Sub Companies</span>
 					</a>
 				</div>
+				
+				<?php
+				}
+					
+				?>
+				
+				<?php
+				if($addsubsubcomp ==1)
+				{	
+				?>
+				
 				<div class="menu-item">
 					<a class="menu-link" href="/appmerchant/addsubsubcompany">
 						<span class="menu-bullet">
@@ -1206,6 +1448,10 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">Add Sub Sub Companies</span>
 					</a>
 				</div>
+				
+				<?php
+				}
+				?>
 			</div>
 		</div>
 		
@@ -1219,6 +1465,13 @@ License: For each use you must have a valid license purchased only from above li
 				<span class="menu-arrow"></span>
 			</span>
 			<div class="menu-sub menu-sub-accordion menu-active-bg">
+			
+				<?php
+				if($viewprod ==1)
+				{	
+				?>
+			
+			
 				<div class="menu-item">
 					<a class="menu-link" 
 					href="/appmerchant/viewprod/">
@@ -1228,6 +1481,17 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">View Products</span>
 					</a>
 				</div>
+				
+				
+				<?php
+				}
+				?>
+				
+				
+				<?php
+				if($addprod ==1)
+				{	
+				?>
 				<div class="menu-item">
 					<a class="menu-link" href="/appmerchant/addprod">
 						<span class="menu-bullet">
@@ -1236,6 +1500,9 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">Add Products</span>
 					</a>
 				</div>
+				<?php
+				}
+				?>
 			</div>
 		</div>
 
@@ -1278,6 +1545,13 @@ License: For each use you must have a valid license purchased only from above li
 				<span class="menu-arrow"></span>
 			</span>
 			<div class="menu-sub menu-sub-accordion menu-active-bg">
+			
+				<?php
+				if($viewcat ==1)
+				{	
+				?>
+			
+			
 				<div class="menu-item">
 					<a class="menu-link" 
 					href="/appmerchant/viewcat/">
@@ -1287,6 +1561,15 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">View Categories</span>
 					</a>
 				</div>
+				<?php
+				}
+				?>
+				<?php
+				if($addcat ==1)
+				{	
+				?>
+				
+				
 				<div class="menu-item">
 					<a class="menu-link" href="/appmerchant/addcat">
 						<span class="menu-bullet">
@@ -1295,6 +1578,12 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">Add Category</span>
 					</a>
 				</div>
+				
+				<?php
+				}
+				?>
+				
+				
 			</div>
 		</div>
 
@@ -1308,6 +1597,11 @@ License: For each use you must have a valid license purchased only from above li
 				<span class="menu-arrow"></span>
 			</span>
 			<div class="menu-sub menu-sub-accordion menu-active-bg">
+			
+				<?php
+				if($viewsubcat ==1)
+				{	
+				?>
 				<div class="menu-item">
 					<a class="menu-link" 
 					href="/appmerchant/viewsubcat/">
@@ -1317,6 +1611,15 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">View Sub Categories</span>
 					</a>
 				</div>
+				<?php
+				}
+				?>
+				
+				<?php
+				if($addsubcat ==1)
+				{	
+				?>
+				
 				<div class="menu-item">
 					<a class="menu-link" href="/appmerchant/addsubcat">
 						<span class="menu-bullet">
@@ -1325,6 +1628,12 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">Add Sub Categories</span>
 					</a>
 				</div>
+				<?php
+				}
+				?>
+				
+				
+				
 			</div>
 		</div>
 
@@ -1337,6 +1646,12 @@ License: For each use you must have a valid license purchased only from above li
 				<span class="menu-arrow"></span>
 			</span>
 			<div class="menu-sub menu-sub-accordion menu-active-bg">
+			
+				<?php
+				if($viewsubsubcat ==1)
+				{	
+				?>
+			
 				<div class="menu-item">
 					<a class="menu-link" 
 					href="/appmerchant/viewsubsubcat/">
@@ -1346,6 +1661,14 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">View Sub Sub Categories</span>
 					</a>
 				</div>
+				<?php
+				}
+				?>
+				
+				<?php
+				if($viewsubsubcat ==1)
+				{	
+				?>
 				<div class="menu-item">
 					<a class="menu-link" href="/appmerchant/addsubsubcat">
 						<span class="menu-bullet">
@@ -1354,6 +1677,12 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">Add Sub Sub Categories</span>
 					</a>
 				</div>
+				<?php
+				}
+				?>
+				
+				
+				
 			</div>
 		</div>
 		
@@ -1367,6 +1696,12 @@ License: For each use you must have a valid license purchased only from above li
 				<span class="menu-arrow"></span>
 			</span>
 			<div class="menu-sub menu-sub-accordion menu-active-bg">
+			
+				<?php
+				if($viewprodbycat ==1)
+				{	
+				?>
+			
 				<div class="menu-item">
 					<a class="menu-link" 
 					href="/appmerchant/viewprodbycat/">
@@ -1376,6 +1711,16 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">View Products</span>
 					</a>
 				</div>
+				
+				<?php
+				}
+				?>
+				
+				<?php
+				if($addprodbycat ==1)
+				{	
+				?>
+				
 				<div class="menu-item">
 					<a class="menu-link" href="/appmerchant/addprodbycat">
 						<span class="menu-bullet">
@@ -1384,6 +1729,14 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">Add Products</span>
 					</a>
 				</div>
+				
+				
+				<?php
+				}
+				?>
+				
+				
+				
 			</div>
 		</div>
 
@@ -1425,7 +1778,10 @@ License: For each use you must have a valid license purchased only from above li
 
 	<div class="menu-sub menu-sub-accordion">
 		<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-		
+				<?php
+				if($addbranch ==1)
+				{	
+				?>
 			
 				<div class="menu-item">
 					<a class="menu-link" href="/appmerchant/addbranch/">
@@ -1435,6 +1791,15 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">Add Branch</span>
 					</a>
 				</div>
+				
+				<?php
+				}
+				?>
+				
+				<?php
+				if($viewbranch ==1)
+				{	
+				?>
 				<div class="menu-item">
 					<a class="menu-link" href="/appmerchant/viewbranch/">
 						<span class="menu-bullet">
@@ -1443,6 +1808,12 @@ License: For each use you must have a valid license purchased only from above li
 						<span class="menu-title">View Branches</span>
 					</a>
 				</div>
+				
+				<?php
+				}
+				?>
+				
+				
 			</div>
 		</div>
 

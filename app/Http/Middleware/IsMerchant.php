@@ -45,16 +45,51 @@ class IsMerchant
 					$myname = '';
 					$myname = $rolex1;
 					$myname2 = "/".$myname;
+					$myname3 = $myname."/";
+					$myname4 = "/".$myname."/";
 					//echo "SEC <br> ";
 					//var_dump($rolex1);
 					$rolex .= "-$myname-";
 					$i++;
 					if($myname == "/".$pathname || $myname == $pathname
-					|| $myname2 == "/".$pathname || $myname2 == $pathname)
-					return $next($request);
+					|| $myname == $pathname."/" || $myname == "/".$pathname."/"
+					
+					|| $myname2 == "/".$pathname || $myname2 == $pathname
+					|| $myname2 == $pathname."/" || $myname2 == "/".$pathname."/"
+					
+					|| $myname3 == "/".$pathname || $myname3 == $pathname
+					|| $myname3 == $pathname."/" || $myname3 == "/".$pathname."/"
+					
+					|| $myname4 == "/".$pathname || $myname4 == $pathname
+					|| $myname4 == $pathname."/" || $myname4 == "/".$pathname."/"
+					
+					
+					)
+					{
+						return $next($request);
+					}
 				
 					
 				}
+				
+				foreach($rolesess['role']['name'] as $rolex2)
+				{
+					
+
+					$myname2 = $rolex2;
+
+					if($myname2 == $routename)
+					{
+						return $next($request);
+					}
+				
+					
+				}
+				
+				
+				
+				
+				
 				return redirect("/appmerchant1?pathname=$pathname&paths=$rolex");
 			}
         }

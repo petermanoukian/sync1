@@ -24,11 +24,7 @@
 						 <form method="POST" action="{{ route('RoleAdd.route') }}">
 						
                         @csrf
-						
 
-							
-
-	
 							<div class="fv-row mb-10">
 								<label class="form-label fs-6 fw-bolder text-dark">Route Name</label>
 								<input class="form-control  form-control-lg form-control-solid form-control  form-control-lg form-control-solid-lg form-control  
@@ -37,6 +33,18 @@
 								autocomplete="off" value="{{ old('name') }}" required 
 								autocomplete="name" autofocus/>
 							</div>
+							
+							<div class="fv-row mb-10">
+								<label class="form-label fs-6 fw-bolder text-dark">Menu Name</label>
+								<input 
+								class="form-control  form-control-lg form-control-solid form-control  
+								form-control-lg form-control-solid-lg form-control  
+								form-control-lg form-control-solid-solid " 
+								type="text" name="menuname" 
+								autocomplete="off" value="{{ old('menuname') }}"  
+								autocomplete="menuname" autofocus/>
+							</div>
+
 							
 							<div class="fv-row mb-10">
 								<label class="form-label fs-6 fw-bolder text-dark">Path</label>
@@ -59,14 +67,21 @@
 							
 							<div class="fv-row mb-10">
 								<label class="form-label fs-6 fw-bolder text-dark">Type</label>
-									<select id="typ"  class="form-control" name="typ"  required >
-										<option value = 'perpath'> Per Path </option>
-										<option value = 'percontroller' > Per Cotroller </option>
-										<option value = 'open' > Open  </option>
-									</select>
+								<select id="typ"  class="form-control" name="typ"  required >
+									<option value = 'perpath'> Per Path </option>
+									<option value = 'percontroller' > Per Cotroller </option>
+									<option value = 'open' > Open  </option>
+								</select>
 							</div>
 							
+							<div class="fv-row mb-10">
+								<label class="form-label fs-6 fw-bolder text-dark">Appear on Menu</label>
+								<select id="menux"  class="form-control" name="menux"  required >
+									<option value = 'yes'> Yes </option>
+									<option value = 'no' > No </option>
 
+								</select>
+							</div>
 							
 							<div class="form-group row">
 								Details
@@ -115,7 +130,7 @@
 
 							<div class="text-center">
 								<button type="submit" id="kt_sign_in_submit" class="btn btn-primary paddtop6 bold">
-									<span class="indicator-label">Add Role</span>
+									<span class="indicator-label">Add Permission</span>
 								</button>
 							</div>
 							

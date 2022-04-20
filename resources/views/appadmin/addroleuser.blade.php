@@ -26,8 +26,9 @@
                         @csrf
 						
 							<div class="form-group row">
-								<label for="name">User {{ $useridx }} {{ $case }} </label>
-								<select name="useridx" id='useridx' class="form-control  form-control-lg form-control-solid"  
+								<label for="name">User   </label>
+								<select name="useridx" id='useridx' 
+								class="form-control  form-control-lg form-control-solid"  
 								placeholder="User" required>
 								
 									@foreach($users as $userx)
@@ -41,9 +42,9 @@
 
 							<div class="form-group row">
 								<label for="name">Roles</label>
-								<select name="rolerid[]" id='rolerid' 
+								<select name="rolerid" id='rolerid' 
 								class="form-control  form-control-lg form-control-solid"  
-								multiple required size = 10>	
+								 required >	
 									@foreach($roles as $role)
 										<option value = {{ $role->id }} > 
 										{{$role->name}}</option>

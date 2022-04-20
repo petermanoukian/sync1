@@ -6,22 +6,13 @@
         <div class="col-md-12">
             <div class="card">
 
-				
-				
 				<div class="card-header"> 
-				<div class = 'floatleft'>
-				<h1 class='text-dark fw-bolder fs-2 margintop7'>User Roles</h1>
-				</div> 
-				<div class = 'floatleft'>
-				<a  href ='/appadmin/addroleuser/{{$useridx}}'
-				class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'> Add USer Roles  </a>
-				
-				</div>
+					<div class = 'floatleft'>
+						<h1 class='text-dark fw-bolder fs-2 margintop7'>User Roles</h1>
+					</div> 
 				</div>
 
                 <div class="card-body">
-				
-					
 					<table class="table align-middle table-row-dashed fs-6 gy-5 data-table" >
 						<thead>
 							<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
@@ -36,9 +27,7 @@
 						<thead>
 							<tr>
 								<th colspan = 4 align = 'center' style = 'width:90%;text-align:center;'>
-								<input type = 'submit' value = 'Delete' 
-								onclick = 'return confirm("are you sure you want to remove this item");'
-								class="btn btn-danger" align = 'center'>
+								
 								</th>
 							</tr>
 						</thead>
@@ -60,6 +49,7 @@
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: false,
+		pageLength: 20,
         ajax: "{{ url('/appadmin/viewroleuser/' . request()->route('useridx')) }}",
         columns: [
 			{data: 'ID', name: 'ID'},

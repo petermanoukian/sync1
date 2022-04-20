@@ -87,6 +87,7 @@ class LoginController extends Controller
 					$rolert = "";
 					$rolerscoll['role'] = array();
 					$rolefull = array();
+					$rolefull1 = array();
 					$rolerscoll['role']['name'] = array();
 					$rolerscoll['role']['url'] = array();
 					$rolerscoll['role']['sectionn'] = array();
@@ -96,6 +97,8 @@ class LoginController extends Controller
 					$rolerscoll['role']['method3'] = array();
 					$rolerscoll['role']['classer'] = array();
 					
+					$rolerscoll['role']['menuname'] = array();
+					$rolerscoll['role']['menux'] = array();
 					
 					
 					foreach($user->userrolecats as $uss)
@@ -121,6 +124,8 @@ class LoginController extends Controller
 									foreach($roles as $role)
 									{
 										$rolename = $role['name'];
+										$rolemenuname = $role['menuname'];
+										$rolemenu = $role['menux'];
 										$roleurlx = $role['urlx'];
 										$sectionn = $role['sectionn'];
 										$typ = $role['typ'];
@@ -132,6 +137,18 @@ class LoginController extends Controller
 										array_push($rolefull , $role);
 										
 										array_push($rolerscoll['role']['name'] , $rolename);
+										
+										if($rolemenuname != "" && $rolemenuname != null)
+										array_push($rolerscoll['role']['menuname'] , $rolemenuname);
+										else
+										array_push($rolerscoll['role']['menuname'] , '');
+										
+										if($rolemenu != "" && $rolemenu != null)
+										array_push($rolerscoll['role']['menux'] , $rolemenu);
+										else
+										array_push($rolerscoll['role']['menux'] , '');
+									
+									
 										array_push($rolerscoll['role']['url'] , $roleurlx);
 										array_push($rolerscoll['role']['sectionn'] , $sectionn);
 										array_push($rolerscoll['role']['typ'] , $typ);
@@ -152,7 +169,7 @@ class LoginController extends Controller
 					//$session['fullrole'] = $rolerscoll;
 					//$request->session()->put('fullrole',"$rolerscoll");
 					Session::put('fullrole',$rolerscoll);
-					
+					Session::put('fullrole1',$rolefull);
 					//
 					
 					/*

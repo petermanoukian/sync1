@@ -11,7 +11,7 @@
 					<h1 class='text-dark fw-bolder fs-2 margintop7'>Add Permissions to Roles</h1>
 					</div> 
 					<div class = 'floatleft'>
-					<a  href ='/appadmin/viewroleperm{{ $rolercatid }}'
+					<a  href ='/appadmin/viewroleperm/{{ $rolercatid }}'
 					class='edit btn btn-primary btn-sm margintop7 paddtop6 bold left'> USer Roles  </a>
 					
 					</div>

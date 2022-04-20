@@ -111,6 +111,17 @@ class RolerpermController extends Controller
 
             return Datatables::of($data)
                     ->addIndexColumn()
+					
+					->addColumn('Delete1', function($row) use ($token){
+     					$id = $row['id'];
+						$name = $row['name'];
+                        $btn1 = "
+						<div class=\"form-check form-check-sm form-check-custom form-check-solid\">
+						<input type = 'checkbox' name = 'idx[]' value = \"$id\"
+						class='form-check-input'></form>";
+                        return $btn1;
+                    })
+					
 					->addColumn('ID', function($row)
 					{
 						$id = $row['id'];
@@ -149,7 +160,7 @@ class RolerpermController extends Controller
 					})
 
 					
-					->rawColumns(array("action",   'Roler' , 'rolercat'))
+					->rawColumns(array('Delete1' ,"action",   'Roler' , 'rolercat'))
                     ->make(true);
         }
 
@@ -170,4 +181,24 @@ class RolerpermController extends Controller
 		//User::destroy($id);
 		return Redirect::route('viewRolecat.route');
 	}
+	
+	
+	public function destroyall(Request $request )
+	{
+		$this->middleware(['auth','is_admin']);
+		$userid = Auth::id();
+		if($request->idx && is_array($request->idx))
+		{
+			foreach($request->idx as $id)
+			{
+				$row =Rolerperm::where('id', '=', $id)->first();
+				$row->delete();
+			}
+		}
+		return Redirect::route('viewRolecat.route');
+	}
+	
+	
+	
+	
 }
